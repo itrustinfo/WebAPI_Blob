@@ -1,0 +1,168 @@
+Alter table JointInspection add Delete_Flag varchar(1) NULL;
+
+update JointInspection set Delete_Flag='N';
+
+Create proc [dbo].[dbsync_InsertorUpdateResourceDeploymentPlan]
+@ReourceDeploymentUID uniqueidentifier,
+@WorkpackageUID uniqueidentifier,
+@ResourceUID uniqueidentifier,
+@StartDate datetime,
+@EndDate datetime,
+@DeploymentType varchar(50),
+@Planned decimal(18,3),
+@PlannedDate datetime,
+@ServerCopiedAdd varchar(1)
+as
+begin
+set nocount on;
+if not exists(select ReourceDeploymentUID from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID)
+begin
+	if not exists (select ReourceDeploymentUID from ResourceDeployment where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and StartDate=@StartDate and EndDate=@EndDate)
+	begin
+		insert into ResourceDeployment(ReourceDeploymentUID,WorkpackageUID,ResourceUID,StartDate,EndDate,DeploymentType,Planned,PlannedDate,ServerCopiedAdd)
+		values(@ReourceDeploymentUID,@WorkpackageUID,@ResourceUID,@StartDate,@EndDate,@DeploymentType,@Planned,@PlannedDate,@ServerCopiedAdd)
+	end
+end
+else
+begin
+	update ResourceDeployment set ResourceUID=@ResourceUID,StartDate=@StartDate,EndDate=@EndDate,DeploymentType=@DeploymentType,Planned=@Planned,PlannedDate=@PlannedDate where ReourceDeploymentUID=@ReourceDeploymentUID;
+end
+end
+
+
+create proc usp_JointInspectionDelete
+@inspectionUid uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+update JointInspection set Delete_Flag='Y' where inspectionUid=@inspectionUid;
+update JointInspectionDocuments set Delete_Flag='Y' where inspectionUid=@inspectionUid;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@inspectionUid,@UserUID,'Joint Inspection');
+
+end
+
+
+ALTER proc [dbo].[usp_ResourceDeploymentUpdate_Delete]
+@UID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update ResourceDeploymentUpdate set Delete_Flag='Y' where UID=@UID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@UID,@UserUID,'Resource Deployment Update');
+end
+
+
+create proc usp_GetResourceDeployment_by_ReourceDeploymentUID
+@ReourceDeploymentUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID and Delete_Flag='N'
+end
+
+
+create proc [dbo].[usp_ResourceDeployment_Delete]
+@UID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update ResourceDeployment set Delete_Flag='Y' where ReourceDeploymentUID=@UID;
+update ResourceDeploymentUpdate set Delete_Flag='Y' where ReourceDeploymentUID=@UID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@UID,@UserUID,'Resource Deployment');
+end
+
+
+create proc usp_GetJointInspectionDocuments_by_InspectionDocumentUID
+@InspectionDocumentUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from JointInspectionDocuments
+where InspectionDocumentUID=@InspectionDocumentUID and Delete_Flag='N';
+end
+
+
+create proc usp_JointInspectionDocument_Delete
+@InspectionDocumentUID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update JointInspectionDocuments set Delete_Flag='Y'
+where InspectionDocumentUID=@InspectionDocumentUID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@InspectionDocumentUID,@UserUID,'Joint Inspection Document');
+end
+
+
+
+CREATE TABLE [dbo].[WebAPITransctions](
+	[TranscationUID] [uniqueidentifier] NOT NULL,
+	[WebAPI_URL] [varchar](500) NULL,
+	[Parameters] [varchar](max) NULL,
+	[TranscationDate] [datetime] NULL,
+	[TranscationStatus] [varchar](50) NULL,
+ CONSTRAINT [PK_WebAPITransctions] PRIMARY KEY CLUSTERED 
+(
+	[TranscationUID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WebAPITransctions] ADD  CONSTRAINT [DF_WebAPITransctions_TranscationDate]  DEFAULT (getdate()) FOR [TranscationDate]
+GO
+
+
+create proc usp_InsertWebAPITransction
+@TranscationUID uniqueidentifier,
+@WebAPI_URL varchar(500),
+@Parameters varchar(max),
+@TranscationStatus varchar(50)
+as
+begin
+if not exists(select TranscationUID from WebAPITransctions where TranscationUID=@TranscationUID)
+begin
+insert into WebAPITransctions(TranscationUID,WebAPI_URL,Parameters,TranscationStatus)
+values(@TranscationUID,@WebAPI_URL,@Parameters,@TranscationStatus)
+end
+end
+
+
+ALTER proc [dbo].[usp_GetJointInspection_by_WorkpackageUID]
+@WorkpackgeUID uniqueidentifier,
+@RABill_UID uniqueidentifier
+as
+begin
+set nocount on;
+
+select * from JointInspection where WorkpackgeUID=@WorkpackgeUID and inspectionUid not in (select InspectionUID from AssignJointInspectiontoRAbill where RABill_UID=@RABill_UID)
+and Delete_Flag='N'
+end 
+
+
+ALTER proc [dbo].[usp_GetJointInspection_by_WorkpackgeUID]
+@WorkpackgeUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from JointInspection where WorkpackgeUID=@WorkpackgeUID and Delete_Flag='N' order by DiaPipe
+end
+
+
+
+ALTER proc [dbo].[usp_GetJointInspection]
+as
+begin
+set nocount on;
+select * from JointInspection where Delete_Flag='N' order by DiaPipe
+end
+

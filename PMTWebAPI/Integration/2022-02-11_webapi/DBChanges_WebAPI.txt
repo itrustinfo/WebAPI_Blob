@@ -1,0 +1,304 @@
+Alter table JointInspection add Delete_Flag varchar(1) NULL;
+
+update JointInspection set Delete_Flag='N';
+
+Create proc [dbo].[dbsync_InsertorUpdateResourceDeploymentPlan]
+@ReourceDeploymentUID uniqueidentifier,
+@WorkpackageUID uniqueidentifier,
+@ResourceUID uniqueidentifier,
+@StartDate datetime,
+@EndDate datetime,
+@DeploymentType varchar(50),
+@Planned decimal(18,3),
+@PlannedDate datetime,
+@ServerCopiedAdd varchar(1)
+as
+begin
+set nocount on;
+if not exists(select ReourceDeploymentUID from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID)
+begin
+	if not exists (select ReourceDeploymentUID from ResourceDeployment where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and StartDate=@StartDate and EndDate=@EndDate)
+	begin
+		insert into ResourceDeployment(ReourceDeploymentUID,WorkpackageUID,ResourceUID,StartDate,EndDate,DeploymentType,Planned,PlannedDate,ServerCopiedAdd)
+		values(@ReourceDeploymentUID,@WorkpackageUID,@ResourceUID,@StartDate,@EndDate,@DeploymentType,@Planned,@PlannedDate,@ServerCopiedAdd)
+	end
+end
+else
+begin
+	update ResourceDeployment set ResourceUID=@ResourceUID,StartDate=@StartDate,EndDate=@EndDate,DeploymentType=@DeploymentType,Planned=@Planned,PlannedDate=@PlannedDate where ReourceDeploymentUID=@ReourceDeploymentUID;
+end
+end
+
+
+create proc usp_JointInspectionDelete
+@inspectionUid uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+update JointInspection set Delete_Flag='Y' where inspectionUid=@inspectionUid;
+update JointInspectionDocuments set Delete_Flag='Y' where inspectionUid=@inspectionUid;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@inspectionUid,@UserUID,'Joint Inspection');
+
+end
+
+
+ALTER proc [dbo].[usp_ResourceDeploymentUpdate_Delete]
+@UID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update ResourceDeploymentUpdate set Delete_Flag='Y' where UID=@UID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@UID,@UserUID,'Resource Deployment Update');
+end
+
+
+create proc usp_GetResourceDeployment_by_ReourceDeploymentUID
+@ReourceDeploymentUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID and Delete_Flag='N'
+end
+
+
+create proc [dbo].[usp_ResourceDeployment_Delete]
+@UID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update ResourceDeployment set Delete_Flag='Y' where ReourceDeploymentUID=@UID;
+update ResourceDeploymentUpdate set Delete_Flag='Y' where ReourceDeploymentUID=@UID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@UID,@UserUID,'Resource Deployment');
+end
+
+
+create proc usp_GetJointInspectionDocuments_by_InspectionDocumentUID
+@InspectionDocumentUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from JointInspectionDocuments
+where InspectionDocumentUID=@InspectionDocumentUID and Delete_Flag='N';
+end
+
+
+create proc usp_JointInspectionDocument_Delete
+@InspectionDocumentUID uniqueidentifier,
+@UserUID uniqueidentifier
+as
+begin
+set nocount on;
+update JointInspectionDocuments set Delete_Flag='Y'
+where InspectionDocumentUID=@InspectionDocumentUID;
+
+insert into ActivityDeleteLogs(DeleteLog_UID,Activity_UID,Activity_UserUID,Activity_For)
+	values(NEWID(),@InspectionDocumentUID,@UserUID,'Joint Inspection Document');
+end
+
+
+
+CREATE TABLE [dbo].[WebAPITransctions](
+	[TranscationUID] [uniqueidentifier] NOT NULL,
+	[WebAPI_URL] [varchar](500) NULL,
+	[Parameters] [varchar](max) NULL,
+	[TranscationDate] [datetime] NULL,
+	[TranscationStatus] [varchar](50) NULL,
+ CONSTRAINT [PK_WebAPITransctions] PRIMARY KEY CLUSTERED 
+(
+	[TranscationUID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WebAPITransctions] ADD  CONSTRAINT [DF_WebAPITransctions_TranscationDate]  DEFAULT (getdate()) FOR [TranscationDate]
+GO
+
+
+create proc usp_InsertWebAPITransction
+@TranscationUID uniqueidentifier,
+@WebAPI_URL varchar(500),
+@Parameters varchar(max),
+@TranscationStatus varchar(50)
+as
+begin
+if not exists(select TranscationUID from WebAPITransctions where TranscationUID=@TranscationUID)
+begin
+insert into WebAPITransctions(TranscationUID,WebAPI_URL,Parameters,TranscationStatus)
+values(@TranscationUID,@WebAPI_URL,@Parameters,@TranscationStatus)
+end
+end
+
+
+ALTER proc [dbo].[usp_GetJointInspection_by_WorkpackageUID]
+@WorkpackgeUID uniqueidentifier,
+@RABill_UID uniqueidentifier
+as
+begin
+set nocount on;
+
+select * from JointInspection where WorkpackgeUID=@WorkpackgeUID and inspectionUid not in (select InspectionUID from AssignJointInspectiontoRAbill where RABill_UID=@RABill_UID)
+and Delete_Flag='N'
+end 
+
+
+ALTER proc [dbo].[usp_GetJointInspection_by_WorkpackgeUID]
+@WorkpackgeUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from JointInspection where WorkpackgeUID=@WorkpackgeUID and Delete_Flag='N' order by DiaPipe
+end
+
+
+
+ALTER proc [dbo].[usp_GetJointInspection]
+as
+begin
+set nocount on;
+select * from JointInspection where Delete_Flag='N' order by DiaPipe
+end
+
+// added on 20/01/2022
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[dbsync_InsertorUpdateResourceDeploymentPlan]
+@ReourceDeploymentUID uniqueidentifier,
+@WorkpackageUID uniqueidentifier,
+@ResourceUID uniqueidentifier,
+@StartDate datetime,
+@EndDate datetime,
+@DeploymentType varchar(50),
+@Planned decimal(18,3),
+@PlannedDate datetime,
+@ServerCopiedAdd varchar(50)
+as
+begin
+set nocount on;
+if not exists(select ReourceDeploymentUID from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID)
+begin
+	if not exists (select ReourceDeploymentUID from ResourceDeployment where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and StartDate=@StartDate and EndDate=@EndDate)
+	begin
+		insert into ResourceDeployment(ReourceDeploymentUID,WorkpackageUID,ResourceUID,StartDate,EndDate,DeploymentType,Planned,PlannedDate,ServerCopiedAdd)
+		values(@ReourceDeploymentUID,@WorkpackageUID,@ResourceUID,@StartDate,@EndDate,@DeploymentType,@Planned,@PlannedDate,@ServerCopiedAdd)
+	end
+	else
+	update ResourceDeployment set ResourceUID=@ResourceUID,StartDate=@StartDate,EndDate=@EndDate,DeploymentType=@DeploymentType,Planned=@Planned,PlannedDate=@PlannedDate where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and StartDate=@StartDate and EndDate=@EndDate;
+
+	
+
+end
+else
+begin
+	update ResourceDeployment set ResourceUID=@ResourceUID,StartDate=@StartDate,EndDate=@EndDate,DeploymentType=@DeploymentType,Planned=@Planned,PlannedDate=@PlannedDate where ReourceDeploymentUID=@ReourceDeploymentUID;
+end
+end
+
+// added on 20/01/2022
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_InsertWebAPIStatus]
+@WebAPIUID uniqueidentifier,
+@WebAPIURL varchar(250),
+@WebAPIParameters varchar(250),
+@WebAPI_Error varchar(500),
+@WebAPIStatus varchar(150),
+@WebAPIType varchar(100)=NULL,
+@WebAPIFunction varchar(100)=NULL,
+@WebAPI_PrimaryKey uniqueidentifier=NULL
+as
+begin
+if not exists(select WebAPIUID from WebAPIStaus where WebAPIUID=@WebAPIUID)
+begin
+	insert into WebAPIStaus(WebAPIUID,WebAPIURL,WebAPIParameters,WebAPI_Error,WebAPIStatus,ExecuteDate,WebAPIType,WebAPIFunction,WebAPI_PrimaryKey)
+	values(@WebAPIUID,@WebAPIURL,@WebAPIParameters,@WebAPI_Error,@WebAPIStatus,getdate(),@WebAPIType,@WebAPIFunction,@WebAPI_PrimaryKey)
+end
+end
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[dbsync_ResourceDeployment_Update]
+@UID uniqueidentifier,
+@WorkpackageUID uniqueidentifier,
+@ResourceUID uniqueidentifier,
+@Deployed decimal(18,3),
+@DeployedDate datetime,
+@Remarks varchar(max),
+@ServerCopiedAdd varchar(10)
+as
+begin
+
+declare @ReourceDeploymentUID uniqueidentifier;
+declare @startdate datetime;
+declare @enddate datetime;
+
+set @ReourceDeploymentUID = (select ReourceDeploymentUID from ResourceDeployment where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and Delete_Flag='N' and (StartDate <= @DeployedDate and EndDate >= @DeployedDate));
+
+if @ReourceDeploymentUID is NULL
+Begin
+set @ReourceDeploymentUID = NEWID();
+ set @startdate =  (SELECT DATEADD(month, DATEDIFF(month, 0, @DeployedDate), 0));
+ set @enddate = (SELECT DATEADD(second,-1,DATEADD(month, DATEDIFF(month,0,@DeployedDate)+1,0)));
+
+ INSERT INTO [dbo].[ResourceDeployment]
+           ([ReourceDeploymentUID]
+           ,[WorkpackageUID]
+           ,[ResourceUID]
+           ,[StartDate]
+           ,[EndDate]
+           ,[DeploymentType]
+           ,[Planned]
+           ,[PlannedDate]
+           ,[Deployed]
+           ,[DeployedDate]
+           ,[Remarks]
+           ,[Created_Date]
+           ,[Delete_Flag]
+           ,[ServerCopiedAdd]
+          )
+     VALUES
+           (@ReourceDeploymentUID
+           ,@WorkpackageUID
+           ,@ResourceUID
+           ,@startdate
+           ,@enddate
+           ,'month'
+           ,0
+           ,GETDATE()
+           ,0
+           ,NULL
+           ,''
+           ,GETDATE()
+           ,'N'
+           ,'Y')
+
+
+
+--set @ReourceDeploymentUID=(select top 1 ReourceDeploymentUID from ResourceDeployment where WorkpackageUID=@WorkpackageUID and ResourceUID=@ResourceUID and Delete_Flag='N' Order by EndDate Desc);
+End
+
+insert into ResourceDeploymentUpdate(UID,ReourceDeploymentUID,Deployed,DeployedDate,Remarks,ServerCopiedAdd)
+values(@UID,@ReourceDeploymentUID,@Deployed,@DeployedDate,@Remarks,@ServerCopiedAdd)
+
+declare @TotDeployed float;
+set @TotDeployed=(select isnull(sum(Deployed),0) from ResourceDeployment where ReourceDeploymentUID=@ReourceDeploymentUID);
+
+update ResourceDeployment set Deployed=(@TotDeployed + @Deployed),DeployedDate=@DeployedDate,Remarks=@Remarks where ReourceDeploymentUID=@ReourceDeploymentUID;
+
+update ResourceDeployment set ServerCopiedUpdate='Y' where ReourceDeploymentUID=@ReourceDeploymentUID;
+end

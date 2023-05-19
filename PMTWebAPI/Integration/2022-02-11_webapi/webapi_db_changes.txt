@@ -1,0 +1,339 @@
+
+//---------------added on 14/10/2021------------------------------------------//
+
+
+/****** Object:  Table [dbo].[WebApiSettings]    Script Date: 10/18/2021 11:40:09 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[WebApiSettings](
+	[Srno] [smallint] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](100) NULL,
+	[Ipaddress] [nvarchar](50) NULL,
+	[IsGrant] [varchar](1) NULL,
+	[ServerCopiedAdd] [varchar](1) NULL,
+	[CopiedAddDate] [datetime] NULL,
+	[ServerCopiedUpdate] [varchar](1) NULL,
+	[CopiedUpdateDate] [datetime] NULL,
+	[Password] [varchar](150) NULL,
+ CONSTRAINT [PK_WebApiSettings] PRIMARY KEY CLUSTERED 
+(
+	[Srno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WebApiSettings] ADD  CONSTRAINT [DF_WebApiSettings_ServerCopiedAdd]  DEFAULT ('N') FOR [ServerCopiedAdd]
+GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetWebApiSettings] 
+	-- Add the parameters for the stored procedure here
+@Username as varchar(100),
+@Ipaddress as nvarchar(50)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Count(*) From WebApiSettings Where Username=@Username and Ipaddress=@Ipaddress and IsGrant='Y'
+END
+GO
+
+
+----
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_checkWebAPIUser] 
+	-- Add the parameters for the stored procedure here
+@Username as varchar(100),
+@Password as varchar(150)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Count(*)
+ From WebApiSettings Where Username=@Username and Password=@Password 
+END
+GO
+GO
+
+
+
+
+
+// added on 21/10/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_CheckSubmittalCategoryExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select ActualDocumenTypeUID from ActualDocumentTypeMaster Where ActualDocumenTypeUID =@UID
+
+	End
+	else
+	Begin
+
+	select ActualDocumenTypeUID from ActualDocumentTypeMaster Where ActualDocumentType =@Name
+
+	End
+END
+GO
+
+
+-----
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_CheckSubmittalFlowExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select FlowMasterUID From DocumentFlowDisplayMaster Where FlowMasterUID =@UID
+
+	End
+	else
+	Begin
+
+	select FlowMasterUID From DocumentFlowDisplayMaster Where Flow_Name =@Name
+
+	End
+END
+GO
+
+
+------
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_CheckUserExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select UserUID From UserDetails Where UserUID =@UID
+
+	End
+	else
+	Begin
+
+	select UserUID From UserDetails Where Username =@Name
+
+	End
+END
+GO
+
+
+--- added on 24/12/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_CheckSubmittalCategoryExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10),
+@WorkPackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select WorkPackageCategory_UID from Workpackage_Categories  where WorkPackageUID=@WorkPackageUID and WorkPackageCategory_UID =@UID
+
+	End
+	else
+	Begin
+
+	select WorkPackageCategory_UID from Workpackage_Categories where WorkPackageUID=@WorkPackageUID and WorkPackageCategory_Name =@Name
+
+	End
+END
+
+----- 
+1	exto1	::1	Y	N	NULL	NULL	NULL	Zs+2ept3cwByFlYtA1s7Ig==
+
+
+// added on 27/01/2022
+
+ALTER PROCEDURE [usp_GetFinMonthUID] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@Month as varchar(20),
+@Year as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	declare @FinMilestoneUID  as uniqueidentifier;
+	set @FinMilestoneUID = (select Finance_MileStoneUID From [dbo].[FinanceMileStones] Where TaskUID=@WorkPackageUID);
+    -- Insert statements for procedure here
+	select * From FinanceMileStoneMonth Where Month=@Month and Year=@Year  and Finance_MileStoneUID = @FinMilestoneUID and Month=@Month and Year=@Year
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_checkInvoicePaid] 
+	-- Add the parameters for the stored procedure here
+@InvoiceUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT Count(*) From RABillPayments where InvoiceUID=@InvoiceUID and DeletedFlag='N'
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetInvoiceUIDFromInvoiceNo] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@Invoiceno as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select InvoiceMaster_UID From [dbo].[InvoiceMaster] Where WorkpackageUID=@WorkPackageUID and Invoice_Number=@Invoiceno
+END
+GO
+

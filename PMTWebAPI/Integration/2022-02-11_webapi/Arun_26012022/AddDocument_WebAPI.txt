@@ -1,0 +1,531 @@
+[Authorize]
+        [HttpPost]
+        [Route("api/ExtoIntegration/AddDocument")]
+        public IHttpActionResult AddDocument()
+        {
+            bool sError = false;
+            string ErrorText = "";
+            string CoverUID = string.Empty;
+            string DocUID = string.Empty;
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                var ProjectName = httpRequest.Params["ProjectName"];
+                var WorkpackageName = httpRequest.Params["WorkpackageName"];
+                var SubmittalUID = httpRequest.Params["SubmittalUID"];
+                var ReferenceNumber = httpRequest.Params["ReferenceNumber"];
+                var Description = httpRequest.Params["Description"];
+                var DocumentType = httpRequest.Params["DocumentType"];
+                var DocMedia_HardCopy = httpRequest.Params["DocMedia_HardCopy"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_HardCopy"]) : false;
+                var DocMedia_SoftCopy_PDF = httpRequest.Params["DocMedia_SoftCopy_PDF"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_SoftCopy_PDF"]) : false;
+                var DocMedia_SoftCopy_Editable = httpRequest.Params["DocMedia_SoftCopy_Editable"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_SoftCopy_Editable"]) : false;
+                var DocMedia_SoftCopy_Ref = httpRequest.Params["DocMedia_SoftCopy_Ref"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_SoftCopy_Ref"]) : false;
+                var DocMedia_HardCopy_Ref = httpRequest.Params["DocMedia_HardCopy_Ref"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_HardCopy_Ref"]) : false;
+                var DocMedia_NoMedia = httpRequest.Params["DocMedia_NoMedia"] != string.Empty ? Convert.ToBoolean(httpRequest.Params["DocMedia_NoMedia"]) : false;
+                var Originator = httpRequest.Params["Originator"];
+                var OriginatorRefNo = httpRequest.Params["OriginatorRefNo"];
+                var IncomingReciveDate = httpRequest.Params["IncomingReciveDate"];
+                //var CoverLetterDate = httpRequest.Params["CoverLetterDate"];
+                var DocumentDate = httpRequest.Params["DocumentDate"];
+                var FileReferenceNumber = httpRequest.Params["FileReferenceNumber"];
+                var Remarks = httpRequest.Params["Remarks"];
+
+                bool CoverLetterUpload = false, DocumentsUpload = false;
+                var wExists = string.Empty;
+                var pExists = db.ProjectNameExists(ProjectName);
+                string ActualDocumentUID = string.Empty;
+                
+                if (!string.IsNullOrEmpty(pExists))
+                {
+                    wExists = db.WorkpackageNameExists(WorkpackageName, pExists);
+                    if (!string.IsNullOrEmpty(wExists))
+                    {
+                        if (Guid.TryParse(SubmittalUID, out Guid submittaluid))
+                        {
+                            if (!string.IsNullOrEmpty(Description))
+                            {
+                                if (!string.IsNullOrEmpty(DocumentType))
+                                {
+                                    string[] formats = { "dd/MM/yyyy" };
+                                    if (DateTime.TryParseExact(DocumentDate, formats, System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime documentDate))
+                                    {
+                                        if (DocumentType == "Cover Letter")
+                                        {
+                                            if (string.IsNullOrEmpty(Originator))
+                                            {
+                                                sError = true;
+                                                ErrorText = "Originator cannot be empty.";
+                                            }
+                                            if (string.IsNullOrEmpty(OriginatorRefNo))
+                                            {
+                                                sError = true;
+                                                ErrorText = "Originator Reference number cannot be empty.";
+                                            }
+                                            if (!DateTime.TryParseExact(IncomingReciveDate, formats, System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime incomingReceiveDate))
+                                            {
+                                                sError = true;
+                                                ErrorText = "Invalid Incoming Receive Date.";
+                                            }
+                                            if (httpRequest.Files.Count == 0)
+                                            {
+                                                sError = true;
+                                                ErrorText = "Please upload a document.";
+                                            }
+                                            if (documentDate > incomingReceiveDate)
+                                            {
+                                                sError = true;
+                                                ErrorText = "Document Date connot be greater than Incoming Receive date.";
+                                            }
+                                            for (int i = 0; i < httpRequest.Files.Count; i++)
+                                            {
+                                                HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+                                                if (httpPostedFile != null)
+                                                {
+                                                    if (httpPostedFile.FileName.StartsWith("Cover") || httpPostedFile.FileName.StartsWith("Cover_Letter") || httpPostedFile.FileName.StartsWith("Cover Letter"))
+                                                    {
+                                                        CoverLetterUpload = true;
+                                                    }
+                                                    else
+                                                    {
+                                                        DocumentsUpload = true;
+                                                    }
+                                                }
+                                            }
+                                            if (!CoverLetterUpload)
+                                            {
+                                                sError = true;
+                                                ErrorText = "Please upload a cover letter file.";
+                                            }
+                                            if (!DocumentsUpload)
+                                            {
+                                                sError = true;
+                                                ErrorText = "Please upload document file.";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (httpRequest.Files.Count == 0)
+                                            {
+                                                sError = true;
+                                                ErrorText = "Please upload a document.";
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        sError = true;
+                                        ErrorText = "Invalid Document Date.";
+                                    }
+                                        
+                                }
+                                else
+                                {
+                                    sError = true;
+                                    ErrorText = "Document Type cannot be empty.";
+                                }
+                            }
+                            else
+                            {
+                                sError = true;
+                                ErrorText = "Description cannot be empty.";
+                            }
+                                
+                        }
+                        else
+                        {
+                            sError = true;
+                            ErrorText = "Invalid Submittal UID.";
+                        }
+                    }
+                    else
+                    {
+                        sError = true;
+                        ErrorText = "Workpackage name not found";
+                    }
+                }
+                else
+                {
+                    sError = true;
+                    ErrorText = "Project name not found.";
+                }
+
+                if (!sError)
+                {
+                    DataSet ds = db.getDocumentsbyDocID(new Guid(SubmittalUID));
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        string cStatus = "Submitted", FileDatetime = DateTime.Now.ToString("dd MMM yyyy hh-mm-ss tt"), sDocumentPath = string.Empty,
+                            DocumentFor = string.Empty, IncomingRec_Date_String = string.Empty, CoverPagePath = string.Empty,CoverLetterUID = ""; ;
+
+                        if (!string.IsNullOrEmpty(IncomingReciveDate))
+                        {
+                            IncomingRec_Date_String = IncomingReciveDate;
+                        }
+                        else
+                        {
+                            IncomingRec_Date_String = DocumentDate;
+                        }
+                        IncomingRec_Date_String = db.ConvertDateFormat(IncomingRec_Date_String);
+                        DateTime IncomingRec_Date = Convert.ToDateTime(IncomingRec_Date_String);
+
+                        if (string.IsNullOrEmpty(DocumentDate))
+                        {
+                            DocumentDate = DateTime.MinValue.ToString("dd/MM/yyyy");
+                        }
+                        DocumentDate = db.ConvertDateFormat(DocumentDate);
+                        DateTime Document_Date = Convert.ToDateTime(DocumentDate);
+
+                        //Cover Letter Insert
+                        for (int i = 0; i < httpRequest.Files.Count; i++)
+                        {
+                            HttpPostedFile httpPostedFile = httpRequest.Files[i];
+                            if (httpPostedFile != null)
+                            {
+                                string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
+                                if (Extn.ToLower() != ".exe" && Extn.ToLower() != ".msi" && Extn.ToLower() != ".db")
+                                {
+                                    if ((httpPostedFile.FileName.StartsWith("Cover") || httpPostedFile.FileName.StartsWith("Cover_Letter")) && DocumentType == "Cover Letter")
+                                    {
+                                        DocumentFor = "Cover Letter";
+                                        sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + pExists + "//" + wExists + "//CoverLetter";
+
+                                        if (!Directory.Exists(sDocumentPath))
+                                        {
+                                            Directory.CreateDirectory(sDocumentPath);
+                                        }
+                                        string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+                                        httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + "_1_copy" + Extn);
+                                        string savedPath = sDocumentPath + "/" + sFileName + "_1_copy" + Extn;
+                                        CoverPagePath = sDocumentPath + "/" + sFileName + "_1" + Extn;
+                                        EncryptFile(savedPath, CoverPagePath);
+
+                                        CoverLetterUID = Guid.NewGuid().ToString();
+
+                                        int RetCount = db.DocumentCoverLetter_Insert_or_Update(new Guid(CoverLetterUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, "",
+                                        DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn, DocMedia_HardCopy ? "true" : "false",
+                                        DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                        DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus, Originator ?? "", Document_Date);
+                                        if (RetCount <= 0)
+                                        {
+                                            sError = true;
+                                            ErrorText = "Error occured while inserting cover letter. Please contact system admin.";
+                                        }
+                                        CoverUID = CoverLetterUID;
+                                        try
+                                        {
+                                            if (File.Exists(savedPath))
+                                            {
+                                                File.Delete(savedPath);
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            //throw
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        DocUID = string.Empty;
+                        //ActualDocument Insert
+                        for (int i = 0; i < httpRequest.Files.Count; i++)
+                        {
+                            HttpPostedFile httpPostedFile = httpRequest.Files[i];
+                            if (httpPostedFile != null)
+                            {
+                                string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
+                                if (Extn.ToLower() != ".exe" && Extn.ToLower() != ".msi" && Extn.ToLower() != ".db")
+                                {
+                                    if (!httpPostedFile.FileName.StartsWith("Cover"))
+                                    {
+                                   
+                                        string sDate1 = "", sDate2 = "", sDate3 = "", sDate4 = "", sDate5 = "";
+                                        DateTime CDate1 = DateTime.Now, CDate2 = DateTime.Now, CDate3 = DateTime.Now, CDate4 = DateTime.Now, CDate5 = DateTime.Now;
+                                        if (!checkDocumentExists(Path.GetFileNameWithoutExtension(httpPostedFile.FileName), SubmittalUID))
+                                        {
+                                            if (DocumentType == "General Document")
+                                            {
+                                                DocumentFor = "General Document";
+                                            }
+                                            else if (DocumentType == "Photographs")
+                                            {
+                                                DocumentFor = "Photographs";
+                                            }
+                                            else
+                                            {
+                                                DocumentFor = "Document";
+                                            }
+
+                                            sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + pExists + "//" + wExists + "//Documents";
+
+                                            if (!Directory.Exists(sDocumentPath))
+                                            {
+                                                Directory.CreateDirectory(sDocumentPath);
+                                            }
+
+                                            string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+
+                                            string savedPath = string.Empty;
+                                            if (DocumentType != "Photographs")
+                                            {
+                                                savedPath = sDocumentPath + "/" + sFileName + "_1_copy" + Extn;
+                                                httpPostedFile.SaveAs(savedPath);
+
+                                                CoverPagePath = sDocumentPath + "/" + sFileName + "_1" + Extn;
+                                                EncryptFile(savedPath, CoverPagePath);
+                                            }
+                                            else
+                                            {
+                                                savedPath = sDocumentPath + "/" + DateTime.Now.Ticks.ToString() + Path.GetFileName(httpPostedFile.FileName);
+                                                httpPostedFile.SaveAs(savedPath);
+                                                
+                                            }
+                                            ActualDocumentUID = Guid.NewGuid().ToString();
+                                            string UploadFilePhysicalpath = CoverPagePath;
+                                            string Flow1DisplayName = "", Flow2DisplayName = "", Flow3DisplayName = "", Flow4DisplayName = "", Flow5DisplayName = "";
+                                            DataSet dsFlow = db.GetDocumentFlows_by_UID(new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()));
+                                            if (dsFlow.Tables[0].Rows.Count > 0)
+                                            {
+                                                if (dsFlow.Tables[0].Rows[0]["Steps_Count"].ToString() == "-1")
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+                                                    int cnt = db.Document_Insert_or_Update_with_RelativePath_Flow1(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo ?? "",
+                                                    DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                    DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                    DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", savedPath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                    new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, Flow1DisplayName, Originator ??"", Document_Date, "", "", UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+                                                }
+                                                else if (dsFlow.Tables[0].Rows[0]["Steps_Count"].ToString() == "1")
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+                                                    int cnt = db.Document_Insert_or_Update_with_RelativePath_Flow1(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo ?? "",
+                                                    DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                    DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                    DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                    new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, Flow1DisplayName, Originator ?? "", Document_Date, "", "", UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+                                                }
+                                                else if (dsFlow.Tables[0].Rows[0]["Steps_Count"].ToString() == "2")
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+                                                    Flow2DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep2_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+                                                    sDate2 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep2_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate2 = db.ConvertDateFormat(sDate2);
+                                                    CDate2 = Convert.ToDateTime(sDate2);
+
+                                                    int cnt = db.Document_Insert_or_Update_with_RelativePath_Flow2(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo,
+                                                      DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                      DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                      DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                      new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, new Guid(ds.Tables[0].Rows[0]["FlowStep2_UserUID"].ToString()), CDate2, Flow1DisplayName, Flow2DisplayName, Originator, Document_Date, "", "", UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+
+                                                }
+                                                else if (dsFlow.Tables[0].Rows[0]["Steps_Count"].ToString() == "3")
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+                                                    Flow2DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep2_DisplayName"].ToString();
+                                                    Flow3DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep3_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+
+                                                    sDate2 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep2_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate2 = db.ConvertDateFormat(sDate2);
+                                                    CDate2 = Convert.ToDateTime(sDate2);
+
+                                                    sDate3 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep3_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate3 = db.ConvertDateFormat(sDate3);
+                                                    CDate3 = Convert.ToDateTime(sDate3);
+
+                                                    sDate4 = DateTime.Now.ToString("dd/MM/yyyy");
+                                                    sDate4 = db.ConvertDateFormat(sDate4);
+                                                    CDate4 = Convert.ToDateTime(CDate4);
+
+                                                    int cnt = db.Document_Insert_or_Update(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo,
+                                                   DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                   DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                   DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                   new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, new Guid(ds.Tables[0].Rows[0]["FlowStep2_UserUID"].ToString()), CDate2, new Guid(ds.Tables[0].Rows[0]["FlowStep3_UserUID"].ToString()), CDate3,
+                                                   Flow1DisplayName, Flow2DisplayName, Flow3DisplayName, Originator, Document_Date, UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+
+                                                }
+                                                else if (dsFlow.Tables[0].Rows[0]["Steps_Count"].ToString() == "4")
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+                                                    Flow2DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep2_DisplayName"].ToString();
+                                                    Flow3DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep3_DisplayName"].ToString();
+                                                    Flow4DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep4_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+
+                                                    sDate2 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep2_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate2 = db.ConvertDateFormat(sDate2);
+                                                    CDate2 = Convert.ToDateTime(sDate2);
+
+                                                    sDate3 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep3_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate3 = db.ConvertDateFormat(sDate3);
+                                                    CDate3 = Convert.ToDateTime(sDate3);
+
+
+                                                    sDate4 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep4_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate4 = db.ConvertDateFormat(sDate4);
+                                                    CDate4 = Convert.ToDateTime(sDate4);
+
+                                                    int cnt = db.Document_Insert_or_Update_with_RelativePath_Flow4(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo,
+                                                      DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                      DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                      DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                      new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, new Guid(ds.Tables[0].Rows[0]["FlowStep2_UserUID"].ToString()), CDate2, new Guid(ds.Tables[0].Rows[0]["FlowStep3_UserUID"].ToString()), CDate3, new Guid(ds.Tables[0].Rows[0]["FlowStep4_UserUID"].ToString()), CDate4,
+                                                      Flow1DisplayName, Flow2DisplayName, Flow3DisplayName, Flow4DisplayName, Originator, Document_Date, "", "", UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    Flow1DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep1_DisplayName"].ToString();
+                                                    Flow2DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep2_DisplayName"].ToString();
+                                                    Flow3DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep3_DisplayName"].ToString();
+                                                    Flow4DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep4_DisplayName"].ToString();
+                                                    Flow5DisplayName = dsFlow.Tables[0].Rows[0]["FlowStep5_DisplayName"].ToString();
+
+                                                    sDate1 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep1_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate1 = db.ConvertDateFormat(sDate1);
+                                                    CDate1 = Convert.ToDateTime(sDate1);
+
+                                                    sDate2 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep2_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate2 = db.ConvertDateFormat(sDate2);
+                                                    CDate2 = Convert.ToDateTime(sDate2);
+
+                                                    sDate3 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep3_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate3 = db.ConvertDateFormat(sDate3);
+                                                    CDate3 = Convert.ToDateTime(sDate3);
+
+
+                                                    sDate4 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep4_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate4 = db.ConvertDateFormat(sDate4);
+                                                    CDate4 = Convert.ToDateTime(sDate4);
+
+                                                    sDate5 = Convert.ToDateTime(ds.Tables[0].Rows[0]["FlowStep4_TargetDate"].ToString()).ToString("dd/MM/yyyy");
+                                                    sDate5 = db.ConvertDateFormat(sDate5);
+                                                    CDate5 = Convert.ToDateTime(sDate5);
+
+                                                    int cnt = db.Document_Insert_or_Update_with_RelativePath_Flow5(new Guid(ActualDocumentUID), new Guid(pExists), new Guid(wExists), new Guid(SubmittalUID), ReferenceNumber, OriginatorRefNo,
+                                                      DocumentFor, IncomingRec_Date, new Guid(ds.Tables[0].Rows[0]["FlowUID"].ToString()), sFileName, Description, 1, Extn,
+                                                      DocMedia_HardCopy ? "true" : "false", DocMedia_SoftCopy_PDF == true ? "true" : "false", DocMedia_SoftCopy_Editable == true ? "true" : "false", DocMedia_SoftCopy_Ref == true ? "true" : "false",
+                                                      DocMedia_HardCopy_Ref == true ? "true" : "false", DocMedia_NoMedia == true ? "true" : "false", CoverPagePath, Remarks ?? "", FileReferenceNumber ?? "", cStatus,
+                                                      new Guid(ds.Tables[0].Rows[0]["FlowStep1_UserUID"].ToString()), CDate1, new Guid(ds.Tables[0].Rows[0]["FlowStep2_UserUID"].ToString()), CDate2, new Guid(ds.Tables[0].Rows[0]["FlowStep3_UserUID"].ToString()), CDate3, new Guid(ds.Tables[0].Rows[0]["FlowStep4_UserUID"].ToString()), CDate4, new Guid(ds.Tables[0].Rows[0]["FlowStep5_UserUID"].ToString()), CDate5,
+                                                      Flow1DisplayName, Flow2DisplayName, Flow3DisplayName, Flow4DisplayName, Flow5DisplayName, Originator, Document_Date, "", "", UploadFilePhysicalpath, CoverLetterUID, "Submission");
+                                                    if (cnt <= 0)
+                                                    {
+                                                        sError = true;
+                                                        ErrorText = "Error occured while inserting document. Please contact system admin.";
+                                                    }
+                                                }
+
+                                                DocUID += ActualDocumentUID + ",";
+                                            }
+
+                                            try
+                                            {
+                                                if (DocumentType != "Photographs")
+                                                {
+                                                    if (File.Exists(savedPath))
+                                                    {
+                                                        File.Delete(savedPath);
+                                                    }
+                                                }
+
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                //throw
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                sError = true;
+                ErrorText = ex.Message;
+            }
+            if (sError)
+            {
+                return Json(new
+                {
+                    Status = "Failure",
+                    Message = "Error:" + ErrorText
+                });
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(CoverUID))
+                {
+                    return Json(new
+                    {
+                        Status = "Success",
+                        CoverLetterUID=CoverUID,
+                        ActualDocumentUID=DocUID.TrimEnd(','),
+                        Message = "Documents Uploaded Successfully."
+                    });
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        Status = "Success",
+                        ActualDocumentUID = DocUID.TrimEnd(','),
+                        Message = "Documents Uploaded Successfully."
+                    });
+                }
+               
+            }
+        }

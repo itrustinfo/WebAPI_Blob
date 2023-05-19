@@ -1,0 +1,17 @@
+public DataSet GetInsurancePremium_DueDate_NextDueDate(Guid InsuranceUID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("usp_GetInsurancePremium_DueDate_NextDueDate", con);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.SelectCommand.Parameters.AddWithValue("@InsuranceUID", InsuranceUID);
+                cmd.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }

@@ -1,0 +1,5327 @@
+add_documentspage
+documents page
+
+changed sp .[ActualDocuments_SelectBy_DocumentUID] 
+
+select * from ActualDocuments where DocumentUID=@DocumentUID and Delete_Flag='N' and Doc_Type<>'Cover Letter' order by ActualDocument_RelativePath DEsc
+
+
+
+added new sp [ActualDocuments_SelectBy_DirectoryName_New]
+
+
+1680a928-1011-40ac-b109-10bd331835ea
+
+
+
+
+select * from ActualDocuments where DocumentUID=@DocID  and (ActualDocument_RelativePath<> NULL OR ActualDocument_RelativePath !='') order by ActualDocument_RelativePath Desc-- and ActualDocument_DirectoryName=@ActualDocument_DirectoryName and Delete_Flag='N' order by ActualDocument_Name
+
+DBGetData.cs
+
+
+// 29/10/2020
+
+Populate tree view tooltip cahnged to get realtive path
+DBgetdata.cs 
+Sp 
+
+ALTER PROCEDURE [dbo].[ActualDocuments_SelectBy_DirectoryName_New]
+	-- Add the parameters for the stored procedure here
+@DocumentUID uniqueidentifier,
+@ParentDirectoryName varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	declare @DocID uniqueidentifier;
+set @DocID=(select DocumentUID from ActualDocuments where ActualDocumentUID=@DocumentUID);
+	select * from ActualDocuments where DocumentUID=@DocID and Delete_Flag='N' and (ActualDocument_RelativePath<> NULL OR ActualDocument_RelativePath !='') and SUBSTRING(ActualDocument_RelativePath,1,LEN(@ParentDirectoryName)) = @ParentDirectoryName  order by ActualDocument_RelativePath Desc-- and ActualDocument_DirectoryName=@ActualDocument_DirectoryName and Delete_Flag='N' order by ActualDocument_Name
+END
+
+// 02/11/2020
+USE [PMT_Server]
+GO
+
+/****** Object:  Table [dbo].[MailQueue]    Script Date: 11/2/2020 1:21:28 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MailQueue](
+	[MailUID] [uniqueidentifier] NULL,
+	[UserUID] [uniqueidentifier] NULL,
+	[ToEmailID] [varchar](100) NULL,
+	[FromEmailID] [varchar](100) NULL,
+	[Subject] [varchar](100) NULL,
+	[Body] [varchar](Max) NULL,
+	[CCTo] [varchar](Max) NULL,
+	[Attachment] [varchar](100) NULL,
+	[MailSentDate] [datetime] NULL,
+	[MailSent] [varchar](1) NULL
+) ON [PRIMARY]
+
+USE [PMT_Server]
+GO
+/****** Object:  StoredProcedure [dbo].[ups_Insert_Mails]    Script Date: 11/2/2020 12:12:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[ups_Insert_Mails]
+@MailUID uniqueidentifier,
+@UserUID uniqueidentifier,
+@ToEmailID varchar(100),
+@FromEmailID varchar(100),
+@Subject varchar(100),
+@Body varchar(Max),
+@CCTo varchar(Max),
+@Attachment varchar(100),
+@MailSentDate datetime,
+@MailSent varchar(1)
+as
+begin
+insert into MailQueue(MailUID,UserUID,ToEmailID,FromEmailID,Subject,Body,CCTo,Attachment,MailSentDate,MailSent)
+values(@MailUID,@UserUID,@ToEmailID,@FromEmailID,@Subject,@Body,@CCTo,@Attachment,@MailSentDate,@MailSent)
+end
+
+
+USE [PMT_Server]
+GO
+
+/****** Object:  Table [dbo].[MailQueue]    Script Date: 11/3/2020 1:19:26 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MailQueue_Sent](
+	[MailUID] [uniqueidentifier] NULL,
+	[UserUID] [uniqueidentifier] NULL,
+	[ToEmailID] [varchar](100) NULL,
+	[FromEmailID] [varchar](100) NULL,
+	[Subject] [varchar](100) NULL,
+	[Body] [varchar](max) NULL,
+	[CCTo] [varchar](max) NULL,
+	[Attachment] [varchar](100) NULL,
+	[MailSentDate] [datetime] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+
+
+
+DBGetdata.cs
+add-submittal.cs
+add-doccuments.aspx
+
+04/11/2020
+UserType_Functionality_MAster
+UserType_Functionality_Mapping
+UserRolesMaster
+
+SP [usp_GetUserTypeFunctionalityMaster]   created
+SP [usp_InsertUserTypeFunctionality_Mapping] created
+SP [usp_GetUserTypeFunctionality_Mapping]  created
+
+table and data
+DBGetdata.cs
+
+// added on 11/11/2020
+[ups_InserorUpdateUser]   sp  modified
+.[usp_GetUserDetails]   sp modified
+[usp_Get_UserDetails]  sp modified
+[usp_CheckUsernameExists]  new sp created
+[usp_UpdatePassword] new sp created
+
+alter table [UserDetails] alter column [Profile_Pic] varchar(250) NULL
+
+add Photo_mb image
+
+add-user.aspx
+change-password.aspx
+DBGetdata.cs
+
+
+User matrix implementation
+
+19, hiding the master page,  -Done
+18.not clear - Done
+17 .done
+20 . Gantt chart.... menu hiding
+16 .  finnancial hiding in workpackaages
+11. Download approved documents  -Done
+12.  Download Documents  - Done
+9. View documents hide
+8. include add submittal also  - Done
+
+13/11/2020
+documents Pages
+view-documenthostory.aspx
+default.master
+
+18/11/2020
+TaskStatus	varchar(1)	Checked  added for Alert
+[usp_GetAllTasksForAlert]   new sp added
+usp_GetAllMileStoneForAlert new sp added
+[usp_InsertAlerts]  sp 
+
+
+USE [PMT_Server]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_GetAllMileStoneForAlert]    Script Date: 11/18/2020 7:19:31 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetAllMileStoneForAlert] 
+	-- Add the parameters for the stored procedure here
+@TaskUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FRom 
+[dbo].[MileStones]
+Where TaskUID=@TaskUID and MileStoneDate < GETDATE() and Status = 'Not Completed'
+END
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetAllTasksForAlert] 
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * FROM [dbo].[Tasks] Where PlannedStartDate is NOT NULL and PlannedEndDate is not NULL
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_InsertAlerts]
+@Alert_UID uniqueidentifier,
+@ProjectUID uniqueidentifier,
+@WorkPackageUID uniqueidentifier,
+@TaskUID uniqueidentifier,
+@Alert_Text nvarchar(250),
+@Alert_Date datetime,
+@Alert_User nvarchar(50),
+@Status as varchar(1)
+as
+begin
+if not exists (select Alert_UID from Alerts where TaskUID=@TaskUID and Alert_User=@Alert_User and TaskStatus = @Status)
+begin
+insert into Alerts(Alert_UID,TaskUID,Alert_Text,Alert_Date,Alert_User,ProjectUID,WorkPackageUID,TaskStatus)
+values(@Alert_UID,@TaskUID,@Alert_Text,@Alert_Date,@Alert_User,@ProjectUID,@WorkPackageUID,@Status)
+end
+end
+
+
+
+
+END
+
+
+// added on 20/11/2020
+INSERT INTO [dbo].[UserType_Functionality_Master]
+           ([UID]
+           ,[Functionality]
+           ,[Code])
+     VALUES
+           (NewID()
+           ,'User Management'
+           ,'UM')
+GO
+
+
+// added on 23/11/2020
+add_documents page
+DBGetData.cs
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DocumentsUploadLog](
+	[SrNo] [bigint] IDENTITY(1,1) NOT NULL,
+	[ActualDocumentUID] [uniqueidentifier] NOT NULL,
+	[UploadStartDate] [datetime] NULL,
+	[UploadEndDate] [datetime] NULL,
+	[UploadUserUID] [uniqueidentifier] NULL,
+	[Duration] [float] NULL
+ CONSTRAINT [PK_DocumentsUploadLog] PRIMARY KEY CLUSTERED 
+(
+	[SrNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_InsertDocumentUploadLog] 
+	-- Add the parameters for the stored procedure here
+@ActualDocumentUID as uniqueidentifier,
+@UploadStartDate as datetime,
+@UploadEndDate as datetime,
+@UploadUserUID as uniqueidentifier,
+@Duration as float
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[DocumentsUploadLog]
+           ([ActualDocumentUID]
+           ,[UploadStartDate]
+           ,[UploadEndDate]
+           ,[UploadUserUID]
+		   ,[Duration])
+     VALUES
+           (@ActualDocumentUID
+           ,@UploadStartDate
+           ,@UploadEndDate
+           ,@UploadUserUID
+		   ,@Duration)
+
+END
+GO
+
+
+// added on 24/11/2020
+Install-Package Microsoft.SQLServer.SMO -Version 12.0.2000.8
+
+// added on 26/11/2020
+USE [PMT_Server]
+GO
+
+/****** Object:  Table [dbo].[BackupApplicationConfig]    Script Date: 11/26/2020 6:48:48 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BackupApplicationConfig](
+	[SrNo] [int] IDENTITY(1,1) NOT NULL,
+	[ServerName] [varchar](150) NULL,
+	[Username] [varchar](100) NULL,
+	[Password] [varchar](100) NULL,
+	[DatabaseName] [varchar](100) NULL,
+	[DB_backupFilename] [varchar](100) NULL,
+	[SourceAppPath] [varchar](250) NULL,
+	[DestinationPath] [varchar](250) NULL,
+	[AutoStart] [varchar](1) NULL,
+	[StartDate] [datetime] NULL,
+ CONSTRAINT [PK_BackupApplicationConfig] PRIMARY KEY CLUSTERED 
+(
+	[SrNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+// added on 30/11/2020
+USE [PMT_Server]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RestoreApplicationConfig](
+	[SrNo] [int] IDENTITY(1,1) NOT NULL,
+	[ServerName] [varchar](150) NULL,
+	[Username] [varchar](100) NULL,
+	[Password] [varchar](100) NULL,
+	[DB_RestorePath] [varchar](100) NULL,
+	[DB_backupFilename] [varchar](100) NULL,
+	[SourceAppPath] [varchar](250) NULL,
+	[DestinationPath] [varchar](250) NULL,
+	[AutoStart] [varchar](1) NULL,
+	[StartDate] [datetime] NULL,
+ CONSTRAINT [PK_RestoreApplicationConfig] PRIMARY KEY CLUSTERED 
+(
+	[SrNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+// added on 30/12/2020
+USE [PMT_Server]
+GO
+
+/****** Object:  Table [dbo].[RABills]    Script Date: 1/4/2021 2:52:42 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RABills](
+	[UID] [uniqueidentifier] NOT NULL,
+	[WorkPackageUID] [uniqueidentifier] NOT NULL,
+	[ItemID] [nvarchar](50) NULL,
+	[Description] [varchar](250) NULL,
+	[Quantity] [varchar](20) NULL,
+	[QuotedPrice_Tender] [float] NULL,
+	[BasicCost] [float] NULL,
+	[GST] [float] NULL,
+	[TotalPrice] [float] NULL,
+	[Cost_Per] [float] NULL,
+	[UOM] [varchar](10) NULL,
+	[Remarks] [varchar](250) NULL,
+	[CreatedDate] [datetime] NULL,
+	[Date1] [datetime] NULL,
+	[Date2] [datetime] NULL,
+	[ParentItemUID] [uniqueidentifier] NULL,
+	[UnitPrice] [float] NULL,
+ CONSTRAINT [PK_RABills] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+USE [PMT_Server]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertorUpdateRABills]    Script Date: 1/4/2021 2:20:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_InsertorUpdateRABills] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@ItemID as nvarchar(50),
+@Description as varchar(250),
+@Quantity as varchar(20),
+@QuotedPrice_Tender as float,
+@BasicCost as float,
+@GST as float,
+@TotalPrice as float,
+@Cost_Per as float,
+@UOM as varchar(10),
+@Remarks as varchar(250),
+@ParentItemUID as uniqueidentifier,
+@UnitPrice as float
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM RABills WHERE WorkPackageUID = @WorkPackageUID and ItemID = @ItemID and ParentItemUID = @ParentItemUID)
+BEGIN
+   INSERT INTO [dbo].[RABills]
+           ([UID]
+           ,[WorkPackageUID]
+           ,[ItemID]
+           ,[Description]
+           ,[Quantity]
+           ,[QuotedPrice_Tender]
+           ,[BasicCost]
+           ,[GST]
+           ,[TotalPrice]
+           ,[Cost_Per]
+           ,[UOM]
+           ,[Remarks]
+           ,[CreatedDate]
+           ,[ParentItemUID]
+           ,[UnitPrice])
+     VALUES
+           (@UID
+           ,@WorkPackageUID
+           ,@ItemID
+           ,@Description
+           ,@Quantity
+           ,@QuotedPrice_Tender
+           ,@BasicCost
+           ,@GST
+           ,@TotalPrice
+           ,@Cost_Per
+           ,@UOM
+           ,@Remarks
+           ,GETDATE()
+           ,@ParentItemUID
+           ,@UnitPrice)
+END
+END
+
+// added on 04/02/2021
+USE [PMT_Server]
+GO
+
+/****** Object:  Table [dbo].[CashFlowStatement]    Script Date: 1/4/2021 2:52:04 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CashFlowStatement](
+	[UID] [uniqueidentifier] NOT NULL,
+	[WorkPackageUID] [uniqueidentifier] NULL,
+	[Cash_Flow_Payment_Progressive] [float] NULL,
+	[Cash_Flow_Mob_Advance] [float] NULL,
+	[Deduc_IT_2_Per] [float] NULL,
+	[Deduc_IT_1.5_Per] [float] NULL,
+	[Deduc_CGST_1_Per] [float] NULL,
+	[Deduc_SGST_1_Per] [float] NULL,
+	[Deduc_GST_2_Per] [float] NULL,
+	[Deduc_Retention_5_Per] [float] NULL,
+	[Deduc_Mob_Advance_10_Per] [float] NULL,
+	[Deduc_LaborCess_1_Per] [float] NULL,
+	[MiltiplyingFactor] [smallint] NULL,
+	[CreatedDate] [datetime] NULL,
+	[Month] [varchar](20) NULL,
+	[Year] [smallint] NULL,
+ CONSTRAINT [PK_CashFlowStatement] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+// added on 05/01/2021
+USE [ONTB_Server]
+GO
+
+/****** Object:  Table [dbo].[FinanceMileStoneMonth]    Script Date: 1/7/2021 1:06:46 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[FinanceMileStoneMonth](
+	[FinMileStoneMonthUID] [uniqueidentifier] NOT NULL,
+	[Finance_MileStoneUID] [uniqueidentifier] NULL,
+	[AllowedPayment] [float] NULL,
+	[UserCreated] [uniqueidentifier] NULL,
+	[CreatedDate] [datetime] NULL,
+	[DeletedFlag] [varchar](1) NULL,
+	[Month] [varchar](20) NULL,
+	[Year] [int] NULL,
+	[MultiplyingFactor] [bigint] NULL,
+	[WorkPackageUID] [uniqueidentifier] NULL,
+	[OrderBy] [int] NULL,
+ CONSTRAINT [PK_FinanceMileStoneMonth] PRIMARY KEY CLUSTERED 
+(
+	[FinMileStoneMonthUID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+
+
+IsMonth, varchar(1), added to FinanceMileStones
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_InsertorUpdateFinMilestoneExccel] 
+	-- Add the parameters for the stored procedure here
+@Finance_MileStoneUID as uniqueidentifier,
+@TaskUID as uniqueidentifier,
+@Finance_MileStoneName as varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM FinanceMileStones WHERE TaskUID = @TaskUID and Finance_MileStoneName = @Finance_MileStoneName)
+BEGIN
+	INSERT INTO [dbo].[FinanceMileStones]
+           ([Finance_MileStoneUID]
+           ,[TaskUID]
+           ,[Finance_MileStoneName]
+           ,[Delete_Flag]
+           ,[IsMonth])
+     VALUES
+           (@Finance_MileStoneUID
+           ,@TaskUID
+           ,@Finance_MileStoneName
+           ,'N'
+           ,'Y')
+		   END
+END
+GO
+
+
+-- ================================================
+USE [PMT_Server]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertFinMilestoneMonthExccel]    Script Date: 1/6/2021 11:40:07 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_InsertFinMilestoneMonthExccel] 
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier,
+@Finance_MileStoneUID as uniqueidentifier,
+@AllowedPayment as float,
+@Month as varchar(20),
+@Year as int,
+@WorkPackageUID as uniqueidentifier,
+@OrderBy as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM FinanceMileStoneMonth WHERE Finance_MileStoneUID = @Finance_MileStoneUID and Month = @Month and Year=@Year)
+BEGIN
+	INSERT INTO [dbo].[FinanceMileStoneMonth]
+           ([FinMileStoneMonthUID]
+           ,[Finance_MileStoneUID]
+           ,[AllowedPayment]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+           ,[Month]
+           ,[Year]
+		   ,[MultiplyingFactor]
+,[WorkPackageUID],[OrderBy])
+     VALUES
+           (@FinMileStoneMonthUID
+           ,@Finance_MileStoneUID
+           ,@AllowedPayment
+           ,GETDATE()
+           ,'N'
+           ,@Month
+           ,@Year
+		   ,1,
+@WorkPackageUID,@OrderBy)
+		   END
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[usp_FinanceMileStone_Selectby_WorkPackageUID]
+@TaskUID uniqueidentifier
+as
+begin
+set nocount on;
+select * FRom FinanceMileStones Where TaskUID =@TaskUID and Delete_Flag ='N'
+end
+
+
+//
+CREATE PROCEDURE [usp_GetFinMilestoneMonths] 
+	-- Add the parameters for the stored procedure here
+@FinanceMileStone_UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT    *,(Month +' ' + CONVERT(varchar(10), Year)) as MonthYear    
+FROM FinanceMileStoneMonth Where Finance_MileStoneUID =@FinanceMileStone_UID Order By OrderBy
+END
+GO
+
+
+CREATE PROCEDURE [usp_GetFinMilestoneMonthsData] 
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT (AllowedPayment * MultiplyingFactor) as ApprovedPayment    
+FROM FinanceMileStoneMonth Where FinMileStoneMonthUID =@FinMileStoneMonthUID
+END
+GO
+
+
+
+FinanceMileStoneMonthUID	uniqueidentifier	Checked  added to FinanceMileStonePaymentUpdates
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[usp_FinanceMileStonePaymentUpdate_InsertMonth]
+@FinanceMileStoneUpdate_UID uniqueidentifier,
+@Finance_MileStoneUID uniqueidentifier,
+@Finance_MileStoneMonthUID uniqueidentifier,
+@Allowed_Payment float,
+@Actual_Payment float,
+@Actual_PaymentDate datetime,
+@Updated_User uniqueidentifier
+as
+begin
+
+
+
+insert into FinanceMileStonePaymentUpdates(FinanceMileStoneUpdate_UID,Finance_MileStoneUID,Allowed_Payment,Actual_Payment,Actual_PaymentDate,Updated_User,FinanceMileStoneMonthUID)
+values(@FinanceMileStoneUpdate_UID,@Finance_MileStoneUID,@Allowed_Payment,@Actual_Payment,@Actual_PaymentDate,@Updated_User,@Finance_MileStoneMonthUID)
+end
+
+
+
+CREATE PROCEDURE [usp_GetFinMilestonePayment] 
+	-- Add the parameters for the stored procedure here
+@FinanceMileStone_UID as uniqueidentifier,
+@FinanceMileStoneMonth_UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From FinanceMileStonePaymentUpdates Where Finance_MileStoneUID =@FinanceMileStone_UID
+	and FinanceMileStoneMonthUID=@FinanceMileStoneMonth_UID
+END
+GO
+
+
+Alter table [dbo].[FinanceMileStoneMonth] Alter column [AllowedPayment] decimal(18,2)
+
+
+
+
+// added on 12/01/2020 for review meeting on 16th jan 2021
+USE [ONTB_Server]
+GO
+
+/****** Object:  Table [dbo].[Status_Budget_Disbursement]    Script Date: 1/12/2021 6:32:44 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Status_Budget_Disbursement](
+	[UID] [uniqueidentifier] NOT NULL,
+	[ProjectUID] [uniqueidentifier] NULL,
+	[ContractorName] [varchar](100) NULL,
+	[ContractorUID] [uniqueidentifier] NULL,
+	[AwardedCost] [decimal](18, 2) NULL,
+	[Disbursement_Amount] [decimal](18, 2) NULL,
+	[Disbursement_Year] [nvarchar](20) NULL,
+	[Budget_Year] [nvarchar](20) NULL,
+	[Q1_Budget_Amount] [decimal](18, 2) NULL,
+	[Q2_Budget_Amount] [decimal](18, 2) NULL,
+	[Q3_Budget_Amount] [decimal](18, 2) NULL,
+	[Q4_Budget_Amount] [decimal](18, 2) NULL,
+	[Actual_Year] [nvarchar](20) NULL,
+	[Q1_Actual_Amount] [decimal](18, 2) NULL,
+	[Q2_Actual_Amount] [decimal](18, 2) NULL,
+	[Q3_Actual_Amount] [decimal](18, 2) NULL,
+	[Q4_Actual_Amount] [decimal](18, 2) NULL,
+	[CreatedDate] [datetime] NULL,
+	[ProjectName] [varchar](100) NULL,
+	[DeleteFlag] [varchar](1) NULL,
+[Meeting_UID] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_Status_Budget_Disbursement] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BWSSB_JICA_Disbursement](
+	[UID] [uniqueidentifier] NOT NULL,
+	[ProjectUID] [uniqueidentifier] NULL,
+	[ContractorName] [varchar](100) NULL,
+	[ContractorUID] [uniqueidentifier] NULL,
+	[AwardedCost] [decimal](18, 2) NULL,
+	[Payment_Year] [nvarchar](20) NULL,
+	[Q1_Payment_Amount] [decimal](18, 2) NULL,
+	[Q2_Payment_Amount] [decimal](18, 2) NULL,
+	[Q3_Payment_Amount] [decimal](18, 2) NULL,
+	[Q4_Payment_Amount] [decimal](18, 2) NULL,
+	[Actual_Year] [nvarchar](20) NULL,
+	[Q1_Actual_Amount] [decimal](18, 2) NULL,
+	[Q2_Actual_Amount] [decimal](18, 2) NULL,
+	[Q3_Actual_Amount] [decimal](18, 2) NULL,
+	[Q4_Actual_Amount] [decimal](18, 2) NULL,
+	[CreatedDate] [datetime] NULL,
+	[ProjectName] [varchar](100) NULL,
+	[DeleteFlag] [varchar](1) NULL,
+[Meeting_UID] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_BWSSB_JICA_Disbursement] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_InsertorUpdateBudget] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ProjectUID	 as uniqueidentifier,
+@ContractorName as varchar(100),
+@AwardedCost as float,
+@Disbursement_Amount as float,
+@Disbursement_Year as nvarchar(20),
+@Budget_Year as nvarchar(20),
+@Q1_Budget_Amount as float,
+@Q2_Budget_Amount as float,
+@Q3_Budget_Amount as float,
+@Q4_Budget_Amount as float,
+@Actual_Year as nvarchar(20),
+@Q1_Actual_Amount as float,
+@Q2_Actual_Amount as float,
+@Q3_Actual_Amount as float,
+@Q4_Actual_Amount as float,
+@ProjectName as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM Status_Budget_Disbursement WHERE ProjectUID = @ProjectUID and Budget_Year=@Budget_Year)
+BEGIN
+	INSERT INTO [dbo].[Status_Budget_Disbursement]
+           ([UID]
+           ,[ProjectUID]
+           ,[ContractorName]
+           ,[AwardedCost]
+           ,[Disbursement_Amount]
+           ,[Disbursement_Year]
+           ,[Budget_Year]
+           ,[Q1_Budget_Amount]
+           ,[Q2_Budget_Amount]
+           ,[Q3_Budget_Amount]
+           ,[Q4_Budget_Amount]
+           ,[Actual_Year]
+           ,[Q1_Actual_Amount]
+           ,[Q2_Actual_Amount]
+           ,[Q3_Actual_Amount]
+           ,[Q4_Actual_Amount]
+           ,[CreatedDate]
+           ,[ProjectName]
+           ,[DeleteFlag])
+     VALUES
+           (@UID
+           ,@ProjectUID
+           ,@ContractorName
+           ,@AwardedCost
+           ,@Disbursement_Amount
+           ,@Disbursement_Year
+           ,@Budget_Year
+           ,@Q1_Budget_Amount
+           ,@Q2_Budget_Amount
+           ,@Q3_Budget_Amount
+           ,@Q4_Budget_Amount
+           ,@Actual_Year
+           ,@Q1_Actual_Amount
+           ,@Q2_Actual_Amount
+           ,@Q3_Actual_Amount
+           ,@Q4_Actual_Amount
+           ,GETDATE()
+           ,@ProjectName
+           ,'N')
+		   END
+
+
+END
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetBudgetvsDisbursement] 
+	-- Add the parameters for the stored procedure here
+	
+@MeetingUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT *,(Disbursement_Amount + Q1_Actual_Amount + Q2_Actual_Amount + Q3_Actual_Amount + Q4_Actual_Amount) as TotalDisburseAmnt From Status_Budget_Disbursement Where Meeting_UID =@MeetingUID and DeleteFlag='N' Order by ProjectName ASC
+END
+GO
+
+
+
+CREATE PROCEDURE [usp_InsertorUpdateBWSSB_JICA_Disbursement] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ProjectUID	 as uniqueidentifier,
+@ContractorName as varchar(100),
+@AwardedCost as float,
+@Payment_Year as nvarchar(20),
+@Q1_Payment_Amount as float,
+@Q2_Payment_Amount as float,
+@Q3_Payment_Amount as float,
+@Q4_Payment_Amount as float,
+@Actual_Year as nvarchar(20),
+@Q1_Actual_Amount as float,
+@Q2_Actual_Amount as float,
+@Q3_Actual_Amount as float,
+@Q4_Actual_Amount as float,
+@ProjectName as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM [BWSSB_JICA_Disbursement] WHERE ProjectUID = @ProjectUID and Payment_Year=@Payment_Year)
+BEGIN
+INSERT INTO [dbo].[BWSSB_JICA_Disbursement]
+           ([UID]
+           ,[ProjectUID]
+           ,[ContractorName]
+           ,[AwardedCost]
+           ,[Payment_Year]
+           ,[Q1_Payment_Amount]
+           ,[Q2_Payment_Amount]
+           ,[Q3_Payment_Amount]
+           ,[Q4_Payment_Amount]
+           ,[Actual_Year]
+           ,[Q1_Actual_Amount]
+           ,[Q2_Actual_Amount]
+           ,[Q3_Actual_Amount]
+           ,[Q4_Actual_Amount]
+           ,[CreatedDate]
+           ,[ProjectName]
+           ,[DeleteFlag])
+     VALUES
+           (@UID
+           ,@ProjectUID
+           ,@ContractorName
+           ,@AwardedCost
+           ,@Payment_Year
+           ,@Q1_Payment_Amount
+           ,@Q2_Payment_Amount
+           ,@Q3_Payment_Amount
+           ,@Q4_Payment_Amount
+           ,@Actual_Year
+           ,@Q1_Actual_Amount
+           ,@Q2_Actual_Amount
+           ,@Q3_Actual_Amount
+           ,@Q4_Actual_Amount
+           ,GETDATE()
+           ,@ProjectName
+           ,'N')
+
+		   END
+
+
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetBWSSB_VS_JICA_Disbursement] 
+	-- Add the parameters for the stored procedure here
+@MeetingUID as uniqueidentifier	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * From [dbo].[BWSSB_JICA_Disbursement] Where Meeting_UID=@MeetingUID and DeleteFlag='N' Order by ProjectName ASC
+END
+//------------------------
+0.066873
+
+
+// added on 21/01/2021
+USE [ONTB_Arun]
+GO
+
+/****** Object:  Table [dbo].[MeetingMaster]    Script Date: 1/21/2021 2:39:56 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MeetingMaster](
+	[Meeting_UID] [uniqueidentifier] NOT NULL,
+	[Meeting_Description] [varchar](250) NULL,
+	[CreatedDate] [datetime] NULL,
+ CONSTRAINT [PK_MeetingMaster] PRIMARY KEY CLUSTERED 
+(
+	[Meeting_UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetMeetingMaster] 
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * FRom [dbo].[MeetingMaster] order by CreatedDate Asc
+END
+GO
+-----------------------------------------------
+
+CREATE PROCEDURE [usp_GetbwssbvsJICA_UID]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From [dbo].[BWSSB_JICA_Disbursement] Where UID =@UID
+END
+GO
+
+--------------------------------------------------
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetBudgetvsDisbursemnt_UID]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From [dbo].[Status_Budget_Disbursement] Where UID =@UID
+END
+GO
+
+
+CREATE PROCEDURE [usp_UpdateBudgetvsDisbursement]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ContractorName as varchar(100),
+@AwardedCost as float,
+@Disbursement_Amount as float,
+@Q1_Budget_Amount as float,
+@Q2_Budget_Amount as float,
+@Q3_Budget_Amount as float,
+@Q4_Budget_Amount as float,
+@Q1_Actual_Amount as float,
+@Q2_Actual_Amount as float,
+@Q3_Actual_Amount as float,
+@Q4_Actual_Amount as float
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update [dbo].[Status_Budget_Disbursement]
+	set ContractorName =@ContractorName,
+	AwardedCost =@AwardedCost,
+	Disbursement_Amount=@Disbursement_Amount,
+	Q1_Budget_Amount=@Q1_Budget_Amount,
+	Q2_Budget_Amount=@Q2_Budget_Amount,
+	Q3_Budget_Amount=@Q3_Budget_Amount,
+	Q4_Budget_Amount=@Q4_Budget_Amount,
+	Q1_Actual_Amount =@Q1_Actual_Amount,
+	Q2_Actual_Amount =@Q2_Actual_Amount,
+	Q3_Actual_Amount =@Q3_Actual_Amount,
+	Q4_Actual_Amount =@Q4_Actual_Amount
+	Where UID=@UID
+
+END
+GO
+
+
+
+CREATE PROCEDURE [usp_UpdateBWSSBvsJICADisbursement]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ContractorName as varchar(100),
+@AwardedCost as float,
+@Q1_Payment_Amount as float,
+@Q2_Payment_Amount as float,
+@Q3_Payment_Amount as float,
+@Q4_Payment_Amount as float,
+@Q1_Actual_Amount as float,
+@Q2_Actual_Amount as float,
+@Q3_Actual_Amount as float,
+@Q4_Actual_Amount as float
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update [dbo].[BWSSB_JICA_Disbursement]
+	set ContractorName =@ContractorName,
+	AwardedCost =@AwardedCost,
+	Q1_Payment_Amount=@Q1_Payment_Amount,
+	Q2_Payment_Amount=@Q2_Payment_Amount,
+	Q3_Payment_Amount=@Q3_Payment_Amount,
+	Q4_Payment_Amount=@Q4_Payment_Amount,
+	Q1_Actual_Amount =@Q1_Actual_Amount,
+	Q2_Actual_Amount =@Q2_Actual_Amount,
+	Q3_Actual_Amount =@Q3_Actual_Amount,
+	Q4_Actual_Amount =@Q4_Actual_Amount
+	Where UID=@UID
+
+END
+GO
+
+
+-----------------
+
+CREATE PROCEDURE [usp_CopyStatusvsDisbursementData]
+	-- Add the parameters for the stored procedure here
+@SourceMeetingUID as uniqueidentifier,
+@DestMeetingUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+Delete From [Status_Budget_Disbursement] Where Meeting_UID = @DestMeetingUID
+   
+    -- Insert statements for procedure here
+	Insert into [dbo].[Status_Budget_Disbursement] ([UID]
+      ,[ProjectUID]
+      ,[ContractorName]
+      ,[ContractorUID]
+      ,[AwardedCost]
+      ,[Disbursement_Amount]
+      ,[Disbursement_Year]
+      ,[Budget_Year]
+      ,[Q1_Budget_Amount]
+      ,[Q2_Budget_Amount]
+      ,[Q3_Budget_Amount]
+      ,[Q4_Budget_Amount]
+      ,[Actual_Year]
+      ,[Q1_Actual_Amount]
+      ,[Q2_Actual_Amount]
+      ,[Q3_Actual_Amount]
+      ,[Q4_Actual_Amount]
+      ,[CreatedDate]
+      ,[ProjectName]
+      ,[DeleteFlag]
+      ,[Meeting_UID])
+select NEWID()
+      ,[ProjectUID]
+      ,[ContractorName]
+      ,[ContractorUID]
+      ,[AwardedCost]
+      ,[Disbursement_Amount]
+      ,[Disbursement_Year]
+      ,[Budget_Year]
+      ,[Q1_Budget_Amount]
+      ,[Q2_Budget_Amount]
+      ,[Q3_Budget_Amount]
+      ,[Q4_Budget_Amount]
+      ,[Actual_Year]
+      ,[Q1_Actual_Amount]
+      ,[Q2_Actual_Amount]
+      ,[Q3_Actual_Amount]
+      ,[Q4_Actual_Amount]
+      ,GETDATE()
+      ,[ProjectName]
+      ,[DeleteFlag]
+      ,@DestMeetingUID From [dbo].[Status_Budget_Disbursement]
+Where [Status_Budget_Disbursement].Meeting_UID =@SourceMeetingUID
+END
+GO
+
+
+
+CREATE PROCEDURE [usp_CopyBWSSB_JICA_Disbursement]
+	-- Add the parameters for the stored procedure here
+@SourceMeetingUID as uniqueidentifier,
+@DestMeetingUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	Delete From [BWSSB_JICA_Disbursement] Where Meeting_UID = @DestMeetingUID
+    -- Insert statements for procedure here
+	Insert into [dbo].[BWSSB_JICA_Disbursement]  ([UID]
+           ,[ProjectUID]
+           ,[ContractorName]
+           ,[ContractorUID]
+           ,[AwardedCost]
+           ,[Payment_Year]
+           ,[Q1_Payment_Amount]
+           ,[Q2_Payment_Amount]
+           ,[Q3_Payment_Amount]
+           ,[Q4_Payment_Amount]
+           ,[Actual_Year]
+           ,[Q1_Actual_Amount]
+           ,[Q2_Actual_Amount]
+           ,[Q3_Actual_Amount]
+           ,[Q4_Actual_Amount]
+           ,[CreatedDate]
+           ,[ProjectName]
+           ,[DeleteFlag]
+           ,[Meeting_UID])
+select NEWID()
+      ,[ProjectUID]
+      ,[ContractorName]
+      ,[ContractorUID]
+      ,[AwardedCost]
+      ,[Payment_Year]
+      ,[Q1_Payment_Amount]
+       ,[Q2_Payment_Amount]
+       ,[Q3_Payment_Amount]
+        ,[Q4_Payment_Amount]
+      ,[Actual_Year]
+      ,[Q1_Actual_Amount]
+      ,[Q2_Actual_Amount]
+      ,[Q3_Actual_Amount]
+      ,[Q4_Actual_Amount]
+      ,GETDATE()
+      ,[ProjectName]
+      ,[DeleteFlag]
+      ,@DestMeetingUID From [dbo].[BWSSB_JICA_Disbursement]
+Where [BWSSB_JICA_Disbursement].Meeting_UID =@SourceMeetingUID
+END
+GO
+
+
+/// added on 25/01/2021
+
+USE [ONTB_Arun_22jan]
+GO
+
+/****** Object:  Table [dbo].[Status_WasteWater_ContractPackage]    Script Date: 1/25/2021 5:38:58 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Status_WasteWater_ContractPackage](
+	[UID] [uniqueidentifier] NOT NULL,
+	[ProjectUID] [uniqueidentifier] NULL,
+	[ProjectName] [varchar](100) NULL,
+	[PackageDescription] [varchar](250) NULL,
+	[AwardedCost] [decimal](18, 2) NULL,
+	[ProjectComponent] [varchar](max) NULL,
+	[PresentStatus] [varchar](max) NULL,
+	[Meeting_UID] [uniqueidentifier] NULL,
+	[CreatedDate] [datetime] NULL,
+	[DeletedFlag] [varchar](1) NULL,
+	[Componenttype] [varchar](100) NULL,
+ CONSTRAINT [PK_Status_WasteWater_ContractPackage] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+
+CREATE PROCEDURE [usp_InsertorUpdateStatusWasteWater] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ProjectUID as uniqueidentifier,
+@ProjectName as varchar(100),
+@PackageDescription as varchar(250),
+@AwardedCost as float,
+@ProjectComponent as varchar(max),
+@PresentStatus as varchar(max),
+@Meeting_UID as uniqueidentifier,
+@Componenttype as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	IF not EXISTS (SELECT * FROM Status_WasteWater_ContractPackage WHERE ProjectUID = @ProjectUID  and Meeting_UID = @Meeting_UID and Componenttype=@Componenttype)
+BEGIN
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[Status_WasteWater_ContractPackage]
+           ([UID]
+           ,[ProjectUID]
+           ,[ProjectName]
+           ,[PackageDescription]
+           ,[AwardedCost]
+           ,[ProjectComponent]
+           ,[PresentStatus]
+           ,[Meeting_UID]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+           ,[Componenttype])
+     VALUES
+           (@UID
+           ,@ProjectUID
+           ,@ProjectName
+           ,@PackageDescription
+           ,@AwardedCost
+           ,@ProjectComponent
+           ,@PresentStatus
+           ,@Meeting_UID
+           ,GETDATE()
+           ,'N'
+           ,@Componenttype)
+		   END
+END
+GO
+
+
+CREATE PROCEDURE [usp_GetStatusWasteWater] 
+	-- Add the parameters for the stored procedure here
+@Meeting_UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From [dbo].[Status_WasteWater_ContractPackage] Where Meeting_UID=@Meeting_UID Order by ProjectName Asc
+END
+GO
+
+//------------------------------
+
+CREATE PROCEDURE [usp_GetStatusWasteWaterUID] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From [dbo].[Status_WasteWater_ContractPackage] Where UID =@UID
+END
+GO
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_UpdateStatusWasteWater] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@ProjectUID as uniqueidentifier,
+@ProjectName as varchar(100),
+@PackageDescription as varchar(250),
+@AwardedCost as float,
+@ProjectComponent as varchar(max),
+@PresentStatus as varchar(max),
+@Componenttype as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	UPDATE [dbo].[Status_WasteWater_ContractPackage]
+   SET 
+      [ProjectUID] = @ProjectUID
+      ,[ProjectName] = @ProjectName
+      ,[PackageDescription] = @PackageDescription
+      ,[AwardedCost] = @AwardedCost
+      ,[ProjectComponent] = @ProjectComponent
+      ,[PresentStatus] = @PresentStatus
+      ,[Componenttype] = @Componenttype
+ WHERE UID = @UID
+END
+GO
+
+
+CREATE PROCEDURE [usp_CopyStatusWasteWater]
+	-- Add the parameters for the stored procedure here
+	@SourceMeetingUID as uniqueidentifier,
+@DestMeetingUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	Delete From [Status_WasteWater_ContractPackage] Where Meeting_UID = @DestMeetingUID
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[Status_WasteWater_ContractPackage]
+           ([UID]
+           ,[ProjectUID]
+           ,[ProjectName]
+           ,[PackageDescription]
+           ,[AwardedCost]
+           ,[ProjectComponent]
+           ,[PresentStatus]
+           ,[Meeting_UID]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+           ,[Componenttype])
+select NEWID()
+      ,[ProjectUID]
+     ,[ProjectName]
+           ,[PackageDescription]
+           ,[AwardedCost]
+           ,[ProjectComponent]
+           ,[PresentStatus]
+           ,@DestMeetingUID
+           ,GETDATE()
+           ,[DeletedFlag]
+           ,[Componenttype]
+       From [dbo].[Status_WasteWater_ContractPackage]
+Where [Status_WasteWater_ContractPackage].Meeting_UID =@SourceMeetingUID
+END
+
+
+
+-----
+
+USE [NJSEI_latest]
+GO
+/****** Object:  StoredProcedure [dbo].[ActualDocuments_SelectBy_WorkpackageUID_Search1]    Script Date: 2/11/2021 2:02:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[ActualDocuments_SelectBy_WorkpackageUID_Search1]
+@ProjectUID uniqueidentifier,
+@Status as varchar(100),
+@WorkPackageUID uniqueidentifier,
+@DocumentName as varchar(250),
+@Doctype as varchar(50),
+@SubmittalName as varchar(100),
+@Type as smallint,
+@DocDate as Datetime,
+@DocumentDate as Datetime
+as
+begin
+set nocount on;
+DECLARE @sql NVARCHAR(MAX) ;
+DEclare @docdater as nvarchar(Max);
+DEclare @documentdater as nvarchar(Max);
+Declare @WkpgUID as nvarchar(max);
+Declare @PrjUID as nvarchar(max);
+set @docdater = CAST(@DocDate as DATE);
+set @documentdater = CAST(@DocumentDate as DATE);
+set @WkpgUID = @WorkPackageUID;
+set @PrjUID=@ProjectUID;
+SET
+   @sql = N'SELECT        ActualDocuments.ActualDocumentUID, ActualDocuments.ProjectUID, ActualDocuments.WorkPackageUID, ActualDocuments.DocumentUID, ActualDocuments.ProjectRef_Number, ActualDocuments.Ref_Number, 
+ ActualDocuments.Doc_Type, ActualDocuments.IncomingRec_Date, ActualDocuments.FlowUID, ActualDocuments.ActualDocument_Name, ActualDocuments.Description, ActualDocuments.ActualDocument_Version, ActualDocuments.ActualDocument_Type, ActualDocuments.ActualDocument_Originator, ActualDocuments.Media_HC, ActualDocuments.Media_SC, ActualDocuments.Media_SCEF, ActualDocuments.Media_HCR, ActualDocuments.Media_SCR, ActualDocuments.Media_NA, ActualDocuments.Document_Date, ActualDocuments.ActualDocument_Path, ActualDocuments.ActualDocument_RelativePath, ActualDocuments.ActualDocument_DirectoryName, ActualDocuments.Remarks, ActualDocuments.FileRef_Number, ActualDocuments.ActualDocument_CreatedDate, ActualDocuments.ActualDocument_CurrentStatus, ActualDocuments.Delete_Flag, ActualDocuments.FlowStep1_TargetDate, ActualDocuments.FlowStep2_TargetDate, ActualDocuments.FlowStep3_TargetDate, ActualDocuments.FlowStep4_TargetDate, ActualDocuments.FlowStep5_TargetDate, Documents.DocName 
+   FROM
+      ActualDocuments 
+      INNER JOIN
+         Documents 
+         ON ActualDocuments.DocumentUID = Documents.DocumentUID'
+ 
+        
+            set
+               @sql = @sql + ' Where  ActualDocuments.Delete_Flag = ''N''' 
+			   set @sql =@sql + ' AND ActualDocuments.ProjectUID = ''' + @PrjUID + '''' 
+                set @sql =@sql + ' AND ActualDocuments.WorkPackageUID = ''' + @WkpgUID + '''' 
+               set @sql =@sql + ' AND (ActualDocuments.Doc_Type = ''Document'''
+               set @sql =@sql + ' OR ActualDocuments.Doc_Type = ''General Document'')'
+               IF (@Status != 'All')
+               Begin
+                set
+            @sql = @sql + ' AND ActualDocuments.ActualDocument_CurrentStatus =''' + @Status + '''' 
+            end
+             IF (@DocumentName != '')
+               Begin
+                set
+            @sql = @sql + ' AND ActualDocuments.ActualDocument_Name Like ''%' + @DocumentName + '%''' 
+            end
+            IF (@Doctype != 'All')
+               Begin
+                set
+            @sql = @sql + ' AND ActualDocuments.ActualDocument_Type Like ''%' + @Doctype + '%''' 
+            end
+             IF (@SubmittalName != '')
+               Begin
+                set
+            @sql = @sql + ' AND Documents.DocName Like ''%' + @SubmittalName + '%''' 
+            end
+              IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(ActualDocuments.IncomingRec_Date as DATE) = ''' + @docdater + '''' 
+            end
+			IF (@Type = 2)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(ActualDocuments.Document_Date as DATE) = ''' + @documentdater + '''' 
+            end
+			IF (@Type = 3)
+               Begin
+			     set
+            @sql = @sql + ' AND CAST(ActualDocuments.IncomingRec_Date as DATE) = ''' + @docdater + '''' 
+                set
+            @sql = @sql + ' AND CAST(ActualDocuments.Document_Date as DATE) = ''' + @documentdater + '''' 
+            end
+
+            set @sql = @sql + ' ORDER BY ActualDocuments.IncomingRec_Date DESC'
+               EXEC(@sql)
+end
+
+// added on 09/02/2021
+
+
+ALTER PROCEDURE [dbo].[usp_GetStatusForSearch] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Distinct ActualDocuments.ActualDocument_CurrentStatus From dbo.ActualDocuments Where ActualDocuments.Delete_Flag ='N' and ActualDocuments.WorkPackageUID=@WorkPackageUID and (Doc_Type='Document' or Doc_Type='General Document')  Order by ActualDocuments.ActualDocument_CurrentStatus Asc
+END
+
+
+
+ALTER PROCEDURE [dbo].[usp_GetDoctypeForSearch] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From dbo.DocumentTypeMaster Where 
+DocumentExtension in (Select distinct ActualDocument_Type From ActualDocuments Where WorkPackageUID=@WorkPackageUID and (Doc_Type='Document' or Doc_Type='General Document')) --and DocumentExtension <>'.xlsx' and DocumentExtension <>'.docx' 
+Order by DocumentType ASC
+--select * From dbo.DocumentTypeMaster where DocumentExtension <>'.xlsx' and DocumentExtension <>'.docx' Order by DocumentType ASC
+END
+
+
+// addded on 15/02/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_FinanceMileStone_Selectby_WorkPackageUID]
+@TaskUID uniqueidentifier
+as
+begin
+set nocount on;
+SELECT        FinanceMileStones.Finance_MileStoneUID, FinanceMileStones.TaskUID, FinanceMileStones.Finance_MileStoneName, FinanceMileStones.IsMonth, FinanceMileStoneMonth.AllowedPayment,FinanceMileStoneMonth.FinMileStoneMonthUID 
+                         (Month +' ' + CONVERT(varchar(10), Year)) as MonthYear,0 as PaymentMade
+FROM            FinanceMileStones INNER JOIN
+                         FinanceMileStoneMonth ON FinanceMileStones.Finance_MileStoneUID = FinanceMileStoneMonth.Finance_MileStoneUID Where TaskUID =@TaskUID and Delete_Flag ='N'
+end
+
+// added on 18/02/2021
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RABillPayments](
+	[PaymentUID] [uniqueidentifier] NOT NULL,
+	[InvoiceUID] [uniqueidentifier] NULL,
+	[RABillDesc] [varchar](max) NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[TotalDeductions] [decimal](18, 2) NULL,
+	[NetAmount] [decimal](18, 2) NULL,
+	[CreatedDate] [datetime] NULL,
+	[DeletedFlag] [varchar](1) NULL,
+ CONSTRAINT [PK_RABillPayments] PRIMARY KEY CLUSTERED 
+(
+	[PaymentUID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RABillPaymentDeductions](
+	[UID] [uniqueidentifier] NOT NULL,
+	[PaymentUID] [uniqueidentifier] NULL,
+	[DeductionUID] [uniqueidentifier] NULL,
+	[Amount] [decimal](18, 2) NULL,
+ CONSTRAINT [PK_RABillPaymentDeductions] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_InsertRABillPayments]
+	-- Add the parameters for the stored procedure here
+@PaymentUID as uniqueidentifier,
+@InvoiceUID as uniqueidentifier,
+@RABillDesc as varchar(max),
+@Amount as float,
+@TotalDeductions as float,
+@NetAmount as float,
+@FinMonthUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[RABillPayments]
+           ([PaymentUID]
+           ,[InvoiceUID]
+           ,[RABillDesc]
+           ,[Amount]
+           ,[TotalDeductions]
+           ,[NetAmount]
+           ,[CreatedDate]
+           ,[DeletedFlag],
+		   [FinMileStoneMonthUID])
+     VALUES
+           (@PaymentUID
+           ,@InvoiceUID
+           ,@RABillDesc
+           ,@Amount
+           ,@TotalDeductions
+           ,@NetAmount
+           ,GETDATE()
+           ,'N'
+		   ,@FinMonthUID)
+END
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_InsertRABillsDeductions]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@PaymentUID as uniqueidentifier,
+@DeductionUID as uniqueidentifier,
+@Amount as float
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[RABillPaymentDeductions]
+           ([UID]
+           ,[PaymentUID]
+           ,[DeductionUID]
+           ,[Amount])
+     VALUES
+           (@UID
+           ,@PaymentUID
+           ,@DeductionUID
+           ,@Amount)
+END
+GO
+
+
+
+CREATE PROCEDURE [usp_GetDeductionFromDesc]
+	-- Add the parameters for the stored procedure here
+@DeductionsDescription as varchar(100)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From [dbo].[DeductionsMaster] where DeductionsDescription =@DeductionsDescription
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetDeductionMaster]
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT [UID]
+      ,[DeductionsDescription]
+  FROM [dbo].[DeductionsMaster]
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetRABillPaymentsbyMonth]
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * FRom [dbo].[RABillPayments] where FinMileStoneMonthUID=@FinMileStoneMonthUID and DeletedFlag='N'
+END
+GO
+
+
+// added on 22/02/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetRABillsPayments] 
+	-- Add the parameters for the stored procedure here
+@PaymentUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From RABillPayments Where PaymentUID = @PaymentUID
+END
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetRABillsPaymentsDeductions] 
+	-- Add the parameters for the stored procedure here
+@PaymentUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From RABillPaymentDeductions Where PaymentUID =@PaymentUID
+END
+GO
+
+
+// added on 25/02/2021
+
+USE [ONTB_Arun_25Feb]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertIntoGeneralDocuments]    Script Date: 2/25/2021 6:06:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_InsertIntoGeneralDocuments] 
+	-- Add the parameters for the stored procedure here
+@GeneralDocumentUID as uniqueidentifier,
+@StructureUID as uniqueidentifier,
+@Ref_Number as varchar(75),
+@GeneralDocument_Name as varchar(250),
+@GeneralDocument_Description as varchar(max),
+@GeneralDocument_Version as varchar(max),
+@GeneralDocument_Type as varchar(max),
+@Media_HC varchar(50),
+@Media_SC varchar(50),
+@Media_SCEF varchar(50),
+@Media_HCR varchar(50),
+@Media_SCR varchar(50),
+@Media_NA varchar(50),
+@IncomingRec_Date as datetime,
+@Document_Date as datetime,
+@GeneralDocument_Path as varchar(500),
+@GeneralDocument_RelativePath as varchar(500),
+@GeneralDocument_DirectoryName as varchar(500),
+@FileRef_Number as varchar(100),
+@GeneralDocument_CurrentStatus as varchar(100),
+@Remarks as varchar(max),
+@UploadFilePhysicalpath varchar(1000)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if not exists (select * from GeneralDocuments where GeneralDocumentUID=@GeneralDocumentUID)
+begin	
+	INSERT INTO [dbo].[GeneralDocuments]
+           ([GeneralDocumentUID]
+           ,[StructureUID]
+           ,[Ref_Number]
+           ,[GeneralDocument_Name]
+           ,[GeneralDocument_Description]
+           ,[GeneralDocument_Version]
+           ,[GeneralDocument_Type]
+           ,[GeneralDocument_Originator]
+           ,[Media_HC]
+           ,[Media_SC]
+           ,[Media_SCEF]
+           ,[Media_HCR]
+           ,[Media_SCR]
+           ,[Media_NA]
+           ,[IncomingRec_Date]
+           ,[Document_Date]
+           ,[GeneralDocument_Path]
+           ,[GeneralDocument_RelativePath]
+           ,[GeneralDocument_DirectoryName]
+           ,[FileRef_Number]
+           ,[GeneralDocument_CreatedDate]
+           ,[GeneralDocument_CurrentStatus]
+           ,[Remarks]
+           ,[Delete_Flag])
+     VALUES
+           (@GeneralDocumentUID
+           ,@StructureUID
+           ,@Ref_Number
+           ,@GeneralDocument_Name
+           ,@GeneralDocument_Description
+           ,@GeneralDocument_Version
+           ,@GeneralDocument_Type
+           ,NULL
+           ,@Media_HC
+           ,@Media_SC
+           ,@Media_SCEF
+           ,@Media_HCR
+           ,@Media_SCR
+           ,@Media_NA
+           ,@IncomingRec_Date
+           ,@Document_Date
+           ,@GeneralDocument_Path
+           ,@GeneralDocument_RelativePath
+           ,@GeneralDocument_DirectoryName
+           ,@FileRef_Number
+           ,GETDATE()
+           ,@GeneralDocument_CurrentStatus
+           ,@Remarks
+           ,'N')
+
+		   -- Insert to WordDocRead table
+	declare @strPath varchar(500)=@GeneralDocument_Path;
+	set @strPath = (select reverse(left(reverse(@strPath),CHARINDEX('.',reverse(@strPath))-1)))
+
+	if(@strPath = 'doc' or @strPath = 'docx')
+	begin
+		insert into WordDocRead(UID,Doc_path,Status,CreatedDate,DocumemtUID,Encrypted)
+		values(NEWID(),@UploadFilePhysicalpath,'Pending',GETDATE(),@GeneralDocumentUID,'Y')
+	end
+
+		   END
+END
+
+
+
+CREATE PROCEDURE [usp_GetFolderNameByUID]
+	-- Add the parameters for the stored procedure here
+@StructureUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        Structure_Name
+FROM            GeneralDocumentStructure
+Where StructureUID=@StructureUID
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[GeneralDocuments_SelectBy_StructureUID]
+@StructureUID uniqueidentifier
+as
+begin
+set nocount on;
+select * from GeneralDocuments where StructureUID=@StructureUID and Delete_Flag='N' 
+end
+
+
+// added on 26/01/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_GetDoctypeForSearchGD] 
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * From dbo.DocumentTypeMaster Where 
+DocumentExtension in (Select distinct GeneralDocument_Type From GeneralDocuments)
+Order by DocumentType ASC
+--select * From dbo.DocumentTypeMaster where DocumentExtension <>'.xlsx' and DocumentExtension <>'.docx' Order by DocumentType ASC
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[GeneralDocuments_Search]
+@DocumentName as varchar(250),
+@Doctype as varchar(50),
+@Type as smallint,
+@DocDate as Datetime,
+@DocumentDate as Datetime,
+@DocDateTo as Datetime,
+@DocumentDateTo as Datetime
+as
+begin
+set nocount on;
+DECLARE @sql NVARCHAR(MAX) ;
+DEclare @docdater as nvarchar(Max);
+DEclare @documentdater as nvarchar(Max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @documentdaterTo as nvarchar(Max);
+
+set @docdater = CAST(@DocDate as DATE);
+set @documentdater = CAST(@DocumentDate as DATE);
+set @docdaterTo = CAST(@DocDateTo as DATE);
+set @documentdaterTo = CAST(@DocumentDateTo as DATE);
+
+SET
+   @sql = N'select * from GeneralDocuments'
+ 
+        
+            set
+               @sql = @sql + ' Where  GeneralDocuments.Delete_Flag = ''N''' 
+
+             IF (@DocumentName != '')
+               Begin
+                set
+            @sql = @sql + ' AND GeneralDocuments.GeneralDocument_Name Like ''%' + @DocumentName + '%''' 
+            end
+            IF (@Doctype != 'All')
+               Begin
+                set
+            @sql = @sql + ' AND GeneralDocuments.GeneralDocument_Type Like ''%' + @Doctype + '%''' 
+            end
+             
+              IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(GeneralDocuments.IncomingRec_Date as DATE) >= ''' + @docdater + '''' 
+			set @sql = @sql + ' AND CAST(GeneralDocuments.IncomingRec_Date as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			IF (@Type = 2)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(GeneralDocuments.Document_Date as DATE) >= ''' + @documentdater + '''' 
+			 set
+            @sql = @sql + ' AND CAST(GeneralDocuments.Document_Date as DATE) <= ''' + @documentdaterTo + '''' 
+            end
+			IF (@Type = 3)
+               Begin
+			     set
+          @sql = @sql + 'AND CAST(GeneralDocuments.IncomingRec_Date as DATE) >= ''' + @docdater + '''' 
+			set @sql = @sql + ' AND CAST(GeneralDocuments.IncomingRec_Date as DATE) <= ''' + @docdaterTo + '''' 
+			 set @sql = @sql + ' AND CAST(GeneralDocuments.Document_Date as DATE) >= ''' + @documentdater + '''' 
+			 set
+            @sql = @sql + ' AND CAST(GeneralDocuments.Document_Date as DATE) <= ''' + @documentdaterTo + '''' 
+            end
+
+            set @sql = @sql + ' ORDER BY GeneralDocuments.IncomingRec_Date DESC'
+               EXEC(@sql)
+end
+
+
+
+// added on 10/03/2021
+CREATE PROCEDURE [dbo].[usp_GetUsersList] 
+	-- Add the parameters for the stored procedure here
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select UserUID,(FirstName + ' ' + LastName) as Name,EmailID From UserDetails Where (TypeOfUser ='DDE' or TypeOfUser='DDE') and DeletedFlag ='N'
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usp_GetGDByUser]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+
+Declare @User as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+    -- Insert statements for procedure here
+	SET
+   @sql = N'Select * From GeneralDocuments'
+    set @sql =@sql + ' Where GeneralDocuments.Created_By = ''' + @User + '''' 
+   set
+               @sql = @sql + ' and  GeneralDocuments.Delete_Flag = ''N''' 
+			   IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+END
+
+
+
+---------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usp_GetUserProjects]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID
+
+	Union All
+SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+END
+
+
+---------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetPrjectdocumnetscount] 
+	-- Add the parameters for the stored procedure here
+@ProjectUID as uniqueidentifier,
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @Prj as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+set @prj = @ProjectUID
+    -- Insert statements for procedure here
+
+SET
+   @sql = N'SELECT Count(ActualDocuments.ActualDocument_Name) as Count FROM Documents INNER JOIN
+                         ActualDocuments ON Documents.DocumentUID = ActualDocuments.DocumentUID'
+
+			set @sql =@sql + ' Where ActualDocuments.ProjectUID = ''' + @prj + '''' 
+			set @sql =@sql + ' and Documents.FlowStep1_UserUID = ''' + @User + '''' 
+			set
+               @sql = @sql + ' and  ActualDocuments.Delete_Flag = ''N''' 
+			 IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+			 
+END
+
+
+
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetAllUserDocuments] 
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+
+    -- Insert statements for procedure here
+
+SET
+   @sql = N'SELECT ActualDocuments.ActualDocumentUID as DocumentUID,ActualDocuments.ActualDocument_Path,ProjectDetails.ProjectName,Documents.DocName AS Submittal, ActualDocuments.ActualDocument_Name AS DocName, ActualDocuments.ActualDocument_Type AS Type, ActualDocuments.ActualDocument_CurrentStatus AS Status, 
+                         ActualDocuments.ActualDocument_CreatedDate AS IncomingRcvDate, ActualDocuments.Document_Date as Document_Date
+FROM            Documents INNER JOIN
+                         ActualDocuments ON Documents.DocumentUID = ActualDocuments.DocumentUID INNER JOIN
+                         ProjectDetails ON ActualDocuments.ProjectUID = ProjectDetails.ProjectUID'
+
+
+			set @sql =@sql + ' Where Documents.FlowStep1_UserUID = ''' + @User + '''' 
+			  set
+               @sql = @sql + ' and  ActualDocuments.Delete_Flag = ''N''' 
+			 IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			
+			set @sql = @sql + ' Union All '
+
+			set @sql = @sql +  'Select GeneralDocumentUID as DocumentUID,GeneralDocument_Path as ActualDocument_Path,''General Documents'' as ProjectName,'''' as Submittal,GeneralDocument_Name as DocName,GeneralDocument_Type as Type,GeneralDocument_CurrentStatus as Status,IncomingRec_Date as IncomingRcvDate,Document_Date From GeneralDocuments'
+
+			 set @sql =@sql + ' Where GeneralDocuments.Created_By = ''' + @User + '''' 
+   set
+               @sql = @sql + ' and  GeneralDocuments.Delete_Flag = ''N''' 
+			   IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			
+			   EXEC(@sql)
+			  
+			 
+END
+
+
+
+
+-----
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_GetDocCountGD]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint,
+@SType as varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @Prj as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+
+
+    -- Insert statements for procedure here
+SET
+   @sql = N'SELECT SUM(Action_Count) as Count FROM [dbo].[DocumentHistory]'
+
+  
+			set @sql =@sql + ' Where UserUID = ''' + @User + '''' 
+			set @sql =@sql + ' and Action_Type = ''' + @SType + '''' 
+			set @sql =@sql + ' and ProjectUID is NULL'
+    IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(LastAction_Date as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(LastAction_Date as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+
+END
+
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[usp_GetDocCount]
+	-- Add the parameters for the stored procedure here
+@ProjectUID as uniqueidentifier,
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint,
+@SType as varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @Prj as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+set @prj = @ProjectUID
+
+    -- Insert statements for procedure here
+SET
+   @sql = N'SELECT SUM(Action_Count) as Count FROM [dbo].[DocumentHistory]'
+
+   set @sql =@sql + ' Where ProjectUID = ''' + @prj + '''' 
+			set @sql =@sql + ' and UserUID = ''' + @User + '''' 
+			set @sql =@sql + ' and Action_Type = ''' + @SType + '''' 
+    IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(LastAction_Date as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(LastAction_Date as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+
+END
+
+
+// added on 18/03/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_GetUsersListByPrj] 
+	-- Add the parameters for the stored procedure here
+@ProjectUID as uniqueidentifier	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+	SELECT        UserProjects.UserUID, (UserDetails.FirstName + ' ' +  UserDetails.LastName) as Name,UserDetails.EmailID
+FROM            UserProjects INNER JOIN
+                         UserDetails ON UserProjects.UserUID = UserDetails.UserUID
+						 Where (TypeOfUser ='DDE' or TypeOfUser='DDE') and DeletedFlag ='N'
+						 and UserProjects.ProjectUID =@ProjectUID
+END
+
+-------
+
+ALTER PROCEDURE [dbo].[usp_GetUserProjects]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@Type as smallint,
+@ProjectUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+IF @Type = 1
+Begin
+	SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID
+
+	Union All
+SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+	END
+ELSE IF @Type = 2
+BEGIN
+    SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID and UserProjects.ProjectUID =@ProjectUID
+
+
+END
+ELSE IF @Type = 3
+BEGIN
+  SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+
+
+END
+END
+
+
+----
+
+ALTER PROCEDURE [dbo].[usp_GetAllUserDocumentsByPrj] 
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint,
+@ProjectUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @Prj as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+set @Prj =@ProjectUID
+    -- Insert statements for procedure here
+
+SET
+   @sql = N'SELECT ActualDocuments.ActualDocumentUID as DocumentUID,ActualDocuments.ActualDocument_Path,ProjectDetails.ProjectName,Documents.DocName AS Submittal, ActualDocuments.ActualDocument_Name AS DocName, ActualDocuments.ActualDocument_Type AS Type, ActualDocuments.ActualDocument_CurrentStatus AS Status, 
+                         ActualDocuments.ActualDocument_CreatedDate AS IncomingRcvDate, ActualDocuments.Document_Date as Document_Date
+FROM            Documents INNER JOIN
+                         ActualDocuments ON Documents.DocumentUID = ActualDocuments.DocumentUID INNER JOIN
+                         ProjectDetails ON ActualDocuments.ProjectUID = ProjectDetails.ProjectUID'
+
+
+			set @sql =@sql + ' Where Documents.FlowStep1_UserUID = ''' + @User + '''' 
+			set @sql =@sql + ' and ActualDocuments.ProjectUID = ''' + @Prj + '''' 
+			  set
+               @sql = @sql + ' and  ActualDocuments.Delete_Flag = ''N''' 
+			 IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(ActualDocuments.ActualDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+			  
+			 
+END
+
+
+----
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetGDByUser]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+
+Declare @User as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+    -- Insert statements for procedure here
+	SET
+   @sql = N'Select *,GeneralDocumentUID as DocumentUID,GeneralDocument_Path as ActualDocument_Path,''General Documents'' as ProjectName,'''' as Submittal,GeneralDocument_Name as DocName,GeneralDocument_Type as Type,GeneralDocument_CurrentStatus as Status,IncomingRec_Date as IncomingRcvDate From GeneralDocuments'
+    set @sql =@sql + ' Where GeneralDocuments.Created_By = ''' + @User + '''' 
+   set
+               @sql = @sql + ' and  GeneralDocuments.Delete_Flag = ''N''' 
+			   IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(GeneralDocuments.GeneralDocument_CreatedDate as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+END
+
+-------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetDocCountGDByDoc]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint,
+@SType as varchar(50),
+@DocumentUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @Prj as nvarchar(max);
+Declare @docID as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+set @docID = @DocumentUID
+
+    -- Insert statements for procedure here
+SET
+   @sql = N'SELECT SUM(Action_Count) as Count FROM [dbo].[DocumentHistory]'
+
+			set @sql = @sql + ' Where DocumentUID in (Select GeneralDocumentUID From GeneralDocuments Where Delete_Flag=''N'')'
+			set @sql =@sql + ' and UserUID = ''' + @User + '''' 
+			set @sql =@sql + ' and Action_Type = ''' + @SType + '''' 
+			set @sql =@sql + ' and DocumentUID = ''' + @docID + '''' 
+			set @sql =@sql + ' and ProjectUID is NULL'
+    IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + ' AND CAST(LastAction_Date as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(LastAction_Date as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+
+END
+
+
+-------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetDocCountByDoc]
+	-- Add the parameters for the stored procedure here
+@DocumentUID as uniqueidentifier,
+@UserUID as uniqueidentifier,
+@DateFrom as Datetime,
+@DateTo as Datetime,
+@Type as smallint,
+@SType as varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	DECLARE @sql NVARCHAR(MAX) ;
+Declare @User as nvarchar(max);
+Declare @docID as nvarchar(max);
+DEclare @docdaterTo as nvarchar(Max);
+DEclare @docdaterFrom as nvarchar(Max);
+set @docdaterTo = CAST(@DateTo as DATE);
+set @docdaterFrom = CAST(@DateFrom as DATE);
+set @User=@UserUID
+set @docID = @DocumentUID
+
+    -- Insert statements for procedure here
+SET
+   @sql = N'SELECT SUM(Action_Count) as Count FROM [dbo].[DocumentHistory]'
+			set @sql = @sql + ' Where DocumentUID in (Select ActualDocumentUID From ActualDocuments Where Delete_Flag=''N'')'
+				set @sql =@sql + ' and DocumentUID = ''' + @docID + '''' 
+			set @sql =@sql + ' and UserUID = ''' + @User + '''' 
+			set @sql =@sql + ' and Action_Type = ''' + @SType + '''' 
+    IF (@Type = 1)
+               Begin
+                set
+            @sql = @sql + 'AND CAST(LastAction_Date as DATE) >= ''' + @docdaterFrom + '''' 
+			set @sql = @sql + ' AND CAST(LastAction_Date as DATE) <= ''' + @docdaterTo + '''' 
+            end
+			   EXEC(@sql)
+
+END
+
+
+
+----
+// added on 21/03/2020
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetUserProjects]
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@Type as smallint,
+@ProjectUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+IF @Type = 1
+Begin
+	SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID
+
+	Union All
+SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+			Union All
+SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'Total' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+	END
+ELSE IF @Type = 2
+BEGIN
+    SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID and UserProjects.ProjectUID =@ProjectUID
+
+
+END
+ELSE IF @Type = 3
+BEGIN
+  SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+
+
+END
+ELSE IF @Type = 4
+Begin
+	SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID
+
+	Union All
+SELECT        NEWID() as ProjectUID,@UserUID  as UserUID, 'General Documents' as ProjectName
+FROM            UserDetails 
+						 Where UserDetails.UserUID = @UserUID
+			
+	END
+	ELSE IF @Type = 5
+Begin
+	SELECT        UserProjects.ProjectUID, UserProjects.UserUID, ProjectDetails.ProjectName
+FROM            UserProjects INNER JOIN
+                         ProjectDetails ON UserProjects.ProjectUID = ProjectDetails.ProjectUID
+						 Where UserProjects.UserUID = @UserUID and UserProjects.ProjectUID =@ProjectUID
+
+	
+			
+	END
+
+END
+
+
+// added on 20/04/2021
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetInvoiceMasterByWkpg]
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From [dbo].[InvoiceMaster] Where WorkpackageUID =@WorkPackageUID
+END
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER PROCEDURE [dbo].[usp_GetSumBillValueForInvoice] 
+	-- Add the parameters for the stored procedure here
+@InvoiceMasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select Sum(Invoice_TotalAmount) as BillValue From [dbo].[InvoiceMaster] Where InvoiceMaster_UID = @InvoiceMasterUID
+END
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetInvoiceDeductions] 
+	-- Add the parameters for the stored procedure here
+@InvoiceMasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        Invoice_Deduction.Deduction_UID, DeductionsMaster.DeductionsDescription, Invoice_Deduction.Amount, Invoice_Deduction.Percentage, DeductionsMaster.Maxpercentage
+FROM            Invoice_Deduction INNER JOIN
+                         DeductionsMaster ON Invoice_Deduction.Deduction_UID = DeductionsMaster.UID
+						 Where Invoice_Deduction.InvoiceMaster_UID = @InvoiceMasterUID and Invoice_Deduction.Delete_Flag ='N'
+						 Order by Invoice_Deduction.Order_By Asc
+
+END
+
+
+CREATE PROCEDURE [dbo].[usp_GetNetBillValueForInvoice] 
+	-- Add the parameters for the stored procedure here
+@InvoiceMasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select Sum(Invoice_NetAmount) as BillValue From [dbo].[InvoiceMaster] Where InvoiceMaster_UID = @InvoiceMasterUID
+END
+
+
+ALTER PROCEDURE [dbo].[usp_GetRABillPaymentsbyMonth]
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        RABillPayments.PaymentUID, RABillPayments.RABillDesc, RABillPayments.Amount, RABillPayments.TotalDeductions, RABillPayments.NetAmount, RABillPayments.CreatedDate, RABillPayments.DeletedFlag, 
+                         RABillPayments.FinMileStoneMonthUID, RABillPayments.InvoiceUID, InvoiceMaster.Invoice_Number,InvoiceMaster.WorkpackageUID
+FROM            RABillPayments INNER JOIN
+                         InvoiceMaster ON RABillPayments.InvoiceUID = InvoiceMaster.InvoiceMaster_UID where FinMileStoneMonthUID=@FinMileStoneMonthUID and DeletedFlag='N'
+END
+
+
+
+
+
+---- added on 26/04/2021--------
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BackupLogs](
+	[SrNo] [int] IDENTITY(1,1) NOT NULL,
+	[backupdate] [date] NULL,
+	[Starttime] [datetime] NULL,
+	[endtime] [datetime] NULL,
+	[type] [varchar](20) NULL,
+[folder] [varchar](20) NULL,
+ CONSTRAINT [PK_BackupLogs] PRIMARY KEY CLUSTERED 
+(
+	[SrNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+FullBackupDay	smallint	Checked    added to BackupApplicationConfig
+
+DestinationDBPath	varchar(250)	Checked
+
+ErrorEmailTo	varchar(500)	Checked
+
+ErrorCCTo	varchar(500)	Checked
+
+
+// added on 30/04/2021-----
+PaymentDate	date	Checked add  to RABillPayments
+
+
+ALTER PROCEDURE [dbo].[usp_InsertRABillPayments]
+	-- Add the parameters for the stored procedure here
+@PaymentUID as uniqueidentifier,
+@InvoiceUID as uniqueidentifier,
+@RABillDesc as varchar(max),
+@Amount as float,
+@TotalDeductions as float,
+@NetAmount as float,
+@FinMonthUID as uniqueidentifier,
+@PaymentDate as Date
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM RABillPayments WHERE PaymentUID = @PaymentUID)
+BEGIN
+	INSERT INTO [dbo].[RABillPayments]
+           ([PaymentUID]
+           ,[InvoiceUID]
+           ,[RABillDesc]
+           ,[Amount]
+           ,[TotalDeductions]
+           ,[NetAmount]
+           ,[CreatedDate]
+           ,[DeletedFlag],
+		   [FinMileStoneMonthUID]
+		   ,[PaymentDate])
+     VALUES
+           (@PaymentUID
+           ,@InvoiceUID
+           ,@RABillDesc
+           ,@Amount
+           ,@TotalDeductions
+           ,@NetAmount
+           ,GETDATE()
+           ,'N'
+		   ,@FinMonthUID
+		   ,@PaymentDate)
+		   END
+		   else
+begin
+	UPDATE RABillPayments
+	set   InvoiceUID = @InvoiceUID,
+	        RABillDesc = @RABillDesc,
+	        Amount = @Amount,
+	        TotalDeductions  =@TotalDeductions,
+	        NetAmount = @NetAmount,
+			PaymentDate = @PaymentDate
+            Where PaymentUID = @PaymentUID
+end
+END
+
+
+ALTER PROCEDURE [dbo].[usp_GetRABillPaymentsbyMonth]
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        RABillPayments.PaymentUID, RABillPayments.RABillDesc, RABillPayments.Amount, RABillPayments.TotalDeductions, RABillPayments.NetAmount, RABillPayments.CreatedDate, RABillPayments.DeletedFlag, 
+                         RABillPayments.FinMileStoneMonthUID, RABillPayments.InvoiceUID, InvoiceMaster.Invoice_Number,InvoiceMaster.WorkpackageUID,RABillPayments.PaymentDate
+FROM            RABillPayments INNER JOIN
+                         InvoiceMaster ON RABillPayments.InvoiceUID = InvoiceMaster.InvoiceMaster_UID where FinMileStoneMonthUID=@FinMileStoneMonthUID and DeletedFlag='N'
+END
+
+
+ALTER PROCEDURE [dbo].[usp_GetInvoiceMasterByWkpg]
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@Type as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	If @Type = 2
+	Begin
+	Select * From [dbo].[InvoiceMaster] Where WorkpackageUID =@WorkPackageUID --and InvoiceMaster_UID Not in (Select InvoiceUID From RABillPayments Where DeletedFlag ='N')
+	END
+	ELSE
+	Begin
+
+	Select * From [dbo].[InvoiceMaster] Where WorkpackageUID =@WorkPackageUID and InvoiceMaster_UID Not in (Select InvoiceUID From RABillPayments Where DeletedFlag ='N')
+	END
+END
+
+
+
+// added on 03/05/2021
+ALTER proc [dbo].[usp_FinanceMileStone_Selectby_WorkPackageUID]
+@TaskUID uniqueidentifier
+as
+begin
+set nocount on;
+SELECT FinanceMileStones.Finance_MileStoneUID, FinanceMileStones.TaskUID, FinanceMileStones.Finance_MileStoneName, FinanceMileStones.IsMonth, FinanceMileStoneMonth.AllowedPayment,FinanceMileStoneMonth.FinMileStoneMonthUID ,
+(Month +' ' + CONVERT(varchar(10), Year)) as MonthYear,0 as PaymentMade
+FROM FinanceMileStones INNER JOIN
+FinanceMileStoneMonth ON FinanceMileStones.Finance_MileStoneUID = FinanceMileStoneMonth.Finance_MileStoneUID Where TaskUID =@TaskUID and Delete_Flag ='N' Order BY FinanceMileStoneMonth.OrderBy ASC
+end
+
+// ADDED on 05/05/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetTaskScheduleDatesforGraph] 
+	-- Add the parameters for the stored procedure here
+@WorkpackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT distinct
+      [StartDate]
+      
+  FROM [dbo].[TaskSchedule] Where WorkpacageUID =@WorkpackageUID Order by [StartDate] ASC 
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetTaskScheduleValuesForGraph] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@StartDate as datetime,
+@EndDate as datetime
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select Sum(Schedule_Value) as TotalSchValue,Sum(Achieved_Value) as TotalAchValue From [dbo].[TaskSchedule] Where WorkpacageUID=@WorkPackageUID and CAST(TaskSchedule.StartDate as DATE) >= CAST(@StartDate as DATE) And CAST(TaskSchedule.EndDate as DATE) < CAST(@EndDate as DATE)
+END
+
+//added on 24/05/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetInvoiceDeductions] 
+	-- Add the parameters for the stored procedure here
+@InvoiceMasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        Invoice_Deduction.Deduction_UID, DeductionsMaster.DeductionsDescription, Invoice_Deduction.Amount, Invoice_Deduction.Percentage, DeductionsMaster.Maxpercentage,Invoice_Deduction.Deduction_Mode
+FROM            Invoice_Deduction INNER JOIN
+                         DeductionsMaster ON Invoice_Deduction.Deduction_UID = DeductionsMaster.UID
+						 Where Invoice_Deduction.InvoiceMaster_UID = @InvoiceMasterUID and Invoice_Deduction.Delete_Flag ='N'
+						 Order by Invoice_Deduction.Order_By Asc
+
+END
+
+// added on 26/05/2021
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RABill_PriceAdj_Master](
+	[UID] [uniqueidentifier] NOT NULL,
+	[WorkPackageUID] [uniqueidentifier] NULL,
+	[RABillUID] [uniqueidentifier] NULL,
+	[Description] [varchar](100) NULL,
+	[InitialIndicesDate] [date] NULL,
+	[LatestIndicesDate] [date] NULL,
+	[CreatedDate] [datetime] NULL,
+	[DeletedFlag] [varchar](1) NULL,
+	[RABillAmount] [decimal](18, 2) NULL,
+	[PriceAdjFActor] [decimal](18, 4) NULL,
+	[PriceAdjValue] [decimal](18, 2) NULL,
+	[RecievedAmount] [decimal](18, 2) NULL,
+	[BalanceAmount] [decimal](18, 2) NULL,
+	[DeletedDate] [datetime] NULL,
+	[DeletedBy] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_RABill_PriceAdj_Master] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RABill_PriceAdj_Details](
+	[UID] [uniqueidentifier] NOT NULL,
+	[MasterUID] [uniqueidentifier] NULL,
+	[ItemUID] [uniqueidentifier] NULL,
+	[ItemDescription] [varchar](250) NULL,
+	[SourceIndex] [varchar](250) NULL,
+	[ProposedWeighting] [decimal](18, 2) NULL,
+	[Coefficient] [decimal](18, 4) NULL,
+	[InitialIndiceValue] [decimal](18, 4) NULL,
+	[LatestIndiceValue] [decimal](18, 4) NULL,
+	[CreatedDate] [datetime] NULL,
+	[DeletedFlag] [varchar](1) NULL,
+	[PriceAdjFactor] [decimal](18, 4) NULL,
+	[DeletedDate] [datetime] NULL,
+	[DeletedBy] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_RABill_PriceAdj_Details] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_RABillPriceAdj_Master_InsertUpdate]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@RABillUID as uniqueidentifier,
+@Description as varchar(100),
+@InitialIndicesDate as date,
+@LatestIndicesDate as date,
+@RABillAmount as decimal(18, 2),
+@PriceAdjFActor as decimal(18, 4),
+@PriceAdjValue as decimal(18, 2),
+@RecievedAmount as decimal(18, 2),
+@BalanceAmount as decimal(18, 2) NULL
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if not exists (select * from RABill_PriceAdj_Master where UID=@UID)
+begin
+	INSERT INTO [dbo].[RABill_PriceAdj_Master]
+           ([UID]
+           ,[WorkPackageUID]
+           ,[RABillUID]
+           ,[Description]
+           ,[InitialIndicesDate]
+           ,[LatestIndicesDate]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+		   ,[RABillAmount]
+	,[PriceAdjFActor] 
+	,[PriceAdjValue] 
+	,[RecievedAmount]
+	,[BalanceAmount] )
+     VALUES
+           (@UID
+           ,@WorkPackageUID
+           ,@RABillUID
+           ,@Description
+           ,@InitialIndicesDate
+           ,@LatestIndicesDate 
+           ,GETDATE()
+           ,'N'
+		   ,@RABillAmount
+		   ,@PriceAdjFActor
+		   ,@PriceAdjValue
+		   ,@RecievedAmount
+		   ,@BalanceAmount)
+		   END
+	ELSE
+	Begin
+	Update [dbo].[RABill_PriceAdj_Master] set Description=@Description,InitialIndicesDate=@InitialIndicesDate,LatestIndicesDate=@LatestIndicesDate
+	Where UID=@UID
+
+	ENd
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetPriceADjMAster_UID] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        RABill_PriceAdj_Master.*
+FROM            RABill_PriceAdj_Master
+Where UID=@UID
+END
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetRABillPriceAdj_Master]
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        RABill_PriceAdj_Master.RABillUID,RABill_PriceAdj_Master.WorkPackageUID, RABill_Abstract.RABillNumber, RABill_PriceAdj_Master.Description, RABill_PriceAdj_Master.InitialIndicesDate, RABill_PriceAdj_Master.LatestIndicesDate, 
+                         RABill_PriceAdj_Master.UID, RABill_PriceAdj_Master.RABillAmount, RABill_PriceAdj_Master.PriceAdjFActor, RABill_PriceAdj_Master.PriceAdjValue, RABill_PriceAdj_Master.RecievedAmount, 
+                         RABill_PriceAdj_Master.BalanceAmount
+FROM            RABill_PriceAdj_Master INNER JOIN
+                         RABill_Abstract ON RABill_PriceAdj_Master.RABillUID = RABill_Abstract.RABillUid
+						 Where RABill_PriceAdj_Master.WorkPackageUID=@WorkPackageUID and RABill_PriceAdj_Master.DeletedFlag='N'
+END
+
+
+
+---------------
+
+ALTER PROCEDURE [dbo].[usp_RABillPriceAdj_Details_InsertUpdate]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@MasterUID as uniqueidentifier,
+@ItemUID as uniqueidentifier,
+@ItemDescription as varchar(250),
+@SourceIndex as varchar(250),
+@ProposedWeighting as decimal(18,2),
+@Coefficient as decimal(18,4),
+@InitialIndiceValue as decimal(18,4),
+@LatestIndiceValue as decimal(18,4),
+@PriceAdjFactor as decimal(18,4)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if not exists (select * from RABill_PriceAdj_Details where UID=@UID)
+begin
+	INSERT INTO [dbo].[RABill_PriceAdj_Details]
+           ([UID]
+           ,[MasterUID]
+           ,[ItemUID]
+		   ,[ItemDescription]
+           ,[SourceIndex]
+           ,[ProposedWeighting]
+           ,[Coefficient]
+           ,[InitialIndiceValue]
+           ,[LatestIndiceValue]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+		   ,[PriceAdjFactor])
+     VALUES
+           (@UID
+           ,@MasterUID
+           ,@ItemUID
+		   ,@ItemDescription
+           ,@SourceIndex
+           ,@ProposedWeighting
+           ,@Coefficient
+           ,@InitialIndiceValue
+           ,@LatestIndiceValue
+           ,GETDATE()
+           ,'N'
+		   ,@PriceAdjFactor)
+		   END
+	ELSE
+	Begin
+	Update [dbo].[RABill_PriceAdj_Details] set SourceIndex=@SourceIndex,ProposedWeighting=@ProposedWeighting,Coefficient=@Coefficient,InitialIndiceValue=@InitialIndiceValue,LatestIndiceValue=@LatestIndiceValue,PriceAdjFactor=@PriceAdjFactor
+	Where UID=@UID
+
+
+	END
+END
+
+----
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[usp_GetRABillsPriceAdjDetails] 
+	-- Add the parameters for the stored procedure here
+@MasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        UID,MasterUID, ItemUID, ItemDescription, SourceIndex, ProposedWeighting, Coefficient, InitialIndiceValue, LatestIndiceValue,PriceAdjFactor
+FROM            RABill_PriceAdj_Details
+Where RABill_PriceAdj_Details.MasterUID=@MasterUID and RABill_PriceAdj_Details.DeletedFlag='N' order by CreatedDate ASC
+END
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_UpdateRABillPriceAdjMasterAmnt]
+	-- Add the parameters for the stored procedure here
+@PriceAdjFactor as decimal(18,4),
+@PriceAdjValue as decimal(18,2),
+@RecievedAmount as decimal(18,2),
+@BalanceAmount as decimal(18,2),
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update [dbo].[RABill_PriceAdj_Master] set PriceAdjFActor=@PriceAdjFactor,PriceAdjValue=@PriceAdjValue,RecievedAmount=@RecievedAmount,BalanceAmount=@BalanceAmount Where UID=@UID
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetPriceAdjFactor] 
+	-- Add the parameters for the stored procedure here
+@MasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Sum(PriceAdjFactor) as Factor From RABill_PriceAdj_Details Where MasterUID=@MasterUID and DeletedFlag='N'
+END
+GO
+
+
+---added on 28/05/2021
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PriceAdjIndexMaster](
+	[UID] [uniqueidentifier] NOT NULL,
+	[WorkPackageUID] [uniqueidentifier] NULL,
+	[IndexName] [varchar](100) NOT NULL,
+	[DeletedFlag] [varchar](1) NULL,
+	[OrderBy] [smallint] NULL,
+ CONSTRAINT [PK_PriceAdjIndexMaster] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetPriceAdjMaster] 
+	-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@MasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Select * From [dbo].[PriceAdjIndexMaster] Where WorkPackageUID=@WorkPackageUID and DeletedFlag='N' and  UID not in (Select itemUID FRom [dbo].[RABill_PriceAdj_Details] Where MasterUID =@MasterUID and DeletedFlag='N')
+	Order by OrderBy
+END
+GO
+
+--------
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetRABillPriceADj_Detials_UID] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT        RABill_PriceAdj_Details.*
+FROM            RABill_PriceAdj_Details
+Where RABill_PriceAdj_Details.UID=@UID
+END
+GO
+
+
+--
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_DeleteRABillPriceAdjMaster] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@DeleteBy as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	update [dbo].[RABill_PriceAdj_Master] set DeletedFlag='Y',DeletedBy=@DeleteBy,DeletedDate=GETDATE()
+	Where UID=@UID
+
+	update [dbo].[RABill_PriceAdj_Details] set DeletedFlag='Y',DeletedBy=@DeleteBy,DeletedDate=GETDATE()
+	Where MasterUID=@UID
+END
+
+
+
+----
+CREATE PROCEDURE [usp_DeleteRABillPriceAdjDetails]  
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@DeleteBy as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	
+
+	update [dbo].[RABill_PriceAdj_Details] set DeletedFlag='Y',DeletedBy=@DeleteBy,DeletedDate=GETDATE()
+	Where UID=@UID
+END
+GO
+
+---
+
+CREATE PROCEDURE [usp_GetPriceAdjWieghting] 
+	-- Add the parameters for the stored procedure here
+@MasterUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Sum(ProposedWeighting) as Weighting From RABill_PriceAdj_Details Where MasterUID=@MasterUID and DeletedFlag='N'
+END
+GO
+
+// added on 31/05/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_InsertorUpdateSubTasks_Puttenahalli] 
+	-- Add the parameters for the stored procedure here
+@TaskUID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@ProjectUID as  uniqueidentifier,
+@Owner as varchar(100),
+@Name as varchar(100),
+@Description as varchar(250),
+@RFPReference as varchar(250),
+@POReference as varchar(250),
+@StartDate as datetime,          
+@PlannedEndDate as datetime,
+@ProjectedEndDate as datetime,
+@Status as varchar(20),
+@Basic_Budget as float,
+@GST as float,
+@Budget as float,
+@StatusPer as float,
+@ActualExpenditure as float,
+@RFPDocument as varchar(250),
+@TaskLevel as int,
+@ParentTaskID as uniqueidentifier,
+@PlannedStartDate datetime,
+@ProjectedStartDate datetime,
+@ActualEndDate datetime,
+@Discipline varchar(50),
+@UnitforProgress varchar(50),
+@Currency varchar(20),
+@Currency_CultureInfo varchar(20),
+@Task_Weightage float,
+@Task_Type varchar(50),
+@Workpackage_Option uniqueidentifier,
+@UnitQuantity float
+AS
+BEGIN
+IF not EXISTS (SELECT * FROM Tasks WHERE TaskUID = @TaskUID)
+BEGIN
+	 -- Insert statements for procedure here
+	 -- declare @Cnt int;
+	-- set @Cnt=(select Count(TaskUID) from Tasks where ParentTaskID=@ParentTaskID);
+
+	INSERT INTO [dbo].[Tasks]
+           ([TaskUID]
+           ,[WorkPackageUID]
+           ,[ProjectUID]
+           ,[Owner]
+           ,[Name]
+           ,[Description]
+           ,[RFPReference]
+           ,[POReference]
+           ,[StartDate]
+           ,[PlannedEndDate]
+           ,[ProjectedEndDate]
+           ,[Status]
+		   ,[Basic_Budget]
+		   ,[GST]
+           ,[Total_Budget]
+           ,[ActualExpenditure]
+           ,[RFPDocument]
+           ,[TaskLevel]
+           ,[ParentTaskID]
+		   ,[PlannedStartDate]
+		   ,[ProjectedStartDate]
+		   ,[ActualEndDate]
+		   ,[Discipline]
+		   ,[StatusPer]
+		   ,[UnitforProgress]
+		   ,[Delete_Flag]
+		   ,[Currency]
+		   ,[Currency_CultureInfo]
+		   ,[Task_Order]
+		   ,[Task_Weightage]
+		   ,[Task_Type]
+		   ,[Workpackage_Option]
+		   ,[UnitQuantity]
+		   )
+     VALUES
+           (@TaskUID
+           ,@WorkPackageUID
+           ,@ProjectUID
+           ,@Owner
+           ,@Name
+           ,@Description
+           ,@RFPReference
+           ,@POReference
+           ,@StartDate
+           ,@PlannedEndDate
+           ,@ProjectedEndDate
+           ,@Status
+		   ,@Basic_Budget
+		   ,@GST
+           ,@Budget
+           ,@ActualExpenditure
+           ,@RFPDocument
+           ,@TaskLevel
+           ,@ParentTaskID
+		   ,@PlannedStartDate
+		   ,@ProjectedStartDate
+		   ,@ActualEndDate
+		   ,@Discipline
+		   ,@StatusPer
+		   ,@UnitforProgress
+		   ,'N'
+		   ,@Currency
+		   ,@Currency_CultureInfo
+		   ,0
+		   ,@Task_Weightage
+		   ,@Task_Type
+		   ,@Workpackage_Option
+		   ,@UnitQuantity
+		   )
+
+	-- Task payment
+
+		insert into TaskPayments(PaymentUID,TaskUID,AllowedPayment,ActualPayment,CreatedDate,ActualPaymentDate)
+		values(NEWID(),@TaskUID,@Budget,@Budget,GETDATE(),GETDATE())
+
+	-- Task Status Update
+		insert into Tasks_Status_Update(UID,WorkPackageUID,TaskUID,CDate,UpdatedStatus)
+		values(NEWID(),@WorkPackageUID,@TaskUID,GETDATE(),@Status)
+
+		if not exists(select UserTaskUID from UserTasks where TaskUID=@TaskUID and UserUID=@Owner)
+		begin
+			insert into UserTasks(UserTaskUID,UserUID,WorkPackageUID,TaskUID,Task_Status)
+			values(NEWID(),@Owner,@WorkPackageUID,@TaskUID,@Status)
+		end
+
+end
+
+
+
+END
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[GetTaskLevel_By_WorkPackageID_TName]
+@WorkPackageUID uniqueidentifier,
+@Name varchar(100)
+as
+begin
+select TaskLevel from Tasks where WorkPackageUID=@WorkPackageUID and Name=@Name and Delete_Flag='N'
+end
+
+//added on 1/06/2021
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_InsertorUpdateMainTasks_Puttenahalli] 
+	-- Add the parameters for the stored procedure here
+@TaskUID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@ProjectUID as  uniqueidentifier,
+@Owner as varchar(100),
+@Name as varchar(100),
+@Description as varchar(250),
+@RFPReference as varchar(250),
+@POReference as varchar(250),
+@StartDate as datetime,          
+@PlannedEndDate as datetime,
+@ProjectedEndDate as datetime,
+@Status as varchar(20),
+@Basic_Budget as float,
+@GST as float,
+@Budget as float,
+@StatusPer as float,
+@ActualExpenditure as float,
+@RFPDocument as varchar(250),
+@TaskLevel as int,
+@PlannedStartDate datetime,
+@ProjectedStartDate datetime,
+@ActualEndDate datetime,
+@Discipline varchar(50),
+@UnitforProgress varchar(50),
+@Currency varchar(20),
+@Currency_CultureInfo varchar(20),
+@Task_Weightage float,
+@Task_Type varchar(50),
+@Workpackage_Option uniqueidentifier,
+@UnitQuantity float
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+IF not EXISTS (SELECT * FROM Tasks WHERE TaskUID = @TaskUID)
+BEGIN
+	 -- Insert statements for procedure here
+	--declare @Cnt int;
+	--set @Cnt=(select Count(TaskUID) from Tasks where WorkPackageUID=@WorkPackageUID);
+
+	INSERT INTO [dbo].[Tasks]
+           ([TaskUID]
+           ,[WorkPackageUID]
+           ,[ProjectUID]
+           ,[Owner]
+           ,[Name]
+           ,[Description]
+           ,[RFPReference]
+           ,[POReference]
+           ,[StartDate]
+           ,[PlannedEndDate]
+           ,[ProjectedEndDate]
+           ,[Status]
+		   ,[Basic_Budget]
+		   ,[GST]
+           ,[Total_Budget]
+           ,[ActualExpenditure]
+           ,[RFPDocument]
+           ,[TaskLevel]
+		   ,[PlannedStartDate]
+		   ,[ProjectedStartDate]
+		   ,[ActualEndDate]
+		   ,[Discipline]
+		   ,[StatusPer]
+		   ,[UnitforProgress]
+		   ,[Delete_Flag]
+		   ,[Currency]
+		   ,[Currency_CultureInfo]
+		   ,[Task_Order]
+		   ,[Task_Weightage]
+		   ,[Task_Type]
+		   ,[Workpackage_Option]
+		   ,[UnitQuantity])
+     VALUES
+           (@TaskUID
+           ,@WorkPackageUID
+           ,@ProjectUID
+           ,@Owner
+           ,@Name
+           ,@Description
+           ,@RFPReference
+           ,@POReference
+           ,@StartDate
+           ,@PlannedEndDate
+           ,@ProjectedEndDate
+           ,@Status
+		   ,@Basic_Budget
+		   ,@GST
+           ,@Budget
+           ,@ActualExpenditure
+           ,@RFPDocument
+           ,@TaskLevel
+		   ,@PlannedStartDate
+		   ,@ProjectedStartDate
+		   ,@ActualEndDate
+		   ,@Discipline
+		   ,@StatusPer
+		   ,@UnitforProgress
+		   ,'N'
+		   ,@Currency
+		   ,@Currency_CultureInfo
+		   ,0
+		   ,@Task_Weightage
+		   ,@Task_Type
+		   ,@Workpackage_Option
+		   ,@UnitQuantity
+		   )
+	
+	-- Task payment
+
+		insert into TaskPayments(PaymentUID,TaskUID,AllowedPayment,ActualPayment,CreatedDate,ActualPaymentDate)
+		values(NEWID(),@TaskUID,@Budget,@Budget,GETDATE(),GETDATE())
+
+	-- Task Status Update
+		insert into Tasks_Status_Update(UID,WorkPackageUID,TaskUID,CDate,UpdatedStatus)
+		values(NEWID(),@WorkPackageUID,@TaskUID,GETDATE(),@Status)
+   end
+	if not exists(select UserTaskUID from UserTasks where TaskUID=@TaskUID and UserUID=@Owner)
+	begin
+		insert into UserTasks(UserTaskUID,UserUID,WorkPackageUID,TaskUID,Task_Status)
+		values(NEWID(),@Owner,@WorkPackageUID,@TaskUID,@Status)
+	end
+
+
+
+END
+
+
+// added on 04/06/2021
+WorkPackageUID	uniqueidentifier	Checked
+added to BOQDetails
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[usp_InsertBOQDetails_New]
+@uid as uniqueidentifier,
+@itemNo nvarchar(50),
+@description nvarchar(max),
+@quantity nvarchar(10),
+@unit nvarchar(10),
+@inrRate nvarchar(20),
+@jpyRate nvarchar(20),
+@usdRate nvarchar(20),
+@inrAmount nvarchar(20),
+@jpyAmount nvarchar(20),
+@usdAmount nvarchar(20),
+@parentId nvarchar(200),
+@projectuid uniqueidentifier,
+@typeOfBOQ nvarchar(50),
+@WorkPackageUID as uniqueidentifier,
+@sOrder as int
+as
+begin
+if not exists(select * from [dbo].[BOQDetails] where projectuid=@projectuid and Item_Number=@itemNo and Description=@description and WorkPackageUID=@WorkPackageUID) 
+begin
+if @typeOfBOQ = 'Grand Summary'
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[ActualValue],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder)
+else
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[INR-Amount],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder)
+end
+end
+
+// added on 7th june 2021
+DeletedBy	uniqueidentifier	Checked
+DeletedDate	datetime	Checked
+to FinanceMileStoneMonth Table
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[FinanceMileStoneMonth_EditedValues](
+	[UID] [uniqueidentifier] NOT NULL,
+	[FinMileStoneMonthUID] [uniqueidentifier] NULL,
+	[OldPaymentValue] [decimal](18, 4) NULL,
+	[NewPaymentValue] [decimal](18, 4) NULL,
+	[CreatedDate] [datetime] NULL,
+	[EditedBy] [uniqueidentifier] NULL,
+ CONSTRAINT [PK_FinanceMileStoneMonth_EditedValues] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_DeleteFinMileStoneMonthdata] 
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMothUID as uniqueidentifier,
+@DeletedBy as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Update FinanceMileStoneMonth set DeletedFlag='Y',DeletedDate =GETDATE(),DeletedBy =@DeletedBy
+	Where FinMileStoneMonthUID=@FinMileStoneMothUID
+
+	Update [dbo].[RABillPayments] set DeletedFlag='Y' Where FinMileStoneMonthUID=@FinMileStoneMothUID
+END
+GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_InsertFinMileStoneMonth_EditedValues] 
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@FinMileStoneMonthUID as uniqueidentifier,
+@OldPaymentValue as decimal(18,4),
+@NewPaymentValue as decimal(18,4),
+@EditedBy as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[FinanceMileStoneMonth_EditedValues]
+           ([UID]
+           ,[FinMileStoneMonthUID]
+           ,[OldPaymentValue]
+           ,[NewPaymentValue]
+           ,[CreatedDate]
+           ,[EditedBy])
+     VALUES
+           (@UID
+           ,@FinMileStoneMonthUID
+           ,@OldPaymentValue
+           ,@NewPaymentValue
+           ,GETDATE()
+           ,@EditedBy)
+END
+GO
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_InsertFinMilestoneMonthExccel] 
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier,
+@Finance_MileStoneUID as uniqueidentifier,
+@AllowedPayment as float,
+@Month as varchar(20),
+@Year as int,
+@WorkPackageUID as uniqueidentifier,
+@OrderBy as int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	IF not EXISTS (SELECT * FROM FinanceMileStoneMonth WHERE FinMileStoneMonthUID = @FinMileStoneMonthUID and Month = @Month and Year=@Year)
+BEGIN
+	INSERT INTO [dbo].[FinanceMileStoneMonth]
+           ([FinMileStoneMonthUID]
+           ,[Finance_MileStoneUID]
+           ,[AllowedPayment]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+           ,[Month]
+           ,[Year]
+		   ,[MultiplyingFactor]
+,[WorkPackageUID],[OrderBy])
+     VALUES
+           (@FinMileStoneMonthUID
+           ,@Finance_MileStoneUID
+           ,@AllowedPayment
+           ,GETDATE()
+           ,'N'
+           ,@Month
+           ,@Year
+		   ,1,
+@WorkPackageUID,@OrderBy)
+		   END
+		   ELSE
+		   Begin
+		   Update [dbo].[FinanceMileStoneMonth]
+		   set AllowedPayment=@AllowedPayment
+		   Where FinMileStoneMonthUID=@FinMileStoneMonthUID
+
+		   END
+END
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_FinanceMileStone_Selectby_WorkPackageUID]
+@TaskUID uniqueidentifier
+as
+begin
+set nocount on;
+SELECT FinanceMileStones.Finance_MileStoneUID, FinanceMileStones.TaskUID, FinanceMileStones.Finance_MileStoneName, FinanceMileStones.IsMonth, FinanceMileStoneMonth.AllowedPayment,FinanceMileStoneMonth.FinMileStoneMonthUID ,
+(Month +' ' + CONVERT(varchar(10), Year)) as MonthYear,0 as PaymentMade
+FROM FinanceMileStones INNER JOIN
+FinanceMileStoneMonth ON FinanceMileStones.Finance_MileStoneUID = FinanceMileStoneMonth.Finance_MileStoneUID Where TaskUID =@TaskUID and FinanceMileStones.Delete_Flag ='N' and FinanceMileStoneMonth.DeletedFlag='N' Order BY FinanceMileStoneMonth.OrderBy ASC
+end
+
+
+// added on 08/06/2021
+
+CREATE PROCEDURE [usp_InsertfinMonthData] 
+	-- Add the parameters for the stored procedure here
+@FinMileStoneMonthUID as uniqueidentifier,
+@AllowedPayment as decimal(18,2),
+@UserCreated as uniqueidentifier,
+@Month as varchar(20),
+@Year as int,
+@WorkPackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	declare @finUID as uniqueidentifier;
+	declare @ord as int;
+	set @finUID = (select Finance_MileStoneUID From [dbo].[FinanceMileStones] Where TaskUID=@WorkPackageUID)
+	set @ord =(select Max(OrderBy) From [dbo].[FinanceMileStoneMonth] Where Finance_MileStoneUID=@finUID)
+	set @ord =@ord + 1;
+	IF not EXISTS (SELECT * FROM FinanceMileStoneMonth WHERE Finance_MileStoneUID = Finance_MileStoneUID and Month = @Month and Year=@Year)
+BEGIN
+	INSERT INTO [dbo].[FinanceMileStoneMonth]
+           ([FinMileStoneMonthUID]
+           ,[Finance_MileStoneUID]
+           ,[AllowedPayment]
+           ,[UserCreated]
+           ,[CreatedDate]
+           ,[DeletedFlag]
+           ,[Month]
+           ,[Year]
+           ,[MultiplyingFactor]
+           ,[WorkPackageUID]
+           ,[OrderBy]
+           )
+     VALUES
+           (@FinMileStoneMonthUID
+           ,@finUID
+           ,@AllowedPayment
+           ,@UserCreated
+           ,GETDATE()
+           ,'N'
+           ,@Month
+           ,@Year
+           ,1
+           ,@WorkPackageUID
+           ,@ord)
+		   END
+END
+GO
+
+// added on 09/06/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_InsertBOQDetails_New]
+@uid as uniqueidentifier,
+@itemNo nvarchar(50),
+@description nvarchar(max),
+@quantity nvarchar(10),
+@unit nvarchar(10),
+@inrRate nvarchar(20),
+@jpyRate nvarchar(20),
+@usdRate nvarchar(20),
+@inrAmount nvarchar(20),
+@jpyAmount nvarchar(20),
+@usdAmount nvarchar(20),
+@parentId nvarchar(200),
+@projectuid uniqueidentifier,
+@typeOfBOQ nvarchar(50),
+@WorkPackageUID as uniqueidentifier,
+@sOrder as int
+as
+begin
+declare @sQuantity as float;
+declare @sRate as float;
+declare @sAmount as decimal(18,4);
+if not exists(select * from [dbo].[BOQDetails] where projectuid=@projectuid and Item_Number=@itemNo and Description=@description and WorkPackageUID=@WorkPackageUID and Orderby=@sOrder) 
+begin
+if @typeOfBOQ = 'Grand Summary'
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[ActualValue],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder)
+else
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[INR-Amount],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder)
+end
+--set @sQuantity=(Select * FRom BOQDetails Where ParentBOQUID=@parentId)
+if(@parentId !='')
+Begin
+set  @sAmount=(select SUM(CAST([INR-Amount] as float))  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+set  @sQuantity=(select SUM(Quantity)  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+Update BOQDetails set [INR-Amount] = @sAmount,Quantity=@sQuantity,Currency='INR' Where BOQDetailsUID=@parentId
+end
+end
+
+// added on 15/06/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetFinancialScheduleDatesforGraph]
+-- Add the parameters for the stored procedure here
+@WorkpackageUID as uniqueidentifier
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+
+-- Insert statements for procedure here
+SELECT 
+      ([Month] + ' ' + CAst([Year] as nvarchar(20))) as MonthYear,Finance_MileStoneUID,FinMileStoneMonthUID,AllowedPayment
+     
+     
+  FROM [dbo].[FinanceMileStoneMonth]
+Where WorkPackageUID=@WorkpackageUID and DeletedFlag='N' Order by OrderBy Asc
+END
+
+
+// added on 21/06/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[usp_InsertorUpdateSubTasks_Puttenahalli_withoutdates] 
+	-- Add the parameters for the stored procedure here
+@TaskUID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@ProjectUID as  uniqueidentifier,
+@Owner as varchar(100),
+@Name as varchar(100),
+@Description as varchar(250),
+@RFPReference as varchar(250),
+@POReference as varchar(250),
+@Status as varchar(20),
+@Basic_Budget as float,
+@GST as float,
+@Budget as float,
+@StatusPer as float,
+@ActualExpenditure as float,
+@RFPDocument as varchar(250),
+@TaskLevel as int,
+@ParentTaskID as uniqueidentifier,
+@Discipline varchar(50),
+@UnitforProgress varchar(50),
+@Currency varchar(20),
+@Currency_CultureInfo varchar(20),
+@Task_Weightage float,
+@Task_Type varchar(50),
+@Workpackage_Option uniqueidentifier,
+@UnitQuantity float,
+@sOrder as int
+AS
+BEGIN
+
+IF not EXISTS (SELECT * FROM Tasks WHERE ParentTaskID = @ParentTaskID and Description=@Description)
+BEGIN
+	 -- Insert statements for procedure here
+	 -- declare @Cnt int;
+	-- set @Cnt=(select Count(TaskUID) from Tasks where ParentTaskID=@ParentTaskID);
+	Delete From [dbo].[Tasks] Where ParentTaskID=@ParentTaskID and Description=@Description
+
+	INSERT INTO [dbo].[Tasks]
+           ([TaskUID]
+           ,[WorkPackageUID]
+           ,[ProjectUID]
+           ,[Owner]
+           ,[Name]
+           ,[Description]
+           ,[RFPReference]
+           ,[POReference]
+           ,[Status]
+		   ,[Basic_Budget]
+		   ,[GST]
+           ,[Total_Budget]
+           ,[ActualExpenditure]
+           ,[RFPDocument]
+           ,[TaskLevel]
+           ,[ParentTaskID]
+		   ,[Discipline]
+		   ,[StatusPer]
+		   ,[UnitforProgress]
+		   ,[Delete_Flag]
+		   ,[Currency]
+		   ,[Currency_CultureInfo]
+		   ,[Task_Order]
+		   ,[Task_Weightage]
+		   ,[Task_Type]
+		   ,[Workpackage_Option]
+		   ,[UnitQuantity]
+		   )
+     VALUES
+           (@TaskUID
+           ,@WorkPackageUID
+           ,@ProjectUID
+           ,@Owner
+           ,@Name
+           ,@Description
+           ,@RFPReference
+           ,@POReference
+           ,@Status
+		   ,@Basic_Budget
+		   ,@GST
+           ,@Budget
+           ,@ActualExpenditure
+           ,@RFPDocument
+           ,@TaskLevel
+           ,@ParentTaskID
+		   ,@Discipline
+		   ,@StatusPer
+		   ,@UnitforProgress
+		   ,'N'
+		   ,@Currency
+		   ,@Currency_CultureInfo
+		   ,@sOrder
+		   ,@Task_Weightage
+		   ,@Task_Type
+		   ,@Workpackage_Option
+		   ,@UnitQuantity
+		   )
+
+	-- Task payment
+
+		insert into TaskPayments(PaymentUID,TaskUID,AllowedPayment,ActualPayment,CreatedDate,ActualPaymentDate)
+		values(NEWID(),@TaskUID,@Budget,@Budget,GETDATE(),GETDATE())
+
+	-- Task Status Update
+		insert into Tasks_Status_Update(UID,WorkPackageUID,TaskUID,CDate,UpdatedStatus)
+		values(NEWID(),@WorkPackageUID,@TaskUID,GETDATE(),@Status)
+
+		if not exists(select UserTaskUID from UserTasks where TaskUID=@TaskUID and UserUID=@Owner)
+		begin
+			insert into UserTasks(UserTaskUID,UserUID,WorkPackageUID,TaskUID,Task_Status)
+			values(NEWID(),@Owner,@WorkPackageUID,@TaskUID,@Status)
+		end
+
+end
+
+
+
+END
+
+-------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[usp_InsertorUpdateSubTasks_Puttenahalli] 
+	-- Add the parameters for the stored procedure here
+@TaskUID as uniqueidentifier,
+@WorkPackageUID as uniqueidentifier,
+@ProjectUID as  uniqueidentifier,
+@Owner as varchar(100),
+@Name as varchar(100),
+@Description as varchar(250),
+@RFPReference as varchar(250),
+@POReference as varchar(250),
+@StartDate as datetime,          
+@PlannedEndDate as datetime,
+@ProjectedEndDate as datetime,
+@Status as varchar(20),
+@Basic_Budget as float,
+@GST as float,
+@Budget as float,
+@StatusPer as float,
+@ActualExpenditure as float,
+@RFPDocument as varchar(250),
+@TaskLevel as int,
+@ParentTaskID as uniqueidentifier,
+@PlannedStartDate datetime,
+@ProjectedStartDate datetime,
+@ActualEndDate datetime,
+@Discipline varchar(50),
+@UnitforProgress varchar(50),
+@Currency varchar(20),
+@Currency_CultureInfo varchar(20),
+@Task_Weightage float,
+@Task_Type varchar(50),
+@Workpackage_Option uniqueidentifier,
+@UnitQuantity float,
+@sOrder as int
+AS
+BEGIN
+
+IF not EXISTS (SELECT * FROM Tasks WHERE ParentTaskID = @ParentTaskID and Description=@Description)
+BEGIN
+	 -- Insert statements for procedure here
+	 -- declare @Cnt int;
+	-- set @Cnt=(select Count(TaskUID) from Tasks where ParentTaskID=@ParentTaskID);
+	Delete From [dbo].[Tasks] Where ParentTaskID=@ParentTaskID and Description=@Description
+
+	INSERT INTO [dbo].[Tasks]
+           ([TaskUID]
+           ,[WorkPackageUID]
+           ,[ProjectUID]
+           ,[Owner]
+           ,[Name]
+           ,[Description]
+           ,[RFPReference]
+           ,[POReference]
+           ,[StartDate]
+           ,[PlannedEndDate]
+           ,[ProjectedEndDate]
+           ,[Status]
+		   ,[Basic_Budget]
+		   ,[GST]
+           ,[Total_Budget]
+           ,[ActualExpenditure]
+           ,[RFPDocument]
+           ,[TaskLevel]
+           ,[ParentTaskID]
+		   ,[PlannedStartDate]
+		   ,[ProjectedStartDate]
+		   ,[ActualEndDate]
+		   ,[Discipline]
+		   ,[StatusPer]
+		   ,[UnitforProgress]
+		   ,[Delete_Flag]
+		   ,[Currency]
+		   ,[Currency_CultureInfo]
+		   ,[Task_Order]
+		   ,[Task_Weightage]
+		   ,[Task_Type]
+		   ,[Workpackage_Option]
+		   ,[UnitQuantity]
+		   )
+     VALUES
+           (@TaskUID
+           ,@WorkPackageUID
+           ,@ProjectUID
+           ,@Owner
+           ,@Name
+           ,@Description
+           ,@RFPReference
+           ,@POReference
+           ,@StartDate
+           ,@PlannedEndDate
+           ,@ProjectedEndDate
+           ,@Status
+		   ,@Basic_Budget
+		   ,@GST
+           ,@Budget
+           ,@ActualExpenditure
+           ,@RFPDocument
+           ,@TaskLevel
+           ,@ParentTaskID
+		   ,@PlannedStartDate
+		   ,@ProjectedStartDate
+		   ,@ActualEndDate
+		   ,@Discipline
+		   ,@StatusPer
+		   ,@UnitforProgress
+		   ,'N'
+		   ,@Currency
+		   ,@Currency_CultureInfo
+		   ,@sOrder
+		   ,@Task_Weightage
+		   ,@Task_Type
+		   ,@Workpackage_Option
+		   ,@UnitQuantity
+		   )
+
+	-- Task payment
+
+		insert into TaskPayments(PaymentUID,TaskUID,AllowedPayment,ActualPayment,CreatedDate,ActualPaymentDate)
+		values(NEWID(),@TaskUID,@Budget,@Budget,GETDATE(),GETDATE())
+
+	-- Task Status Update
+		insert into Tasks_Status_Update(UID,WorkPackageUID,TaskUID,CDate,UpdatedStatus)
+		values(NEWID(),@WorkPackageUID,@TaskUID,GETDATE(),@Status)
+
+		if not exists(select UserTaskUID from UserTasks where TaskUID=@TaskUID and UserUID=@Owner)
+		begin
+			insert into UserTasks(UserTaskUID,UserUID,WorkPackageUID,TaskUID,Task_Status)
+			values(NEWID(),@Owner,@WorkPackageUID,@TaskUID,@Status)
+		end
+
+end
+
+
+
+END
+
+
+// added on 28/06/2021
+Schedule_Per	decimal(18, 4)	Checked
+Achieved_Per	decimal(18, 4)	Checked     added to TaskSchedule 
+
+
+Update TaskSchedule set Schedule_Per=Schedule_Value,Achieved_Per=Achieved_Value
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[usp_GetTaskScheduleValuesForGraph]
+-- Add the parameters for the stored procedure here
+@WorkPackageUID as uniqueidentifier,
+@StartDate as datetime,
+@EndDate as datetime
+AS
+BEGIN
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+
+-- Insert statements for procedure here
+Select isnull(Sum(Schedule_Per),0) as TotalSchValue,isnull(Sum(Achieved_Per),0) as TotalAchValue From [dbo].[TaskSchedule] Where WorkpacageUID=@WorkPackageUID and CAST(TaskSchedule.StartDate as DATE) >= CAST(@StartDate as DATE) And CAST(TaskSchedule.EndDate as DATE) <= CAST(@EndDate as DATE)
+END
+
+// added on 30/06/2021
+EstimatedDocuments	int	Checked
+Remarks	varchar(250)	Checked
+DocumentSearchType	varchar(50)	Checked
+
+to Documents table
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SubmittalDocTypeMaster](
+	[UID] [uniqueidentifier] NOT NULL,
+	[Type] [varchar](50) NULL,
+	[DocOrder] [smallint] NULL,
+ CONSTRAINT [PK_SubmittalDocTypeMaster] PRIMARY KEY CLUSTERED 
+(
+	[UID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+//
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetSubmittalDocTypeMaster] 
+	-- Add the parameters for the stored procedure here
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT * From [dbo].[SubmittalDocTypeMaster] Order by DocOrder Asc
+END
+GO
+
+
+
+// added on 01/07/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetSubmittalDocDrawings] 
+	-- Add the parameters for the stored procedure here
+@WorkpackageUID as uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select DocumentUID,DocName,(Select COUNT(*) From ActualDocuments Where ActualDocument_CurrentStatus='Submitted' and DocumentUID=SOD.DocumentUID) as Submitted,(Select COUNT(*) From ActualDocuments Where ActualDocument_CurrentStatus Like '%Approved%' and DocumentUID=SOD.DocumentUID) as Approved,EstimatedDocuments,Remarks From [dbo].[Documents] as SOD where [DocumentSearchType]='Drawings' and WorkPackageUID=@WorkpackageUID Order by DocName
+END
+GO
+
+
+
+
+INSERT [dbo].[SubmittalDocTypeMaster] ([UID], [Type], [DocOrder]) VALUES (N'9151fc0c-d599-4295-9916-1460ebe2ecc4', N'Drawings', 1)
+GO
+INSERT [dbo].[SubmittalDocTypeMaster] ([UID], [Type], [DocOrder]) VALUES (N'fe8e8744-a9fe-4c63-9365-5722e7473af6', N'Outward', 3)
+GO
+INSERT [dbo].[SubmittalDocTypeMaster] ([UID], [Type], [DocOrder]) VALUES (N'25ba9813-42bf-412e-8f03-c6c57285eb28', N'Inward', 2)
+GO
+
+
+// added on 12/07/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [DbSync_DeleteWorkpackageAllData] 
+	-- Add the parameters for the stored procedure here
+@ProjectUID uniqueidentifier,
+@WorkPackageUID uniqueidentifier
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	Delete From Tasks_Status_Update Where WorkPackageUID=@WorkPackageUID
+	
+	Delete From DocumentFlowData  where DocumentUID in (select ActualDocumentUID from ActualDocuments where ProjectUID=@ProjectUID)
+	Delete From ActualDocuments where ProjectUID=@ProjectUID;
+	Delete From Documents where ProjectUID=@ProjectUID;
+	Delete From BankDocuments where Bank_GuaranteeUID in (select Bank_GuaranteeUID from BankGuarantee where ProjectUID=@ProjectUID)
+	Delete From BankDocuments where Bank_GuaranteeUID in (select Bank_GuaranteeUID from BankGuarantee where ProjectUID=@ProjectUID)
+	Delete From BankGuarantee where ProjectUID=@ProjectUID;
+	Delete From BankGuarantee where ProjectUID=@ProjectUID;
+	Delete From ResourceMaster where ProjectUID=@ProjectUID;
+	Delete From Alerts where ProjectUID=@ProjectUID;
+	Delete From [dbo].[BackupApplicationConfig];
+	Delete From [dbo].[BOQDetails] Where WorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[BWSSB_JICA_Disbursement] Where ProjectUID=@ProjectUID;
+	Delete FRom [dbo].[ConsActivity] Where projectuid=@ProjectUID
+	Delete FRom [dbo].[ConsMonthActivity] Where projectuid=@ProjectUID
+	Delete From [dbo].[Dependencies] Where WorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[DocumentHistory] Where WorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[FinanceMileStoneMonth] where Finance_MileStoneUID in (Select Finance_MileStoneUID From [dbo].[FinanceMileStones] Where TaskUID=@WorkPackageUID)
+	Delete From [dbo].[FinanceMileStones] Where TaskUID=@WorkPackageUID
+	Delete FRom [dbo].[Insurance] Where ProjectUID=@ProjectUID
+	Delete FRom [dbo].[Insurance_Premiums] Where InsuranceUID in (Select InsuranceUID From [dbo].[Insurance] Where ProjectUID=@ProjectUID)
+	Delete FRom  [dbo].[InsuranceDocuments] Where InsuranceUID in (Select InsuranceUID From [dbo].[Insurance] Where ProjectUID=@ProjectUID)
+	Delete From [dbo].[Invoice_RABills] Where InvoiceMaster_UID in (select InvoiceMaster_UID  From [dbo].[InvoiceMaster] Where ProjectUID=@ProjectUID)
+	Delete From RABillPayments Where InvoiceUID in(Select InvoiceRABill_UID from [dbo].[Invoice_RABills] Where InvoiceMaster_UID in (select InvoiceMaster_UID  From [dbo].[InvoiceMaster] Where ProjectUID=@ProjectUID))
+	Delete FRom [dbo].[Invoice_Abstract] Where projectUid=@ProjectUID
+	Delete From [dbo].[Invoice_Deduction] Where WorkPackageUID=@WorkPackageUID
+	Delete From  [dbo].[InvoiceMaster] Where ProjectUID=@ProjectUID
+	Delete From [dbo].[Issues] Where ProjectUID=@ProjectUID;
+	Delete From [dbo].[JointInspection] Where ProjectUID=@ProjectUID;
+	Delete From [dbo].[MailQueue]
+	Delete From [dbo].[MailQueue_Sent]
+	Delete From [dbo].[MasterClients] Where ProjectUID=@ProjectUID
+	Delete From [dbo].[MasterLocations] Where ProjectUID=@ProjectUID
+	Delete From [dbo].[MasterWorkPackages] Where MasterWorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[MeasurementBook] Where TaskUID in (Select TaskUID From Tasks Where ProjectUID=@ProjectUID)
+	Delete From [dbo].[MeetingSitePhotographs] Where ProjectUID=@ProjectUID
+	Delete From [dbo].[MileStonePayments] Where TaskUID in (Select TaskUID From Tasks Where ProjectUID=@ProjectUID)
+	Delete From [dbo].[MileStones] Where TaskUID in (Select TaskUID From Tasks Where ProjectUID=@ProjectUID)
+	Delete From [dbo].[PaymentBreakupTerms] Where ProjectUID=@ProjectUID
+	Delete From [dbo].[PriceAdjIndexMaster] Where WorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[RABill_PriceAdj_Master] Where WorkPackageUID=@WorkPackageUID
+	Delete From [dbo].[RABill_Abstract] Where WorkpackageUID=@WorkPackageUID
+	delete From [dbo].[ProjectDetails] where ProjectUID=@ProjectUID
+	Delete From [dbo].[RABills] Where ProjectUID=@ProjectUID
+	delete From [dbo].[ResourceAllocation] where ProjectUID=@ProjectUID
+	Delete From [dbo].[ResourceDeployment] Where WorkpackageUID=@WorkPackageUID
+	Delete From [dbo].[ResourceMaster] where ProjectUID=@ProjectUID
+	delete from [dbo].[RestoreApplicationConfig]
+	delete from [dbo].[Reviews] where ProjectUID=@ProjectUID
+	delete from [dbo].[SitePhotographs] where ProjectUID=@ProjectUID 
+	delete from [dbo].[Status_Budget_Disbursement]  Where ProjectUID=@ProjectUID 
+	delete From [dbo].[Status_WasteWater_ContractPackage] Where ProjectUID=@ProjectUID 
+	delete From [dbo].[TaskSchedule] where [WorkpacageUID]=@WorkPackageUID
+	Delete From [dbo].[TaskScheduleVesrion] Where TaskUID in (Select TaskUID From Tasks Where ProjectUID=@ProjectUID)
+	Delete From [dbo].[TaskSitePhotographs] where [WorkpackageUID]=@WorkPackageUID
+	delete From [dbo].[UserWorkPackages] where ProjectUID=@ProjectUID 
+	delete from [dbo].[Workpackage_Categories] where [WorkpackageUID]=@WorkPackageUID
+
+	Delete From ProjectDetails where ProjectUID=@ProjectUID
+	Delete From UserProjects Where ProjectUID=@ProjectUID
+	Delete From WorkPackages  where ProjectUID=@ProjectUID
+	Delete From Tasks where ProjectUID=@ProjectUID;
+END
+GO
+
+
+// added on 13/08/2021
+alter table BOQDetails alter column [Item_Number] varchar(100) null
+
+// added on 05/10/2021
+Duties	float	Checked
+ExWorks	float	Checked
+LocalTransport	float	Checked
+
+table BOQDetails
+
+
+
+
+
+/****** Object:  StoredProcedure [dbo].[usp_InsertBOQDetails_New]    Script Date: 10/5/2021 1:13:38 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[usp_InsertBOQDetails_CP25]
+@uid as uniqueidentifier,
+@itemNo nvarchar(50),
+@description nvarchar(max),
+@quantity nvarchar(10),
+@unit nvarchar(10),
+@inrRate nvarchar(20),
+@jpyRate nvarchar(20),
+@usdRate nvarchar(20),
+@inrAmount nvarchar(20),
+@jpyAmount nvarchar(20),
+@usdAmount nvarchar(20),
+@parentId nvarchar(200),
+@projectuid uniqueidentifier,
+@typeOfBOQ nvarchar(50),
+@WorkPackageUID as uniqueidentifier,
+@sOrder as int,
+@Duties nvarchar(20),
+@ExWorks nvarchar(20),
+@LocalTransport nvarchar(20),
+@GST nvarchar(20)
+as
+begin
+declare @sQuantity as float;
+declare @sRate as float;
+declare @sAmount as decimal(18,4);
+if not exists(select * from [dbo].[BOQDetails] where projectuid=@projectuid and Item_Number=@itemNo and Description=@description and WorkPackageUID=@WorkPackageUID and Orderby=@sOrder) 
+begin
+if @typeOfBOQ = 'Grand Summary'
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[ActualValue],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby,[Duties]
+      ,[ExWorks]
+      ,[LocalTransport],GST) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder,@Duties,@ExWorks,@LocalTransport,@GST)
+else
+insert into [dbo].[BOQDetails] (
+BOQDetailsUID,
+Item_Number,
+[Description],
+Quantity,
+[INR-Rate],
+Unit,
+Currency,
+ParentBOQUID,
+CreatedDate,
+[JPY-Rate],
+[USD-Rate],
+[INR-Amount],
+[JPY-Amount],
+[USD-Amount],projectuid,WorkPackageUID,Orderby,[Duties]
+      ,[ExWorks]
+      ,[LocalTransport],GST) values(@uid,@itemNo,@description,@quantity,@inrRate,@unit,'INR',@parentId,
+GETDATE(),@jpyRate,@usdRate,@inrAmount,@jpyAmount,@usdAmount,@projectuid,@WorkPackageUID,@sOrder,@Duties,@ExWorks,@LocalTransport,@GST)
+end
+--set @sQuantity=(Select * FRom BOQDetails Where ParentBOQUID=@parentId)
+if(@parentId !='')
+Begin
+set  @sAmount=(select SUM(CAST([INR-Amount] as float))  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+set  @sQuantity=(select SUM(Quantity)  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+Update BOQDetails set [INR-Amount] = @sAmount,Quantity=@sQuantity,Currency='INR' Where BOQDetailsUID=@parentId
+
+set @parentId = (select ParentBOQUID from BOQDetails Where BOQDetailsUID=@parentId)
+end
+if(@parentId !='')
+Begin
+set  @sAmount=(select SUM(CAST([INR-Amount] as float))  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+set  @sQuantity=(select SUM(Quantity)  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+Update BOQDetails set [INR-Amount] = @sAmount,Quantity=@sQuantity,Currency='INR' Where BOQDetailsUID=@parentId
+set @parentId = (select ParentBOQUID from BOQDetails Where BOQDetailsUID=@parentId)
+end
+
+if(@parentId !='')
+Begin
+set  @sAmount=(select SUM(CAST([INR-Amount] as float))  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+set  @sQuantity=(select SUM(Quantity)  from BOQDetails Where ParentBOQUID=@parentId and ([INR-Amount] !=' ' OR [INR-Amount] is not null))
+Update BOQDetails set [INR-Amount] = @sAmount,Quantity=@sQuantity,Currency='INR' Where BOQDetailsUID=@parentId
+
+end
+end
+
+
+//---------------added on 14/10/2021------------------------------------------//
+
+
+/****** Object:  Table [dbo].[WebApiSettings]    Script Date: 10/18/2021 11:40:09 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[WebApiSettings](
+	[Srno] [smallint] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](100) NULL,
+	[Ipaddress] [nvarchar](50) NULL,
+	[IsGrant] [varchar](1) NULL,
+	[ServerCopiedAdd] [varchar](1) NULL,
+	[CopiedAddDate] [datetime] NULL,
+	[ServerCopiedUpdate] [varchar](1) NULL,
+	[CopiedUpdateDate] [datetime] NULL,
+	[Password] [varchar](150) NULL,
+ CONSTRAINT [PK_WebApiSettings] PRIMARY KEY CLUSTERED 
+(
+	[Srno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WebApiSettings] ADD  CONSTRAINT [DF_WebApiSettings_ServerCopiedAdd]  DEFAULT ('N') FOR [ServerCopiedAdd]
+GO
+
+
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [usp_GetWebApiSettings] 
+	-- Add the parameters for the stored procedure here
+@Username as varchar(100),
+@Ipaddress as nvarchar(50)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Count(*) From WebApiSettings Where Username=@Username and Ipaddress=@Ipaddress and IsGrant='Y'
+END
+GO
+
+
+----
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_checkWebAPIUser] 
+	-- Add the parameters for the stored procedure here
+@Username as varchar(100),
+@Password as varchar(150)	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Count(*)
+ From WebApiSettings Where Username=@Username and Password=@Password 
+END
+GO
+GO
+
+
+--------
+added on 19/10/2021
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserMailAccess](
+	[AccessNo] [int] IDENTITY(1,1) NOT NULL,
+	[UserUID] [uniqueidentifier] NULL,
+	[Type] [varchar](50) NULL,
+	[CreatedDate] [datetime] NULL,
+             [ServerCopiedAdd] [varchar](1) NULL,
+	[CopiedAddDate] [datetime] NULL,
+	[ServerCopiedUpdate] [varchar](1) NULL,
+	[CopiedUpdateDate] [datetime] NULL,
+ CONSTRAINT [PK_UserMailAccess] PRIMARY KEY CLUSTERED 
+(
+	[AccessNo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[UserMailAccess] ADD  CONSTRAINT [DF_UserMailAccess_CreatedDate]  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_GetUserMailAccess] 
+	-- Add the parameters for the stored procedure here
+@UserUID as uniqueidentifier,
+@type as varchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select Count(*) From [dbo].[UserMailAccess] Where UserUID=@UserUID and Type=@type
+END
+GO
+
+// added on 20/10/2021
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[ups_InserorUpdateUser]
+@UserUID uniqueidentifier,
+@FirstName varchar(100),
+@LastName varchar(100),
+@EmailID varchar(100),
+@Mobilenumber varchar(15),
+@Address1 varchar(250),
+@Address2 varchar(250),
+@Username varchar(50),
+@password varchar(50),
+@TypeOfUser varchar(5),
+@Admin_Under uniqueidentifier,
+@Profile_Pic varchar(150),
+@DocumentMail varchar(1)
+as
+begin
+if not exists(select UserUID from UserDetails where UserUID=@UserUID)
+begin
+	--DECLARE @cur as CURSOR;
+	declare @WorkPackageUID varchar(50);
+	declare @ProjectUID varchar(50);
+	declare @Name varchar(50);
+	if @Profile_Pic <>''
+	begin
+		insert into UserDetails(UserUID,FirstName,LastName,EmailID,Mobilenumber,Address1,Address2,Username,password,TypeOfUser,CreatedDate,Admin_Under,Profile_Pic)
+		values(@UserUID,@FirstName,@LastName,@EmailID,@Mobilenumber,@Address1,@Address2,@Username,@password,@TypeOfUser,GETDATE(),@Admin_Under,@Profile_Pic);
+
+		--insert into UserProjects(AssignID,UserUID,ProjectUID,UserRole,AssignDate)
+		--values(NEWID(),@UserUID,@Project_Under,@TypeOfUser,GETDATE());
+		--set @cur= CURSOR FOR SELECT WorkPackageUID,ProjectUID,Name FROM WorkPackages where ProjectUID=@Project_Under;
+		--OPEN @cur
+		--FETCH NEXT FROM @cur INTO @WorkPackageUID, @ProjectUID, @Name
+		--WHILE @@FETCH_STATUS = 0 BEGIN
+		--	insert into UserWorkPackages(UID,ProjectUID,UserUID,WorkPackageUID,Status,CreatedDate)
+		--	values(NEWID(),@ProjectUID,@UserUID,@WorkPackageUID,'A',GETDATE())
+		--	FETCH NEXT FROM @cur INTO @WorkPackageUID, @ProjectUID, @Name
+		--END
+		--CLOSE @cur    
+		--DEALLOCATE @cur
+
+	end
+	else
+	begin
+		--insert into UserDetails(UserUID,FirstName,LastName,EmailID,Mobilenumber,Address1,Address2,Username,password,TypeOfUser,CreatedDate,Admin_Under,Profile_Pic)
+		--values(@UserUID,@FirstName,@LastName,@EmailID,@Mobilenumber,@Address1,@Address2,@Username,@password,@TypeOfUser,GETDATE(),@Admin_Under,@Profile_Pic)
+		insert into UserDetails(UserUID,FirstName,LastName,EmailID,Mobilenumber,Address1,Address2,Username,password,TypeOfUser,CreatedDate,Admin_Under)
+		values(@UserUID,@FirstName,@LastName,@EmailID,@Mobilenumber,@Address1,@Address2,@Username,@password,@TypeOfUser,GETDATE(),@Admin_Under);
+
+		--insert into UserProjects(AssignID,UserUID,ProjectUID,UserRole,AssignDate)
+		--values(NEWID(),@UserUID,@Project_Under,@TypeOfUser,GETDATE());
+
+		--set @cur= CURSOR FOR SELECT WorkPackageUID,ProjectUID,Name FROM WorkPackages where ProjectUID=@Project_Under;
+		--OPEN @cur
+		--FETCH NEXT FROM @cur INTO @WorkPackageUID, @ProjectUID, @Name
+		--WHILE @@FETCH_STATUS = 0 BEGIN
+		--	insert into UserWorkPackages(UID,ProjectUID,UserUID,WorkPackageUID,Status,CreatedDate)
+		--	values(NEWID(),@ProjectUID,@UserUID,@WorkPackageUID,'A',GETDATE())
+		--	FETCH NEXT FROM @cur INTO @WorkPackageUID, @ProjectUID, @Name
+		--END
+		--CLOSE @cur    
+		--DEALLOCATE @cur
+	end
+
+	if @DocumentMail = 'Y'
+	Begin
+	  INSERT INTO [dbo].[UserMailAccess]
+           ([UserUID]
+           ,[Type]
+           )
+     VALUES
+           (@UserUID
+           ,'documentmail')
+
+	end
+end
+else
+begin
+	if @Profile_Pic !=''
+	begin
+		update UserDetails set FirstName=@FirstName,LastName=@LastName,Mobilenumber=@Mobilenumber,Address1=@Address1,Address2=@Address2,Profile_Pic=@Profile_Pic,
+		TypeOfUser=@TypeOfUser where UserUID=@UserUID;
+	end
+	else
+	begin
+		update UserDetails set FirstName=@FirstName,LastName=@LastName,Mobilenumber=@Mobilenumber,Address1=@Address1,Address2=@Address2,
+		TypeOfUser=@TypeOfUser where UserUID=@UserUID;
+	end
+
+	Delete From UserMailAccess Where UserUID =@UserUID
+
+	if @DocumentMail = 'Y'
+	Begin
+	  INSERT INTO [dbo].[UserMailAccess]
+           ([UserUID]
+           ,[Type]
+           )
+     VALUES
+           (@UserUID
+           ,'documentmail')
+
+	end
+end
+end
+
+
+------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[usp_getUsers_by_Prjects_Admin]
+@Admin_Under uniqueidentifier
+as
+begin
+set nocount on;
+SELECT DISTINCT 
+                         UserProjects.UserUID, UserDetails.UserUID AS Expr1, UserDetails.FirstName, UserDetails.LastName, UserDetails.EmailID, UserDetails.Phonenumber, UserDetails.Mobilenumber, UserDetails.Address1, 
+                         UserDetails.Address2, UserDetails.Username, UserDetails.Admin_Under, UserDetails.Project_Under, UserDetails.Profile_Pic, UserDetails.TypeOfUser, UserDetails.password, UserDetails.CreatedDate
+FROM            UserProjects INNER JOIN
+                         UserDetails ON UserProjects.UserUID = UserDetails.UserUID
+WHERE        (UserProjects.ProjectUID IN
+                             (SELECT        ProjectUID
+                               FROM            UserProjects AS UserProjects_1
+                               WHERE        (UserUID = @Admin_Under))) and UserDetails.DeletedFlag ='N'
+
+end
+
+// added on 21/10/2021
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_CheckSubmittalCategoryExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select ActualDocumenTypeUID from ActualDocumentTypeMaster Where ActualDocumenTypeUID =@UID
+
+	End
+	else
+	Begin
+
+	select ActualDocumenTypeUID from ActualDocumentTypeMaster Where ActualDocumentType =@Name
+
+	End
+END
+GO
+
+
+-----
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [usp_CheckSubmittalFlowExists]
+	-- Add the parameters for the stored procedure here
+@UID as uniqueidentifier,
+@Name as varchar(50),
+@Type as varchar(10)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if @Type = 'UID'
+	Begin
+
+	select FlowMasterUID From DocumentFlowDisplayMaster Where FlowMasterUID =@UID
+
+	End
+	else
+	Begin
+
+	select FlowMasterUID From DocumentFlowDisplayMaster Where Flow_Name =@Name
+
+	End
+END
+GO
+

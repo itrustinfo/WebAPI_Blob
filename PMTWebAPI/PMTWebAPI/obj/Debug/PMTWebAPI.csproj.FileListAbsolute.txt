@@ -1,0 +1,1666 @@
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Arun\2020\12\02\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\NJS_Prj_New\2020-12-28\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Optimization.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Optimization.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\2020-12-28_WebAPI\Arun\PMTWebAPI\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\24 Feb 2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\PMT_WebAPI_Total-26-3-22\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\NJS_Prj_New\Integration_changes\Venkat_API\latestcode\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\Webapi\12May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\Webapi\27May2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\Webapi\04July2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-20\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\Webapi\27July2022\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-07-28_new\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\Projects\Webapi\13Aug2022\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2022-08-29\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+K:\PMT_WebAPI_Total\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2023-01-04\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\PMTWebAPI.pdb
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csc.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\csi.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.AppContext.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Console.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Compression.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Claims.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.ValueTuple.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\vbc.rsp
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Owin.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Cors.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Cors.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.Owin.Security.OAuth.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Deployment.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Webpages.Razor.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Helpers.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Mvc.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Newtonsoft.Json.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Net.Http.Formatting.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll
+D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.pdb

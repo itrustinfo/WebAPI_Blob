@@ -1,0 +1,143 @@
+internal DataTable getJointInspection_by_inspectionUid(string inspectionUid)
+        {
+            DataTable ds = new DataTable();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("usp_GetJointInspection_by_inspectionUid", con);
+                cmd.SelectCommand.Parameters.AddWithValue("@inspectionUid", inspectionUid);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+
+
+public DataSet GetResourceDeployment_by_ReourceDeploymentUID(Guid ReourceDeploymentUID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("usp_GetResourceDeployment_by_ReourceDeploymentUID", con);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.SelectCommand.Parameters.AddWithValue("@ReourceDeploymentUID", ReourceDeploymentUID);
+                cmd.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+
+
+public int ResourceDeployment_Delete(Guid UID, Guid UserUID)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_ResourceDeployment_Delete"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@UID", UID);
+                        cmd.Parameters.AddWithValue("@UserUID", UserUID);
+                        con.Open();
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult = 0;
+            }
+        }
+
+
+public DataSet GetJointInspectionDocuments_by_InspectionDocumentUID(Guid InspectionDocumentUID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("usp_GetJointInspectionDocuments_by_InspectionDocumentUID", con);
+                cmd.SelectCommand.Parameters.AddWithValue("@InspectionDocumentUID", InspectionDocumentUID);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+
+        public int JointInspectionDocument_Delete(Guid InspectionDocumentUID, Guid UserUID)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_JointInspectionDocument_Delete"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@InspectionDocumentUID", InspectionDocumentUID);
+                        cmd.Parameters.AddWithValue("@UserUID", UserUID);
+                        con.Open();
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult = 0;
+            }
+        }
+
+
+public int WebAPITransctionInsert(Guid TranscationUID, string WebAPI_URL, string Parameters, string TranscationStatus)
+        {
+            int cnt = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_InsertWebAPITransction"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@TranscationUID", TranscationUID);
+                        cmd.Parameters.AddWithValue("@WebAPI_URL", WebAPI_URL);
+                        cmd.Parameters.AddWithValue("@Parameters", Parameters);
+                        cmd.Parameters.AddWithValue("@TranscationStatus", TranscationStatus);
+                        con.Open();
+                        cnt = cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+                return cnt;
+            }
+            catch (Exception ex)
+            {
+                return cnt;
+            }
+        }
+

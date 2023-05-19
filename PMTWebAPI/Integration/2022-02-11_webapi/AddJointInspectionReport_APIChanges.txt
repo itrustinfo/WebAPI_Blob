@@ -1,0 +1,226 @@
+Execute below Stored Procedure:
+.................................
+
+Create proc usp_GetBOQUID_FromName
+@ActivityUID uniqueidentifier,
+@BOQName varchar(100),
+@From varchar(30)
+as
+begin
+set nocount on;
+if @From='Workpackage'
+begin
+	select Cast(BOQDetailsUID as varchar(60)) as BOQDetailsUID  from BOQDetails where WorkPackageUID=@ActivityUID and Item_Number=@BOQName and Deleted=0;
+end
+else
+begin
+	select Cast(BOQDetailsUID as varchar(60)) as BOQDetailsUID from BOQDetails where ParentBOQUID=@ActivityUID and Item_Number=@BOQName and Deleted=0;
+end
+end
+
+
+Add below method in DBGetData.cs file
+.......................................................................................
+public string GetBOQUID_FromName(Guid ActivityUID, string BOQName, string From)
+        {
+            string tUID = "";
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                if (con.State == ConnectionState.Closed) con.Open();
+                SqlCommand cmd = new SqlCommand("usp_GetBOQUID_FromName", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ActivityUID", ActivityUID);
+                cmd.Parameters.AddWithValue("@BOQName", BOQName);
+                cmd.Parameters.AddWithValue("@From", From);
+                tUID = (string)cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                tUID = "";
+            }
+            return tUID;
+        }
+
+
+Repalce below API in ExtoActivityController:
+...................................................
+public IHttpActionResult AddJointInspectionReport()
+        {
+            var httpRequest = HttpContext.Current.Request;
+            var inspectionUid = Guid.NewGuid().ToString();
+            var ProjectName = httpRequest.Params["ProjectName"];
+            var WorkpackageName = httpRequest.Params["WorkpackageName"];
+            var BOQItems = httpRequest.Params["BOQItems"];
+            //var pExists1 = db.ProjectNameExists(ProjectName);
+            //if (!string.IsNullOrEmpty(pExists1))
+            //{
+            //    var wExists = db.WorkpackageNameExists(WorkpackageName, pExists1);
+            //    if (!string.IsNullOrEmpty(wExists))
+            //    {
+                    
+            //    }
+            //}
+            //var BOQUID = httpRequest.Params["BOQUID"];
+            var DiaPipe = httpRequest.Params["DiaPipe"];
+            var PipeNumber = httpRequest.Params["PipeNumber"];
+            var invoice_number = httpRequest.Params["Invoice_number"];
+            var invoicedate = httpRequest.Params["Invoicedate"];
+            var unit = httpRequest.Params["unit"];
+            var quantity = httpRequest.Params["quantity"];
+            var Inspection_Type = httpRequest.Params["InspectionType"];
+            //var ItemLevel = httpRequest.Params["ItemLevel"];
+            var StartingPointVal = httpRequest.Params["StartingPoint"];
+            var LenghtVal = httpRequest.Params["Lenght"];
+            var Chainage_Number = httpRequest.Params["Chainage_Number"];
+            var Chainage_Desc = httpRequest.Params["Chainage_Desc"];
+            var Qty_in_RMTVal = httpRequest.Params["Qty_in_RMT"];
+            var Qty_for_UnitVal = httpRequest.Params["Qty_for_Unit"];
+            //var Deductions = httpRequest.Params["Deductions"];
+            var Remarks = httpRequest.Params["Remarks"];
+            bool sError = false;
+            string ErrorText = "";
+            //var rUID = db.BOQNameExists(BOQName, wExists);
+            try
+            {
+                string postData = "inspectionUid=" + inspectionUid + "&ProjectName=" + ProjectName + "&BOQItems=" + BOQItems + "&DiaPipe=" + DiaPipe + "&PipeNumber=" + PipeNumber + "&Invoice_number=" + invoice_number + "&Invoicedate=" + invoicedate + "&unit=" + unit + "&quantity=" + quantity + "&InspectionType=" + Inspection_Type + "&StartingPoint=" + StartingPointVal + "&Lenght=" + LenghtVal + "&Chainage_Number=" + Chainage_Number + "&Chainage_Desc=" + Chainage_Desc + "&Qty_in_RMT=" + Qty_in_RMTVal + "&Qty_for_Unit=" + Qty_for_UnitVal + "&Remarks=" + Remarks;
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                db.WebAPITransctionInsert(Guid.NewGuid(), BaseURL, postData, "");
+
+                var identity = (ClaimsIdentity)User.Identity;
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {
+                    if (!string.IsNullOrEmpty(inspectionUid))
+                    {
+                        var pExists = db.ProjectNameExists(ProjectName);
+                        if (!string.IsNullOrEmpty(pExists))
+                        {
+                            //if (BOQUID != "")
+                            var wExists = db.WorkpackageNameExists(WorkpackageName, pExists);
+                            if(!string.IsNullOrEmpty(wExists))
+                            {
+                                string BOQUID = string.Empty;
+                                string ParentBOQUID = "";
+                                string[] bList = BOQItems.Split(',');
+                                for (int i = 0; i < bList.Length; i++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        BOQUID = db.GetBOQUID_FromName(new Guid(wExists), bList[i], "Workpackage");
+                                        ParentBOQUID = BOQUID;
+                                    }
+                                    else
+                                    {
+                                        BOQUID = db.GetBOQUID_FromName(new Guid(ParentBOQUID), bList[i], "BOQItem");
+                                        ParentBOQUID = BOQUID;
+                                    }
+                                }
+
+                                if (Guid.TryParse(BOQUID, out Guid boquid))
+                                {
+                                    string sDate1 = "";
+                                    DateTime CDate1 = DateTime.Now;
+                                    if (!string.IsNullOrEmpty(invoicedate))
+                                    {
+                                        invoicedate = db.ConvertDateFormat(invoicedate);
+                                        CDate1 = Convert.ToDateTime(invoicedate);
+                                    }
+                                    else
+                                    {
+                                        sDate1 = CDate1.ToString("dd/MM/yyyy");
+                                        //sDate1 = sDate1.Split('/')[1] + "/" + sDate1.Split('/')[0] + "/" + sDate1.Split('/')[2];
+                                        sDate1 = db.ConvertDateFormat(sDate1);
+                                        CDate1 = Convert.ToDateTime(sDate1);
+                                    }
+
+                                    float StartingPoint = 0;
+                                    float Length = 0;
+                                    float Qty_in_RMT = 0;
+                                    double Qty_for_Unit = 0;
+                                    double Deductions = 0;
+                                    if (Inspection_Type == "Laying & Jointing")
+                                    {
+                                        StartingPoint = float.Parse(StartingPointVal);
+                                        Length = float.Parse(LenghtVal);
+                                    }
+                                    else if (Inspection_Type == "Guniting" || Inspection_Type == "Epoxy")
+                                    {
+                                        string DiaofPipe_in_mm = db.GetBOQDiaofPipe_by_BOQDetailsUID(new Guid(BOQUID));
+                                        if (DiaofPipe_in_mm == "Error1:" || DiaofPipe_in_mm == "")
+                                        {
+                                            DiaofPipe_in_mm = "0";
+                                        }
+
+                                        Qty_in_RMT = float.Parse(Qty_in_RMTVal);
+                                        Qty_for_Unit = Math.Round(Convert.ToDouble(Qty_in_RMTVal) * Convert.ToDouble(3.14159) * Convert.ToDouble(DiaofPipe_in_mm), 2);
+                                        Deductions = float.Parse(quantity) * 0.3;
+
+                                    }
+
+                                    int sresult = db.InsertjointInspection(new Guid(inspectionUid), new Guid(BOQUID), DiaPipe, unit, invoice_number, CDate1.ToString(), quantity, Inspection_Type, Chainage_Number, Chainage_Desc, StartingPoint, Length, Qty_in_RMT, Qty_for_Unit, Deductions, Remarks, new Guid(pExists), PipeNumber, "Y");
+                                    if (sresult > 0)
+                                    {
+                                        sError = false;
+                                    }
+                                    else
+                                    {
+                                        sError = true;
+                                        ErrorText = "Joint Inspection Data not updated.";
+                                    }
+                                }
+                                else
+                                {
+                                    sError = true;
+                                    ErrorText = "Invalid BOQ Items";
+                                }
+                            }
+                            else
+                            {
+                                sError = true;
+                                ErrorText = "Workpackage name not found";
+                            }
+                            
+                        }
+                        else
+                        {
+                            sError = true;
+                            ErrorText = "Project Name is not found";
+                        }
+                    }
+                    else
+                    {
+                        sError = true;
+                        ErrorText = "Invalid Inspection UID.";
+                    }
+                }
+                else
+                {
+                    sError = true;
+                    ErrorText = "Not Authorized IP address.";
+                }
+            }
+            catch (Exception ex)
+            {
+                sError = true;
+                ErrorText = "Error:" + ex.Message;
+            }
+            
+            if (sError)
+            {
+                return Json(new
+                {
+                    Status = "Failure",
+                    Message = "Error:" + ErrorText
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    Status = "Success",
+                    InspectionUID= inspectionUid,
+                    Message = "Successfully Added Joint Inspection"
+                });
+            }
+        }

@@ -1,0 +1,174 @@
+ExoIntegration controller
+
+        [Authorize]
+        [HttpPost]
+        [Route("api/ExtoIntegration/GetDocumentStatus")]
+        public IHttpActionResult GetDocumentStatus()
+        {
+                      
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                var identity = (ClaimsIdentity)User.Identity;
+                DataSet dtLastestStatus = new DataSet();
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                string postData = "documentUid=" + httpRequest.Params["document"];
+                db.WebAPITransctionInsert(Guid.NewGuid(), BaseURL, postData, "");
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {                   
+                    var documentUid = httpRequest.Params["document"];
+                    dtLastestStatus = db.getLatesDocumentStatus(new Guid(documentUid));
+                    if (dtLastestStatus.Tables[0].Rows.Count == 0)
+                    {
+                        return Json(new
+                        {
+                            Status = "Failure",
+                            Message = "No data available"
+                        });
+                    }
+                    return Json(new
+                    {
+                        status = dtLastestStatus.Tables[0].Rows[0]["Status"].ToString(),
+                        statusupadteddate = dtLastestStatus.Tables[0].Rows[0]["statusUpdatedDate"].ToString(),
+                        remarks= dtLastestStatus.Tables[0].Rows[0]["remarks"].ToString()
+                    });
+
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        Success = false,
+                        Message = "Not Authorized IP address"
+                    });
+                }
+                
+               
+                
+                
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    Success = false,
+                    Message = "Error" + ex.Message
+                });
+            }
+
+        }
+
+DBGetData
+------------------------------------------------------
+public DataSet getLatesDocumentStatus(Guid DocumentUID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("getActualDocumentLatestStatus", con);
+                cmd.SelectCommand.Parameters.AddWithValue("@DocumentUID", DocumentUID);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+    }
+
+Stored Procedure
+------------------------------------------------------
+ CREATE proc getActualDocumentLatestStatus  
+ @documentuid nvarchar(300)  
+ as  
+ begin  
+  
+ select  top 1 ActivityDate as statusUpdatedDate,Current_Status as Status,Status_Comments as remarks from DocumentStatus  where DocumentUID=@documentuid  order by  ActivityDate  desc  
+ end
+
+
+-----
+[Authorize]
+        [HttpPost]
+        [Route("api/ExtoIntegration/GetDocumentStatus")]
+        public IHttpActionResult GetDocumentStatus()
+        {
+                      
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                var identity = (ClaimsIdentity)User.Identity;
+                DataSet dtLastestStatus = new DataSet();
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                string postData = "documentUid=" + httpRequest.Params["document"];
+                db.WebAPITransctionInsert(Guid.NewGuid(), BaseURL, postData, "");
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {                   
+                    var documentUid = httpRequest.Params["document"];
+                    dtLastestStatus = db.getLatesDocumentStatus(new Guid(documentUid));
+                    if (dtLastestStatus.Tables[0].Rows.Count == 0)
+                    {
+                        return Json(new
+                        {
+                            Status = "Failure",
+                            Message = "No data available"
+                        });
+                    }
+                    string base64 = "";
+                    string getExtension = "";
+                    string fileName = "";
+                    if (!string.IsNullOrEmpty(dtLastestStatus.Tables[0].Rows[0]["filePath"].ToString()))
+                    {
+                        Byte[] bytes = File.ReadAllBytes(dtLastestStatus.Tables[0].Rows[0]["filePath"].ToString());
+                        base64 = Convert.ToBase64String(bytes);
+                        getExtension = System.IO.Path.GetExtension(dtLastestStatus.Tables[0].Rows[0]["filePath"].ToString());
+                        fileName = System.IO.Path.GetFileName(dtLastestStatus.Tables[0].Rows[0]["filePath"].ToString());
+                    }
+                    return Json(new
+                    {
+                        status = dtLastestStatus.Tables[0].Rows[0]["Status"].ToString(),
+                        statusupadteddate = dtLastestStatus.Tables[0].Rows[0]["statusUpdatedDate"].ToString(),
+                        remarks= dtLastestStatus.Tables[0].Rows[0]["remarks"].ToString(),
+                        fileContent=base64,
+                        fileName= fileName,
+                        fileType= getExtension
+                    });
+
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        Success = false,
+                        Message = "Not Authorized IP address"
+                    });
+                }
+                
+               
+                
+                
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    Success = false,
+                    Message = "Error" + ex.Message
+                });
+            }
+
+        }
+
+ alter proc getActualDocumentLatestStatus  
+ @documentuid nvarchar(300)  
+ as  
+ begin  
+ 
+  select  top 1 ActivityDate as statusUpdatedDate,Current_Status as Status,
+ Status_Comments as remarks,LinkToReviewFile as filePath from DocumentStatus 
+ where  DocumentUID=@documentuid 
+ and ActivityType<>'Registered' and Delete_Flag='N'  order by  ActivityDate  desc 
+ end

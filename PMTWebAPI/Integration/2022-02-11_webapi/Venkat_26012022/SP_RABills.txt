@@ -1,0 +1,84 @@
+  create proc [dbo].usp_GetDeductionDesc   
+  as    
+  begin    
+  select DeductionsDescription from DeductionsMaster   
+  end
+------------------------------------------------------------------------------------------
+Create proc usp_GetBOQUID_FromName  
+@ActivityUID uniqueidentifier,  
+@BOQName varchar(100),  
+@From varchar(30)  
+as  
+begin  
+set nocount on;  
+if @From='Workpackage'  
+begin  
+ select Cast(BOQDetailsUID as varchar(60)) as BOQDetailsUID  from BOQDetails where WorkPackageUID=@ActivityUID and Item_Number=@BOQName and Deleted=0;  
+end  
+else  
+begin  
+ select Cast(BOQDetailsUID as varchar(60)) as BOQDetailsUID from BOQDetails where ParentBOQUID=@ActivityUID and Item_Number=@BOQName and Deleted=0;  
+end  
+end
+
+----------------------------------------------------------------------------------------------------------
+Create proc usp_getWorkPackage_ProjectName  
+@ProjectName nvarchar(200)  
+as  
+begin  
+select * from WorkPackages where ProjectUID in (select ProjectUID from ProjectDetails where ProjectName=@ProjectName)  
+end
+
+
+
+DBGetData class file
+----------------------------------------------
+public DataTable GetDeductionDesc()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection con = new SqlConnection(db.GetConnectionString());
+                SqlDataAdapter cmd = new SqlDataAdapter("usp_GetDeductionDesc", con);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
+
+        public int InvoiceMaster_InsertorUpdate(Guid InvoiceMaster_UID, Guid ProjectUID, Guid WorkpackageUID, string Invoice_Number, string Invoice_Desc, DateTime Invoice_Date, string Currency, string Currency_CultureInfo)
+        {
+            int cnt = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_InsertorUpdateInvoiceMaster"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@InvoiceMaster_UID", InvoiceMaster_UID);
+                        cmd.Parameters.AddWithValue("@ProjectUID", ProjectUID);
+                        cmd.Parameters.AddWithValue("@WorkpackageUID", WorkpackageUID);
+                        cmd.Parameters.AddWithValue("@Invoice_Number", Invoice_Number);
+                        cmd.Parameters.AddWithValue("@Invoice_Desc", Invoice_Desc);
+                        cmd.Parameters.AddWithValue("@Invoice_Date", Invoice_Date);
+                        cmd.Parameters.AddWithValue("@Currency", Currency);
+                        cmd.Parameters.AddWithValue("@Currency_CultureInfo", Currency_CultureInfo);
+                        con.Open();
+                        cnt = cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                }
+                return cnt;
+            }
+            catch (Exception ex)
+            {
+                return cnt;
+            }
+        }

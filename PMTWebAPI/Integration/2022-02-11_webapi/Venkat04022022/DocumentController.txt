@@ -1,0 +1,233 @@
+
+Document Controller
+
+-------------------------------------
+
+  [Authorize]
+        [HttpPost] // for adding document status 
+        [Route("api/Document/AddDocumentStatus")]
+        public IHttpActionResult AddDocumentStatus()
+        {
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                if (String.IsNullOrEmpty(httpRequest.Params["UserName"]) || String.IsNullOrEmpty(httpRequest.Params["ProjectName"]) || String.IsNullOrEmpty(httpRequest.Params["DocumentUID"]) ||
+                   String.IsNullOrEmpty(httpRequest.Params["Status"]) || String.IsNullOrEmpty(httpRequest.Params["ActualDate"]) || String.IsNullOrEmpty(httpRequest.Params["CoverLetterDate"]) || String.IsNullOrEmpty(httpRequest.Params["RefNumber"])
+                   || String.IsNullOrEmpty(httpRequest.Params["Comments"]) || String.IsNullOrEmpty(httpRequest.Params["UpdateStatusto"]) || String.IsNullOrEmpty(httpRequest.Params["Origin"]))
+                {
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Error:Mandatory fields are missing"
+                    }); ;
+                }
+                var UserName = httpRequest.Params["UserName"];
+                bool coverlttr = false;
+                string CoverPagePath = string.Empty;
+                string DocPath = string.Empty;
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                string postData = "ProjectName=" + httpRequest.Params["UserName"]+ "&ProjectName=" + httpRequest.Params["ProjectName"] + "&DocumentUID=" + httpRequest.Params["DocumentUID"] +
+                    "&Status=" + httpRequest.Params["Status"]  + "&ActualDate=" + httpRequest.Params["ActualDate"] + "&CoverLetterDate=" + httpRequest.Params["CoverLetterDate"] +
+                    "&RefNumber=" + httpRequest.Params["RefNumber"] + "&Comments=" + httpRequest.Params["Comments"]  + "&UpdateStatusto=" + httpRequest.Params["UpdateStatusto"] + "&Origin=" + httpRequest.Params["Origin"];
+                db.WebAPITransctionInsert(Guid.NewGuid(), BaseURL, postData, "");
+                var identity = (ClaimsIdentity)User.Identity;
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {
+                    DataSet ds = new DataSet();
+                    DataSet dsusers = db.getUserDetails_by_EmailID(UserName);
+                    if (dsusers.Tables[0].Rows.Count == 0)
+                    {
+                        var resultmain = new
+                        {
+                            Status = "Failure",
+                            Message = "Invalid UserName ",
+                        };
+                        return Json(resultmain);
+                    }
+                    var UserUID = dsusers.Tables[0].Rows[0]["UserUID"].ToString();
+                    Guid StatusUID = Guid.NewGuid();
+                    var DocumentUID = httpRequest.Params["DocumentUID"];
+                    var ProjectUID = httpRequest.Params["ProjectName"];
+                    ProjectUID = db.ProjectNameExists(ProjectUID);
+                    if (string.IsNullOrEmpty(ProjectUID))
+                    {
+                        var resultmain = new
+                        {
+                            Status = "Failure",
+                            Message = "Invalid Project Name ",
+                        };
+                        return Json(resultmain);
+                    }
+                        var Status = httpRequest.Params["Status"];
+                    var ActualDate = httpRequest.Params["ActualDate"];
+                    var CoverLetterDate = httpRequest.Params["CoverLetterDate"];
+                    var RefNumber = httpRequest.Params["RefNumber"];
+                    var Comments = httpRequest.Params["Comments"];
+                    var UpdateStatusto = httpRequest.Params["UpdateStatusto"];
+                    var Origin = httpRequest.Params["Origin"];
+                    DataSet dsOrigions = db.GetOriginatorMaster();
+                    int count = (int)dsOrigions.Tables[0].Compute(string.Format("count({0})", "Originator_Name"), string.Format("{0} like '{1}'", "Originator_Name", Origin));
+                    if (count == 0)
+                    {
+                        return Json(new
+                        {
+                            Status = "Failure",
+                            Message = "Invalid origin"
+                        });
+                    }
+                    string docName = db.getDocumentName_by_DocumentUID(new Guid(DocumentUID));
+                    if (docName == null)
+                    {
+                        return Json(new
+                        {
+                            Status = "Failure",
+                            Message = "Invalid SubmitalId"
+                        });
+
+                    }
+                    for (int i = 0; i < httpRequest.Files.Count; i++)
+                    {
+                        HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+                        if (httpPostedFile != null)
+                        {
+                            if (httpPostedFile.FileName.Contains("Cover") || httpPostedFile.FileName.Contains("Cover_Letter") || httpPostedFile.FileName.Contains("Cover Letter"))
+                            {
+                                coverlttr = true;
+                            }
+
+                        }
+                    }
+                    if (!coverlttr)
+                    {
+                        var result1 = new
+                        {
+                            Status = "Failure",
+                            Message = "Please upload cover letter .File Name should contain name Cover_Letter !",
+                        };
+                        return Json(result1);
+                    }
+                    //
+                    string sDate1 = "";
+                    DateTime CDate1 = DateTime.Now;
+                    //
+                    sDate1 = ActualDate;
+                    sDate1 = sDate1.Split('/')[1] + "/" + sDate1.Split('/')[0] + "/" + sDate1.Split('/')[2];
+                    CDate1 = Convert.ToDateTime(sDate1);
+                    //
+                    DateTime lastUpdated = db.GetDocumentMax_ActualDate(new Guid(DocumentUID));
+                    if (lastUpdated.Date > CDate1.Date)
+                    {
+                        var result1 = new
+                        {
+                            Status = "Failure",
+                            Message = "Actual Date should be greater than previous date. !"
+
+                        };
+                        return Json(result1);
+                        //  Page.ClientScript.RegisterStartupScript(Page.GetType(), "CLOSE", "<script language='javascript'>alert('Actual Date should be greater than previous date.');</script>");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < httpRequest.Files.Count; i++)
+                        {
+                            HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+                            if (httpPostedFile != null)
+                            {
+                                if (httpPostedFile.FileName.Contains("Cover") || httpPostedFile.FileName.Contains("Cover_Letter") || httpPostedFile.FileName.Contains("Cover Letter"))
+                                {
+                                    string FileDatetime = DateTime.Now.ToString("dd MMM yyyy hh-mm-ss tt");
+                                    string sDocumentPath = string.Empty;
+                                    //sDocumentPath = "~/" + Request.QueryString["ProjectUID"] + "/" + Request.QueryString["DocID"] + "/" + StatusUID + "/" + FileDatetime + "/CoverLetter";
+                                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + ProjectUID + "/" + StatusUID + "/CoverLetter";
+
+                                    if (!Directory.Exists(sDocumentPath))
+                                    {
+                                        Directory.CreateDirectory(sDocumentPath);
+                                    }
+
+                                    string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+                                    string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
+                                    httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + "_1_copy" + Extn);
+                                    string savedPath = sDocumentPath + "/" + sFileName + "_1_copy" + Extn;
+                                    CoverPagePath = sDocumentPath + "/" + sFileName + "_1" + Extn;
+                                    db.EncryptFile(savedPath, CoverPagePath);
+                                    //
+                                    sDocumentPath = "~/" + ProjectUID + "/" + StatusUID + "/CoverLetter";
+                                    CoverPagePath = sDocumentPath + "/" + sFileName + "_1" + Extn;
+                                    //
+                                }
+                                else
+                                {
+                                    string LinkPath = ConfigurationManager.AppSettings["DocumentsPath"] + "/" + StatusUID + "/Link Document";
+                                    if (!Directory.Exists(LinkPath))
+                                    {
+                                        Directory.CreateDirectory(LinkPath);
+                                    }
+                                    string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+                                    string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
+
+                                    httpPostedFile.SaveAs(LinkPath + "/" + sFileName + "_1_copy" + Extn);
+                                    //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + StatusUID + "_" + "1" + "_enp" + InputFile));
+                                    string savedPath = LinkPath + "/" + sFileName + "_1_copy" + Extn;
+                                    DocPath = LinkPath + "/" + sFileName + "_1" + Extn;
+                                    db.EncryptFile(savedPath, DocPath);
+                                    //
+                                    LinkPath = "~/" + ProjectUID + "/" + StatusUID + "/Link Document";
+
+                                }
+                            }
+                        }
+
+                        string DocumentDate = CoverLetterDate;
+                        DocumentDate = DocumentDate.Split('/')[1] + "/" + DocumentDate.Split('/')[0] + "/" + DocumentDate.Split('/')[2];
+                        DateTime Document_Date = Convert.ToDateTime(DocumentDate);
+
+                        int Cnt = db.InsertorUpdateDocumentStatus(StatusUID, new Guid(DocumentUID), 1, Status, 0, CDate1, DocPath,
+                               new Guid(UserUID), Comments, Status, RefNumber, Document_Date, CoverPagePath, UpdateStatusto, Origin);
+                        if (Cnt > 0)
+                        {
+                            var result2 = new
+                            {
+                                Status = "Success",
+                                Message = "Documents Status Updated SuccesFully !"
+
+                            };
+                            return Json(result2);
+                        }
+                        else
+                        {
+                            var result2 = new
+                            {
+                                Status = "Failure",
+                                Message = "Documents Status not updated "
+
+                            };
+                            return Json(result2);
+                        }
+                    }
+                }
+                else
+                {
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Error:Not Authorized IP address"
+
+                    });
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                var result1 = new
+                {
+                    Status = "Failure",
+                    Message = ex.Message
+
+                };
+                return Json(result1);
+            }
+
+        }
