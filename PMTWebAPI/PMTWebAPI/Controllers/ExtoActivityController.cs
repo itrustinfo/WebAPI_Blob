@@ -2374,7 +2374,7 @@ namespace PMTWebAPI.Controllers
                                     RelativePath = "~/Documents/" + Path.GetFileNameWithoutExtension(httpPostedFile.FileName) + "_" + cnt + Extn;
                                     cnt += 1;
                                 }
-                              
+
                                 //if (File.Exists(Fullpath))
                                 //{
                                 //    Fullpath = sDocumentPath + Path.GetFileNameWithoutExtension(httpPostedFile.FileName) + "_1" + Extn;
@@ -2393,6 +2393,13 @@ namespace PMTWebAPI.Controllers
                                 if (count)
                                 {
                                     sError = false;
+
+                                    // Blob
+
+                                    byte[] filetobytes = db.FileToByteArray(Fullpath);
+
+                                    Guid new_guid = Guid.NewGuid();
+                                    db.InsertUploadedBankDocumentBlob(new_guid, BankDoc_UID.ToString(), filetobytes, Document_Name, RelativePath);
                                 }
                                 else
                                 {
@@ -2406,7 +2413,7 @@ namespace PMTWebAPI.Controllers
                             sError = true;
                             ErrorText = "Please upload Bank Guarantee document.";
                         }
-                        
+
                     }
                     else
                     {
@@ -2414,13 +2421,13 @@ namespace PMTWebAPI.Controllers
                         ErrorText = "Invalid Bank Guarantee UID.";
                     }
 
-            }
+                }
                 else
                 {
-                sError = true;
-                ErrorText = "Not Authorized IP address";
+                    sError = true;
+                    ErrorText = "Not Authorized IP address";
+                }
             }
-        }
             catch (Exception ex)
             {
                 sError = true;
@@ -3101,6 +3108,7 @@ namespace PMTWebAPI.Controllers
                                     if (DateTime.TryParse(Premium_PaidDate, out DateTime pPaidDate))
                                     {
                                         Premium_DueDate = db.ConvertDateFormat(Premium_DueDate);
+                                        byte[] filetobytes = null;
                                         if (DateTime.TryParse(Premium_DueDate, out DateTime pDueDate))
                                         {
                                             bool FileSaved = false;
@@ -3124,6 +3132,10 @@ namespace PMTWebAPI.Controllers
                                                     cnt += 1;
                                                 }
                                                 httpPostedFile.SaveAs(Fullpath);
+                                                //for blob
+                                               
+                                                filetobytes = db.FileToByteArray(Fullpath);
+
                                                 FileSaved = true;
                                             }
 
@@ -3158,7 +3170,9 @@ namespace PMTWebAPI.Controllers
                                                 CDate3 = Convert.ToDateTime(sDate3);
                                             }
 
-                                            bool result = db.DbSync_InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, (FileSaved ? RelativePath + Path.GetFileName(Fullpath) : ""), Remarks, "Y");
+                                            //bool result = db.DbSync_InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, (FileSaved ? RelativePath + Path.GetFileName(Fullpath) : ""), Remarks, "Y");
+                                            bool result = db.InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, (FileSaved ? RelativePath + Path.GetFileName(Fullpath) : ""), Remarks, filetobytes);
+
                                             if (result)
                                             {
                                                 sError = false;
@@ -3402,6 +3416,7 @@ namespace PMTWebAPI.Controllers
                                         Fullpath = sDocumentPath + Path.GetFileName(httpPostedFile.FileName);
                                         string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
                                         string filePath = RelativePath + Path.GetFileNameWithoutExtension(httpPostedFile.FileName) + Extn;
+
                                         while (File.Exists(Fullpath))
                                         {
                                             Fullpath = sDocumentPath + Path.GetFileNameWithoutExtension(httpPostedFile.FileName) + "_" + cnt + Extn;
@@ -3409,7 +3424,9 @@ namespace PMTWebAPI.Controllers
                                             cnt += 1;
                                         }
                                         httpPostedFile.SaveAs(Fullpath);
-                                        bool result = db.UpdatePremiumReceipt(InsurancePremiumUID, filePath);
+                                        byte[] filetobytes = db.FileToByteArray(Fullpath);
+
+                                        bool result = db.UpdatePremiumReceipt(InsurancePremiumUID, filePath, filetobytes);
                                         //db.DbSync_InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, (FileSaved ? RelativePath + Path.GetFileName(Fullpath) : ""), Remarks, "Y");
                                         if (result)
                                         {

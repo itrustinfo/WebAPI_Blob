@@ -14219,6 +14219,138 @@ string inrRate, string jpyRate, string usdRate, string inrAmount, string jpyAmou
             }
         }
 
+        //added on 22/05/2023
+        public int InsertUploadedBankDocumentBlob(Guid BankDocBlobUID, string bank_doc_uid, byte[] docBytes, string flName, string flPath)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("InsertUploadedBankDocumentBlob"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@docName", flName);
+                        cmd.Parameters.AddWithValue("@docPath", flPath);
+                        cmd.Parameters.AddWithValue("@BankBlobUID", BankDocBlobUID);
+                        cmd.Parameters.AddWithValue("@bank_doc_uid", bank_doc_uid);
+                        cmd.Parameters.AddWithValue("@docBytes", docBytes);
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult;
+            }
+        }
+
+        internal bool UpdatePremiumReceipt(string insurancePremiumUID, string receiptPath, byte[] RBlob)
+        {
+            Boolean sresult = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_UpdatePremiumReceipt"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@insurancePremiumUID", insurancePremiumUID);
+                        cmd.Parameters.AddWithValue("@receiptPath", receiptPath);
+                        cmd.Parameters.AddWithValue("@docBlob", RBlob);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        sresult = true;
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult = false;
+            }
+        }
+
+        internal int RABill_Document_InsertUpdate(Guid Document_UID, Guid RABillUid, Guid WorkpackageUID, string DocumentPath, string Description, Guid UploadedBy, byte[] billBlob)
+        {
+            int cnt = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_RABill_Document_InsertorUpdate"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@Document_UID", Document_UID);
+                        cmd.Parameters.AddWithValue("@RABillUid", RABillUid);
+                        cmd.Parameters.AddWithValue("@WorkpackageUID", WorkpackageUID);
+                        cmd.Parameters.AddWithValue("@Document_Path", DocumentPath);
+                        cmd.Parameters.AddWithValue("@DocBlob", billBlob);
+                        cmd.Parameters.AddWithValue("@Description", Description);
+                        cmd.Parameters.AddWithValue("@Uploaded_Date", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@UserID", UploadedBy);
+
+                        con.Open();
+                        cnt = Convert.ToInt32(cmd.ExecuteNonQuery());
+                        con.Close();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //  return sresult = false;
+            }
+            return cnt;
+        }
+
+        public Boolean InsertorUpdateInsurancePremium(Guid PremiumUID, Guid InsuranceUID, float Premium_Paid, float Interest, float Penalty, DateTime Premium_PaidDate, DateTime Premium_DueDate, DateTime Next_PremiumDate, string Premium_Receipt, string Remarks, byte[] receipt_blob)
+        {
+            Boolean sresult = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("usp_InsertorUpdateInsurancePremium"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@PremiumUID", PremiumUID);
+                        cmd.Parameters.AddWithValue("@InsuranceUID", InsuranceUID);
+                        cmd.Parameters.AddWithValue("@Premium_Paid", Premium_Paid);
+                        cmd.Parameters.AddWithValue("@Interest", Interest);
+                        cmd.Parameters.AddWithValue("@Penalty", Penalty);
+                        cmd.Parameters.AddWithValue("@Premium_PaidDate", Premium_PaidDate);
+                        cmd.Parameters.AddWithValue("@Premium_DueDate", Premium_DueDate);
+                        cmd.Parameters.AddWithValue("@Next_PremiumDate", Next_PremiumDate);
+                        cmd.Parameters.AddWithValue("@Premium_Receipt", Premium_Receipt);
+                        cmd.Parameters.AddWithValue("@Remarks", Remarks);
+                        cmd.Parameters.AddWithValue("@BlobData", receipt_blob);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        sresult = true;
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult = false;
+            }
+        }
 
     }
 }

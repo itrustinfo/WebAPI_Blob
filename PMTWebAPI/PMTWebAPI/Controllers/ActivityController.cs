@@ -2688,11 +2688,20 @@ namespace PMTWebAPI.Controllers
                     string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
                     string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
                     httpPostedFile.SaveAs(sDocumentPath + sFileName + Extn);
-
+                    string Fullpath = sDocumentPath + sFileName + Extn;
                     bool count = db.InsertorUpdateBankDocuments(new Guid(BankDoc_UID), new Guid(Bank_GuaranteeUID), Document_Name, Document_Type, Document_File, "Y");
                     if (count)
                     {
                         sError = false;
+                        //
+                        // Blob
+
+                        byte[] filetobytes = db.FileToByteArray(Fullpath);
+
+                        Guid new_guid = Guid.NewGuid();
+                        db.InsertUploadedBankDocumentBlob(new_guid, BankDoc_UID.ToString(), filetobytes, Document_Name, RelativePath);
+                        //
+
                     }
                     else
                     {

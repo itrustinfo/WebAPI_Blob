@@ -2751,11 +2751,11 @@ namespace PMTWebAPI.Controllers
 
                             DateTime CDate1 = DateTime.Now;
                             //
-                            string sDate1 = DateTime.Now.ToString("MM/dd/yyyy");
+                           // string sDate1 = DateTime.Now.ToString("MM/dd/yyyy");
                             //sDate1 = sDate1.Split('/')[1] + "/" + sDate1.Split('/')[0] + "/" + sDate1.Split('/')[2];
-                            sDate1 = db.ConvertDateFormat(sDate1);
+                          //sDate1 = db.ConvertDateFormat(sDate1);
                             Guid StatusUID = new Guid(dsdocStatus.Tables[0].Rows[dsdocStatus.Tables[0].Rows.Count - 1]["StatusUID"].ToString());
-                            CDate1 = Convert.ToDateTime(sDate1);
+                            CDate1 = Convert.ToDateTime(DateTime.Now);
                             if (FlowName == "Works A" || FlowName == "Works B" || FlowName == "Vendor Approval")
                             {
                                 var ISpresent = db.GetStatusForReconciliation(new Guid(FlowUID)).Tables[0].AsEnumerable().Where(r =>
