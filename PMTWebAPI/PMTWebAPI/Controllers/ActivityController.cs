@@ -2688,19 +2688,18 @@ namespace PMTWebAPI.Controllers
                     string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
                     string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
                     httpPostedFile.SaveAs(sDocumentPath + sFileName + Extn);
+
                     string Fullpath = sDocumentPath + sFileName + Extn;
+
                     bool count = db.InsertorUpdateBankDocuments(new Guid(BankDoc_UID), new Guid(Bank_GuaranteeUID), Document_Name, Document_Type, Document_File, "Y");
                     if (count)
                     {
                         sError = false;
-                        //
-                        // Blob
 
                         byte[] filetobytes = db.FileToByteArray(Fullpath);
 
                         Guid new_guid = Guid.NewGuid();
                         db.InsertUploadedBankDocumentBlob(new_guid, BankDoc_UID.ToString(), filetobytes, Document_Name, RelativePath);
-                        //
 
                     }
                     else
@@ -3014,10 +3013,18 @@ namespace PMTWebAPI.Controllers
                     string Extn = System.IO.Path.GetExtension(httpPostedFile.FileName);
                     httpPostedFile.SaveAs(sDocumentPath + sFileName + "_1" + Extn);
 
+                    string Fullpath = sDocumentPath + sFileName + "_1" + Extn;
+
                     bool count = db.DbSync_InsertorUpdateInsuranceDocuments(new Guid(InsuranceDoc_UID), new Guid(InsuranceUID), InsuranceDoc_Name, InsuranceDoc_Type, InsuranceDoc_FilePath, "Y");
                     if (count)
                     {
                         sError = false;
+                        byte[] filetobytes = null;
+                        filetobytes = db.FileToByteArray(Fullpath);
+
+                        Guid new_guid = Guid.NewGuid();
+                        db.InsertUploadedInsuranceDocumentBlob(new_guid, InsuranceDoc_UID.ToString(), filetobytes, httpPostedFile.FileName, RelativePath);
+
                     }
                     else
                     {
@@ -3180,8 +3187,13 @@ namespace PMTWebAPI.Controllers
                                     sDate3 = Convert.ToDateTime(Next_PremiumDate).ToString("dd/MM/yyyy");
                                     sDate3 = sDate3.Split('/')[1] + "/" + sDate3.Split('/')[0] + "/" + sDate3.Split('/')[2];
                                     CDate3 = Convert.ToDateTime(sDate3);
+                                                                       
 
-                                    bool result = db.DbSync_InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, Premium_Receipt, Remarks, "Y");
+                                    byte[] filetobytes = null;
+                                    filetobytes = db.FileToByteArray(Premium_Receipt);
+
+                                    bool result = db.InsertorUpdateInsurancePremium(new Guid(PremiumUID), new Guid(InsuranceUID), pPaidAmount, Inte, float.Parse(Penalty), CDate1, CDate2, CDate3, Premium_Receipt, Remarks, filetobytes);
+                                    
                                     if (result)
                                     {
                                         sError = false;
