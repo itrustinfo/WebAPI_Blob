@@ -364,7 +364,46 @@ namespace PMTWebAPI.Controllers
                 dbsync.InsertDocumentorUpdateVersion(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocStatus_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), httpRequest.Params["Doc_Type"].ToString(), httpRequest.Params["Doc_FileName"].ToString(), httpRequest.Params["Doc_Comments"].ToString(), int.Parse(httpRequest.Params["Doc_Version"].ToString()),
                             httpRequest.Params["Doc_Status"].ToString(), httpRequest.Params["Doc_StatusDate"].ToString(), httpRequest.Params["Delete_Flag"].ToString(), httpRequest.Params["Doc_CoverLetter"].ToString());
 
+                //for blob conversion
+                string sDocumentPath = string.Empty;
+                byte[] coverfiletobytes = null;
+                byte[] docfiletobytes = null;
+                DataSet ds = db.ActualDocuments_SelectBy_ActualDocumentUID(new Guid(httpRequest.Params["DocumentUID"].ToString()));
+                string projectuid = string.Empty;
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    projectuid = ds.Tables[0].Rows[0]["ProjectUID"].ToString();
+                }
+                string Connectionstring = db.getProjectConnectionString(new Guid(projectuid));
+                if (!string.IsNullOrEmpty(httpRequest.Params["Doc_CoverLetter"].ToString()))
+                {
+                    string testfile = httpRequest.Params["Doc_CoverLetter"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
 
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+
+                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+
+                    //for blob storage 
+                    coverfiletobytes = db.FileToByteArray(sDocumentPath);
+
+                    db.InsertDocumentStatusBlob(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), coverfiletobytes, docfiletobytes, Connectionstring);
+
+                }
+                if (!string.IsNullOrEmpty(httpRequest.Params["Doc_FileName"].ToString()))
+                {
+                    string testfile = httpRequest.Params["Doc_FileName"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
+
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+
+                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+
+                    //for blob storage 
+                    docfiletobytes = db.FileToByteArray(sDocumentPath);
+                }
+                db.InsertDocumentVersionBlob(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), docfiletobytes, coverfiletobytes, Connectionstring);
+                //
                 return Json(new
                 {
                     Success = true
@@ -961,6 +1000,22 @@ namespace PMTWebAPI.Controllers
                 var httpRequest = HttpContext.Current.Request;
                 // dbsync.InsertorUpdate_UserType_Functionality_Mapping(new Guid(httpRequest.Params["UID"].ToString()), httpRequest.Params["UserType"].ToString(), new Guid(httpRequest.Params["FunctionalityUID"].ToString()));
                 dbsync.InsertOrUpdate_IssueDocs(int.Parse(httpRequest.Params["uploaded_doc_id"].ToString()), httpRequest.Params["doc_name"].ToString(), httpRequest.Params["doc_path"].ToString(), httpRequest.Params["issue_remarks_uid"].ToString());
+
+                //for blob
+                if (!string.IsNullOrEmpty(httpRequest.Params["doc_path"].ToString()))
+                {
+                    string testfile = "/" + httpRequest.Params["doc_path"].ToString() + httpRequest.Params["doc_name"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
+
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+
+                    byte[] filetobytes = db.FileToByteArray(sDocumentPath);
+
+                    db.UpdateUploadedIssueReamrksDocument_Blob(int.Parse(httpRequest.Params["uploaded_doc_id"].ToString()), filetobytes);
+                }
+                //
+
                 return Json(new
                 {
                     Success = true
@@ -985,6 +1040,21 @@ namespace PMTWebAPI.Controllers
                 var httpRequest = HttpContext.Current.Request;
                 // dbsync.InsertorUpdate_UserType_Functionality_Mapping(new Guid(httpRequest.Params["UID"].ToString()), httpRequest.Params["UserType"].ToString(), new Guid(httpRequest.Params["FunctionalityUID"].ToString()));
                 dbsync.InsertOrUpdate_IssueDocs_Main(int.Parse(httpRequest.Params["doc_id"].ToString()), httpRequest.Params["doc_name"].ToString(), httpRequest.Params["doc_path"].ToString(), httpRequest.Params["Issue_Uid"].ToString());
+
+                //for blob
+                if (!string.IsNullOrEmpty(httpRequest.Params["doc_path"].ToString()))
+                {
+                    string testfile = "/" + httpRequest.Params["doc_path"].ToString() + httpRequest.Params["doc_name"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
+
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+
+                    byte[] filetobytes = db.FileToByteArray(sDocumentPath);
+
+                    db.UpdateUploadedIssueDocument_Blob(int.Parse(httpRequest.Params["doc_id"].ToString()), filetobytes);
+                }
+                //
                 return Json(new
                 {
                     Success = true
