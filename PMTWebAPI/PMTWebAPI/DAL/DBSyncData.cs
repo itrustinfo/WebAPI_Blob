@@ -2559,5 +2559,42 @@ namespace PMTWebAPI.DAL
             }
 
         }
+
+        //added on 26/05/2023
+        public int InsertorUpdate_DocumentsAttachment(Guid AttachmentUID, Guid ActualDocumentUID, Guid StatusUID, string AttachmentFileName, string AttachmentFile,Guid CreatedUserUID,string CreatedDate,string DeletedFlag)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("dbsync_InsertorUpdate_DocumentsAttachment"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@AttachmentUID", AttachmentUID);
+                        cmd.Parameters.AddWithValue("@ActualDocumentUID", ActualDocumentUID);
+                        cmd.Parameters.AddWithValue("@StatusUID", StatusUID);
+                        cmd.Parameters.AddWithValue("@AttachmentFileName", AttachmentFileName);
+                        cmd.Parameters.AddWithValue("@AttachmentFile", AttachmentFile);
+                        cmd.Parameters.AddWithValue("@CreatedUserUID", CreatedUserUID);
+                        cmd.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+                        cmd.Parameters.AddWithValue("@DeletedFlag", DeletedFlag);
+                        con.Open();
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult = 0;
+            }
+
+        }
+
     }
 }

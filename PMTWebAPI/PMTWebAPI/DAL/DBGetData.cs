@@ -14408,6 +14408,34 @@ string inrRate, string jpyRate, string usdRate, string inrAmount, string jpyAmou
             }
         }
 
+        public int UpdateUploadedRABillDocument_Blob(Guid doc_id, byte[] doc_blob)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("UpdateUploadedRABillDocument_Blob"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@doc_id", doc_id);
+                        cmd.Parameters.AddWithValue("@docBlob", doc_blob);
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult;
+            }
+        }
+
     }
 }
 

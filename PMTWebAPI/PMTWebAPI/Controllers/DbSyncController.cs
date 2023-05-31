@@ -138,7 +138,7 @@ namespace PMTWebAPI.Controllers
                 //var DocumentUID = httpRequest.Params["DocumentUID"];
                 //var WorkPackageUID = httpRequest.Params["WorkPackageUID"];
 
-                dbsync.Document_Insert_or_Update_ActualDocuments(new Guid(httpRequest.Params["ActualDocumentUID"]), new Guid(httpRequest.Params["ProjectUID"]), new Guid(httpRequest.Params["WorkPackageUID"]), new Guid(httpRequest.Params["DocumentUID"]), httpRequest.Params["ProjectRef_Number"], httpRequest.Params["Ref_Number"], httpRequest.Params["Doc_Type"],
+              int result =  dbsync.Document_Insert_or_Update_ActualDocuments(new Guid(httpRequest.Params["ActualDocumentUID"]), new Guid(httpRequest.Params["ProjectUID"]), new Guid(httpRequest.Params["WorkPackageUID"]), new Guid(httpRequest.Params["DocumentUID"]), httpRequest.Params["ProjectRef_Number"], httpRequest.Params["Ref_Number"], httpRequest.Params["Doc_Type"],
                    DateTime.Parse(httpRequest.Params["IncomingRec_Date"]), new Guid(httpRequest.Params["FlowUID"].ToString()), httpRequest.Params["ActualDocument_Name"].ToString(), httpRequest.Params["Description"].ToString(), double.Parse(httpRequest.Params["ActualDocument_Version"].ToString()), httpRequest.Params["ActualDocument_Type"].ToString(),
                             httpRequest.Params["Media_HC"].ToString(), httpRequest.Params["Media_SC"].ToString(), httpRequest.Params["Media_SCEF"].ToString(), httpRequest.Params["Media_HCR"].ToString(), httpRequest.Params["Media_SCR"].ToString(), httpRequest.Params["Media_NA"].ToString(), httpRequest.Params["ActualDocument_Path"].ToString(), httpRequest.Params["Remarks"].ToString(), httpRequest.Params["FileRef_Number"].ToString(), httpRequest.Params["ActualDocument_CurrentStatus"].ToString(),
                             httpRequest.Params["FlowStep1_TargetDate"].ToString(), httpRequest.Params["FlowStep2_TargetDate"].ToString(), httpRequest.Params["FlowStep3_TargetDate"].ToString(), httpRequest.Params["FlowStep4_TargetDate"].ToString(), httpRequest.Params["FlowStep5_TargetDate"].ToString(), httpRequest.Params["ActualDocument_Originator"].ToString(), httpRequest.Params["Document_Date"].ToString(), httpRequest.Params["ActualDocument_RelativePath"].ToString(), httpRequest.Params["ActualDocument_DirectoryName"].ToString(), httpRequest.Params["ActualDocument_CreatedDate"].ToString(), httpRequest.Params["Delete_Flag"].ToString(), httpRequest.Params["CoverLetterUID"].ToString(), httpRequest.Params["SubmissionType"].ToString(),
@@ -148,18 +148,19 @@ namespace PMTWebAPI.Controllers
                             httpRequest.Params["FlowStep16_TargetDate"].ToString(), httpRequest.Params["FlowStep17_TargetDate"].ToString(), httpRequest.Params["FlowStep18_TargetDate"].ToString(), httpRequest.Params["FlowStep19_TargetDate"].ToString(), httpRequest.Params["FlowStep20_TargetDate"].ToString());
 
                 //for blob conversion
-                string sDocumentPath = string.Empty;
-                string testfile = httpRequest.Params["ActualDocument_Path"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
-                string filename = testfile.Substring(1).Split('/').Last();
+               
+                    string sDocumentPath = string.Empty;
+                    string testfile = httpRequest.Params["ActualDocument_Path"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
 
-                string relativepath = testfile.Substring(1).Replace(filename, "");
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
 
-                sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
-                string Connectionstring = db.getProjectConnectionString(new Guid(httpRequest.Params["ProjectUID"]));
-                //for blob storage 
-                byte[] filetobytes = db.FileToByteArray(sDocumentPath);
-                db.InsertActualDocumentsBlob(new Guid(httpRequest.Params["ActualDocumentUID"]), filetobytes, Connectionstring);
-
+                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
+                    string Connectionstring = db.getProjectConnectionString(new Guid(httpRequest.Params["ProjectUID"]));
+                    //for blob storage 
+                    byte[] filetobytes = db.FileToByteArray(sDocumentPath);
+                    db.InsertActualDocumentsBlob(new Guid(httpRequest.Params["ActualDocumentUID"]), filetobytes, Connectionstring);
+                
                 //
 
 
@@ -188,7 +189,7 @@ namespace PMTWebAPI.Controllers
                 //var DocumentUID = httpRequest.Params["DocumentUID"];
                 //var WorkPackageUID = httpRequest.Params["WorkPackageUID"];
 
-                dbsync.InsertorUpdateDocumentStatus(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), double.Parse(httpRequest.Params["Version"].ToString()), httpRequest.Params["ActivityType"].ToString(), httpRequest.Params["Activity_Budget"].ToString(),
+               int result= dbsync.InsertorUpdateDocumentStatus(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), double.Parse(httpRequest.Params["Version"].ToString()), httpRequest.Params["ActivityType"].ToString(), httpRequest.Params["Activity_Budget"].ToString(),
                            DateTime.Parse(httpRequest.Params["ActivityDate"].ToString()), httpRequest.Params["LinkToReviewFile"].ToString(), new Guid(httpRequest.Params["AcivityUserUID"].ToString()), httpRequest.Params["Status_Comments"].ToString(), httpRequest.Params["Current_Status"].ToString(), httpRequest.Params["Ref_Number"].ToString(), httpRequest.Params["DocumentDate"].ToString(), httpRequest.Params["CoverLetterFile"].ToString(), httpRequest.Params["Delete_Flag"].ToString(), httpRequest.Params["Origin"].ToString(), httpRequest.Params["CreatedDate"].ToString(), httpRequest.Params["Forwarded"].ToString());
 
                 //for blob conversion
@@ -202,35 +203,36 @@ namespace PMTWebAPI.Controllers
                     projectuid = ds.Tables[0].Rows[0]["ProjectUID"].ToString();
                 }
                     string Connectionstring = db.getProjectConnectionString(new Guid(projectuid));
-                if (!string.IsNullOrEmpty(httpRequest.Params["CoverLetterFile"].ToString()))
-                {
-                    string testfile = httpRequest.Params["CoverLetterFile"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
-                    string filename = testfile.Substring(1).Split('/').Last();
+               
+                    if (!string.IsNullOrEmpty(httpRequest.Params["CoverLetterFile"].ToString()))
+                    {
+                        string testfile = httpRequest.Params["CoverLetterFile"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                        string filename = testfile.Substring(1).Split('/').Last();
 
-                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                        string relativepath = testfile.Substring(1).Replace(filename, "");
 
-                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
-                   
-                    //for blob storage 
-                    coverfiletobytes = db.FileToByteArray(sDocumentPath);
-                    
+                        sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
+
+                        //for blob storage 
+                        coverfiletobytes = db.FileToByteArray(sDocumentPath);
+
+                        //db.InsertDocumentStatusBlob(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), coverfiletobytes, docfiletobytes, Connectionstring);
+
+                    }
+                    if (!string.IsNullOrEmpty(httpRequest.Params["LinkToReviewFile"].ToString()))
+                    {
+                        string testfile = httpRequest.Params["LinkToReviewFile"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                        string filename = testfile.Substring(1).Split('/').Last();
+
+                        string relativepath = testfile.ToString().Replace(filename, "");
+
+                        sDocumentPath = ConfigurationManager.AppSettings["DocumentsPathReviewFile"] + relativepath + filename;
+
+                        //for blob storage 
+                        docfiletobytes = db.FileToByteArray(sDocumentPath);
+                    }
                     db.InsertDocumentStatusBlob(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), coverfiletobytes, docfiletobytes, Connectionstring);
-
-                }
-                if (!string.IsNullOrEmpty(httpRequest.Params["LinkToReviewFile"].ToString()))
-                {
-                    string testfile = httpRequest.Params["LinkToReviewFile"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
-                    string filename = testfile.Substring(1).Split('/').Last();
-
-                    string relativepath = testfile.ToString().Replace(filename, "");
-
-                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPathReviewFile"] + relativepath;
-                   
-                    //for blob storage 
-                    docfiletobytes = db.FileToByteArray(sDocumentPath);
-                }
-                db.InsertDocumentStatusBlob(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), coverfiletobytes, docfiletobytes, Connectionstring);
-
+                
                 return Json(new
                 {
                     Success = true
@@ -361,7 +363,7 @@ namespace PMTWebAPI.Controllers
                 //var DocumentUID = httpRequest.Params["DocumentUID"];
                 //var WorkPackageUID = httpRequest.Params["WorkPackageUID"];
 
-                dbsync.InsertDocumentorUpdateVersion(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocStatus_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), httpRequest.Params["Doc_Type"].ToString(), httpRequest.Params["Doc_FileName"].ToString(), httpRequest.Params["Doc_Comments"].ToString(), int.Parse(httpRequest.Params["Doc_Version"].ToString()),
+                int result = dbsync.InsertDocumentorUpdateVersion(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocStatus_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), httpRequest.Params["Doc_Type"].ToString(), httpRequest.Params["Doc_FileName"].ToString(), httpRequest.Params["Doc_Comments"].ToString(), int.Parse(httpRequest.Params["Doc_Version"].ToString()),
                             httpRequest.Params["Doc_Status"].ToString(), httpRequest.Params["Doc_StatusDate"].ToString(), httpRequest.Params["Delete_Flag"].ToString(), httpRequest.Params["Doc_CoverLetter"].ToString());
 
                 //for blob conversion
@@ -375,34 +377,36 @@ namespace PMTWebAPI.Controllers
                     projectuid = ds.Tables[0].Rows[0]["ProjectUID"].ToString();
                 }
                 string Connectionstring = db.getProjectConnectionString(new Guid(projectuid));
-                if (!string.IsNullOrEmpty(httpRequest.Params["Doc_CoverLetter"].ToString()))
-                {
-                    string testfile = httpRequest.Params["Doc_CoverLetter"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
-                    string filename = testfile.Substring(1).Split('/').Last();
+                
+                    if (!string.IsNullOrEmpty(httpRequest.Params["Doc_CoverLetter"].ToString()))
+                    {
+                        string testfile = httpRequest.Params["Doc_CoverLetter"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                        string filename = testfile.Substring(1).Split('/').Last();
 
-                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                        string relativepath = testfile.Substring(1).Replace(filename, "");
 
-                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+                        sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
 
-                    //for blob storage 
-                    coverfiletobytes = db.FileToByteArray(sDocumentPath);
+                        //for blob storage 
+                        coverfiletobytes = db.FileToByteArray(sDocumentPath);
 
-                    db.InsertDocumentStatusBlob(new Guid(httpRequest.Params["StatusUID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), coverfiletobytes, docfiletobytes, Connectionstring);
+                      
 
-                }
-                if (!string.IsNullOrEmpty(httpRequest.Params["Doc_FileName"].ToString()))
-                {
-                    string testfile = httpRequest.Params["Doc_FileName"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
-                    string filename = testfile.Substring(1).Split('/').Last();
+                    }
+                    if (!string.IsNullOrEmpty(httpRequest.Params["Doc_FileName"].ToString()))
+                    {
+                        string testfile = httpRequest.Params["Doc_FileName"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                        string filename = testfile.Substring(1).Split('/').Last();
 
-                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                        string relativepath = testfile.Substring(1).Replace(filename, "");
 
-                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+                        sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
 
-                    //for blob storage 
-                    docfiletobytes = db.FileToByteArray(sDocumentPath);
-                }
-                db.InsertDocumentVersionBlob(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), docfiletobytes, coverfiletobytes, Connectionstring);
+                        //for blob storage 
+                        docfiletobytes = db.FileToByteArray(sDocumentPath);
+                    }
+                    db.InsertDocumentVersionBlob(new Guid(httpRequest.Params["DocVersion_UID"].ToString()), new Guid(httpRequest.Params["DocumentUID"].ToString()), docfiletobytes, coverfiletobytes, Connectionstring);
+                
                 //
                 return Json(new
                 {
@@ -1008,7 +1012,7 @@ namespace PMTWebAPI.Controllers
                     string filename = testfile.Substring(1).Split('/').Last();
 
                     string relativepath = testfile.Substring(1).Replace(filename, "");
-                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename; ;
 
                     byte[] filetobytes = db.FileToByteArray(sDocumentPath);
 
@@ -1048,7 +1052,7 @@ namespace PMTWebAPI.Controllers
                     string filename = testfile.Substring(1).Split('/').Last();
 
                     string relativepath = testfile.Substring(1).Replace(filename, "");
-                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath;
+                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
 
                     byte[] filetobytes = db.FileToByteArray(sDocumentPath);
 
@@ -1630,6 +1634,23 @@ namespace PMTWebAPI.Controllers
                     httpRequest.Params["Description"].ToString(),
                     httpRequest.Params["DeleteFlag"].ToString()
                    );
+
+                //for blob
+                if (!string.IsNullOrEmpty(httpRequest.Params["FilePath"].ToString()))
+                {
+                    string testfile = httpRequest.Params["FilePath"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
+
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
+                    string sencryppath = ConfigurationManager.AppSettings["DocumentsPath"] + "//_PreviewLoad//" + filename;
+                    db.EncryptFile(sDocumentPath, sencryppath);
+                    byte[] filetobytes = db.FileToByteArray(sencryppath);
+
+                    db.UpdateUploadedRABillDocument_Blob(new Guid(httpRequest.Params["DocumentUID"].ToString()), filetobytes);
+                }
+                //
+
                 return Json(new
                 {
                     Success = true
@@ -1795,6 +1816,63 @@ namespace PMTWebAPI.Controllers
                     new Guid(httpRequest.Params["StatusUID"].ToString()),
                     httpRequest.Params["UserType"].ToString(),
                     httpRequest.Params["CreatedDate"].ToString());
+
+                return Json(new
+                {
+                    Success = true
+
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    Success = false,
+                    Message = "Error" + ex.Message
+                });
+            }
+        }
+
+        [HttpPost] // for dbsync CorrespondenceCCToUsersSync 
+        public IHttpActionResult DocumentsAttachmentSync()
+        {
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                dbsync.InsertorUpdate_DocumentsAttachment(new Guid(httpRequest.Params["AttachmentUID"].ToString()),
+                    new Guid(httpRequest.Params["ActualDocumentUID"].ToString()),
+                    new Guid(httpRequest.Params["StatusUID"].ToString()),
+                    httpRequest.Params["AttachmentFileName"].ToString(),
+                    httpRequest.Params["AttachmentFile"].ToString(),
+                new Guid(httpRequest.Params["CreatedUserUID"].ToString()),
+                httpRequest.Params["CreatedDate"].ToString(),
+                httpRequest.Params["DeletedFlag"].ToString());
+                //
+                DataSet ds = db.ActualDocuments_SelectBy_ActualDocumentUID(new Guid(httpRequest.Params["ActualDocumentUID"].ToString()));
+                string projectuid = string.Empty;
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    projectuid = ds.Tables[0].Rows[0]["ProjectUID"].ToString();
+                }
+
+                string Connectionstring = db.getProjectConnectionString(new Guid(projectuid));
+                if (!string.IsNullOrEmpty(httpRequest.Params["AttachmentFile"].ToString()))
+                {
+                    //for blob conversion
+                    string sDocumentPath = string.Empty;
+                    string testfile = httpRequest.Params["AttachmentFile"].ToString();// @"~/2bbfa1ef-b427-4e19-add1-97df91390f97/28a6a63b-2573-40a8-bc89-e396c31ce516/CoverLetter/sample cover letter_1.pdf";
+                    string filename = testfile.Substring(1).Split('/').Last();
+
+                    string relativepath = testfile.Substring(1).Replace(filename, "");
+
+                    sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + relativepath + filename;
+                   
+                    //for blob storage 
+                    byte[] filetobytesAttach = db.FileToByteArray(sDocumentPath);
+                    db.InsertDocumentsAttachmentsBlob(new Guid(httpRequest.Params["AttachmentUID"].ToString()), new Guid(httpRequest.Params["ActualDocumentUID"].ToString()), new Guid(httpRequest.Params["StatusUID"].ToString()), filetobytesAttach, Connectionstring);
+
+                    //
+                }
 
                 return Json(new
                 {
