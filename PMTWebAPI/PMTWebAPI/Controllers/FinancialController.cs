@@ -1190,278 +1190,41 @@ namespace PMTWebAPI.Controllers
             }
         }
 
-        // added for  venkat on 19/02/2022
-        /// <summary>
-        /// Updated by venkat on 19 Feb 2022
-        /// </summary>
-        /// <returns></returns>
-        [Authorize]
-        [HttpPost]
-        [Route("api/Financial/AddIssues")]
-        public IHttpActionResult AddIssues()
-        {
-            //added on 17/04/2023 after salahuddins call to not aloow contractors to update status
-            return Json(new
-            {
-                Status = "Failure",
-                Message = "This API is no longer supported as requirement from the Client"
-            });
-
-            bool sError = false;
-            string ErrorText = "";
-            Guid InvoiceMaster_UID = Guid.NewGuid();
-            var httpRequest = HttpContext.Current.Request;
-            var transactionUid = Guid.NewGuid();
-            var issue_uid = Guid.NewGuid();
-            try
-            {
-                //Insert into WebAPITransctions table
-                var BaseURL = HttpContext.Current.Request.Url.ToString();
-                string postData = "ProjectName=" + httpRequest.Params["project name"] + ";Issue description=" + httpRequest.Params["Issue description"] + ";assigned user=" + httpRequest.Params["assigned user"] +
-                    ";assigned date=" + httpRequest.Params["assigned date"] + ";reporting user=" + httpRequest.Params["reporting user"] + ";reporting date=" + httpRequest.Params["reporting date"] +
-                    ";approving user=" + httpRequest.Params["approving user"] + ";issue proposed  close date=" + httpRequest.Params["issue proposed  close date"] + ";remarks=" + httpRequest.Params["remarks"] +
-                    "issue document=" + httpRequest.Params["issue document"];
-                db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
-
-                if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["Issue description"]) || 
-                      String.IsNullOrEmpty(httpRequest.Params["reporting user"]) || String.IsNullOrEmpty(httpRequest.Params["reporting date"]) )
-                {
-                   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
-                    return Json(new
-                    {
-                        Status = "Failure",
-                        Message = "Error:Mandatory fields are missing"
-                    });
-                }
-
-
-                var identity = (ClaimsIdentity)User.Identity;
-
-                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
-                {
-                    var projectName = httpRequest.Params["project name"];
-                    DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
-                    if (dtWorkPackages.Rows.Count > 0)
-                    {
-                        DataTable dtIssuesExist = db.getIssuesByDescription( new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), httpRequest.Params["Issue description"].ToString());
-                        if(dtIssuesExist.Rows.Count>0)
-                        {
-                            return Json(new
-                            {
-                                Status = "Failure",
-                                Message = "Issue already Exists"
-
-                            });
-                        }
-                        //DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["approving user"].ToString());
-                        //if (dsUserDetails.Tables[0].Rows.Count == 0)
-                        //{
-                        //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Approve user is not " +
-                        //        //"available");
-                        //    return Json(new
-                        //    {
-                        //        Status = "Failure",
-                        //        Message = "Approve user is not available"
-
-                        //    });
-
-                        //}
-                       // string approveUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
-
-                        DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["reporting user"].ToString());
-
-                        if (dsUserDetails.Tables[0].Rows.Count == 0)
-                        {
-                          //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting user is not  available");
-                            return Json(new
-                            {
-                                Status = "Failure",
-                                Message = "Reporting user is not available"
-
-                            });
-
-                        }
-                        if(dsUserDetails.Tables[0].Rows[0]["IsContractor"].ToString() != "Y")
-                        {
-                            return Json(new
-                            {
-                                Status = "Failure",
-                                Message = "Not Authorized to add issue"
-
-                            });
-                        }
-                        string reportUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
-                        //dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["assigned user"].ToString());
-                        //if (dsUserDetails.Tables[0].Rows.Count == 0)
-                        //{
-                        //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Assigned user is not available");
-                        //    return Json(new
-                        //    {
-                        //        Status = "Failure",
-                        //        Message = "Assigned user is not available"
-
-                        //    });
-
-                        //}
-                        //string assignedUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
-                        DateTime reportDate = DateTime.Now;
-                        if (!string.IsNullOrEmpty(httpRequest.Params["reporting date"]))
-                        {
-                            string tmpDate = db.ConvertDateFormat(httpRequest.Params["reporting date"]);
-                            reportDate = Convert.ToDateTime(tmpDate);
-                        }
-                       
-                        if (DateTime.TryParse(reportDate.ToString(), out  reportDate))// &&
-                           // DateTime.TryParse(httpRequest.Params["assigned date"], out DateTime assignedDate) &&
-                           // DateTime.TryParse(httpRequest.Params["issue proposed  close date"], out DateTime proposedClosedDate))
-                        {
-
-                            //AddDays need to removed when upload in indian server
-                            if (reportDate.Date > DateTime.Now.Date.AddDays(1))
-                            {
-                              //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
-                                return Json(new
-                                {
-                                    Status = "Failure",
-                                    Message = "Reporting Date should not be greater then today date"
-
-                                });
-                            }
-                            //if (reportDate > assignedDate)
-                            //{
-                            //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
-                            //    return Json(new
-                            //    {
-                            //        Status = "Failure",
-                            //        Message = "Reporting Date should be less then assigned date"
-
-                            //    });
-                            //}
-                            string DecryptPagePath = "";
-                            for (int i = 0; i < httpRequest.Files.Count; i++)
-                            {
-                                HttpPostedFile httpPostedFile = httpRequest.Files[i];
-
-                                if (httpPostedFile != null)
-                                {
-                                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + "/Documents/Issues/";
-                                    string FileDirectory = "~/Documents/Issues/";
-                                    if (!Directory.Exists(sDocumentPath))
-                                    {
-                                        Directory.CreateDirectory(sDocumentPath);
-                                    }
-
-                                    string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
-                                    string Extn = Path.GetExtension(httpPostedFile.FileName);
-                                    httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + Extn);
-                                    //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
-                                    string savedPath = sDocumentPath + "/" + sFileName + Extn;
-                                    DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
-                                    db.EncryptFile(savedPath, DecryptPagePath);
-                                    DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
-                                }
-                            }
-                            string remarks = "";
-                            //int Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(assignedUserUid), assignedDate, proposedClosedDate, new Guid(approveUserUid), proposedClosedDate, "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
-                            if(!string.IsNullOrEmpty( httpRequest.Params["remarks"]))
-                            {
-                                remarks = httpRequest.Params["remarks"].ToString();
-                            }
-                            int Cnt = 0;
-                            dsUserDetails = db.getUserDetails_by_EmailID("bm.srinivasamurthy@njsei.com");
-                            if (projectName.ToUpper() == "CP-10" && dsUserDetails.Tables[0].Rows.Count>0)
-                            {
-                                 Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now, DateTime.Now.AddDays(10), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now.AddDays(10), "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
-                            }
-                            else
-                            {
-                                 Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), "Open", remarks, new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
-                            }
-                            if (Cnt > 0)
-                            {
-                                sError = false;
-                                ErrorText = "Inserted successfully";
-                            }
-                            else
-                            {
-                                sError = false;
-                                ErrorText = "Status is not inserted,Please contact administrator";
-                            }
-                        }
-                        else
-                        {
-                            sError = true;
-                            ErrorText = "Date are not correct format.";
-                        }
-
-                    }
-                    else
-                    {
-                      //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
-
-                        sError = true;
-                        ErrorText = "ProjectName not exists";
-
-                    }
-                }
-                else
-                {
-                  //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
-                    return Json(new
-                    {
-                        Status = "Failure",
-                        Message = "Not Authorized IP address"
-                    });
-
-                }
-            }
-            catch (Exception ex)
-            {
-                sError = true;
-                ErrorText = ex.Message;
-            }
-            if (sError)
-            {
-              //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
-                return Json(new
-                {
-                    Status = "Failure",
-                    Message = "Error:" + ErrorText
-                });
-            }
-           // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
-            return Json(new
-            {
-                Status = "Success",
-                IssueUid = issue_uid,
-                Message = ErrorText
-
-            });
-        }
-
+        //// added for  venkat on 19/02/2022
+        ///// <summary>
+        ///// Updated by venkat on 19 Feb 2022
+        ///// </summary>
+        ///// <returns></returns>
         //[Authorize]
         //[HttpPost]
-        //[Route("api/Financial/UpdateIssueStatus")]
-        //public IHttpActionResult UpdateIssueStatus()
+        //[Route("api/Financial/AddIssues")]
+        //public IHttpActionResult AddIssues()
         //{
+        //    //added on 17/04/2023 after salahuddins call to not aloow contractors to update status
+        //    return Json(new
+        //    {
+        //        Status = "Failure",
+        //        Message = "This API is no longer supported as requirement from the Client"
+        //    });
+
         //    bool sError = false;
         //    string ErrorText = "";
         //    Guid InvoiceMaster_UID = Guid.NewGuid();
         //    var httpRequest = HttpContext.Current.Request;
         //    var transactionUid = Guid.NewGuid();
-        //    bool transactionStatus = false;
-        //    DateTime updatingDate = DateTime.MinValue;
-        //    Guid issue_remarks_uid = Guid.NewGuid(); 
+        //    var issue_uid = Guid.NewGuid();
         //    try
         //    {
         //        //Insert into WebAPITransctions table
         //        var BaseURL = HttpContext.Current.Request.Url.ToString();
-        //        string postData = "ProjectName=" + httpRequest.Params["project name"] + ";issue uid=" + httpRequest.Params["issue uid"] + ";issue status=" + httpRequest.Params["issue status"] + ";issue status update date=" + httpRequest.Params["updating date"] +
-        //            ";Issue status update user id=" + httpRequest.Params["updating user id"] + ";issue status document=" + httpRequest.Params["issue status document"] + ";remarks=" + httpRequest.Params["remarks"];
+        //        string postData = "ProjectName=" + httpRequest.Params["project name"] + ";Issue description=" + httpRequest.Params["Issue description"] + ";assigned user=" + httpRequest.Params["assigned user"] +
+        //            ";assigned date=" + httpRequest.Params["assigned date"] + ";reporting user=" + httpRequest.Params["reporting user"] + ";reporting date=" + httpRequest.Params["reporting date"] +
+        //            ";approving user=" + httpRequest.Params["approving user"] + ";issue proposed  close date=" + httpRequest.Params["issue proposed  close date"] + ";remarks=" + httpRequest.Params["remarks"] +
+        //            "issue document=" + httpRequest.Params["issue document"];
         //        db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
 
-        //        if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["issue uid"]) || String.IsNullOrEmpty(httpRequest.Params["issue status"]) || String.IsNullOrEmpty(httpRequest.Params["updating user id"])
-        //            || string.IsNullOrEmpty(httpRequest.Params["updating date"]))
+        //        if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["Issue description"]) || 
+        //              String.IsNullOrEmpty(httpRequest.Params["reporting user"]) || String.IsNullOrEmpty(httpRequest.Params["reporting date"]) )
         //        {
         //           // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
         //            return Json(new
@@ -1478,6 +1241,268 @@ namespace PMTWebAPI.Controllers
         //        {
         //            var projectName = httpRequest.Params["project name"];
         //            DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
+        //            if (dtWorkPackages.Rows.Count > 0)
+        //            {
+        //                DataTable dtIssuesExist = db.getIssuesByDescription( new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), httpRequest.Params["Issue description"].ToString());
+        //                if(dtIssuesExist.Rows.Count>0)
+        //                {
+        //                    return Json(new
+        //                    {
+        //                        Status = "Failure",
+        //                        Message = "Issue already Exists"
+
+        //                    });
+        //                }
+        //                //DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["approving user"].ToString());
+        //                //if (dsUserDetails.Tables[0].Rows.Count == 0)
+        //                //{
+        //                //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Approve user is not " +
+        //                //        //"available");
+        //                //    return Json(new
+        //                //    {
+        //                //        Status = "Failure",
+        //                //        Message = "Approve user is not available"
+
+        //                //    });
+
+        //                //}
+        //               // string approveUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+
+        //                DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["reporting user"].ToString());
+
+        //                if (dsUserDetails.Tables[0].Rows.Count == 0)
+        //                {
+        //                  //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting user is not  available");
+        //                    return Json(new
+        //                    {
+        //                        Status = "Failure",
+        //                        Message = "Reporting user is not available"
+
+        //                    });
+
+        //                }
+        //                if(dsUserDetails.Tables[0].Rows[0]["IsContractor"].ToString() != "Y")
+        //                {
+        //                    return Json(new
+        //                    {
+        //                        Status = "Failure",
+        //                        Message = "Not Authorized to add issue"
+
+        //                    });
+        //                }
+        //                string reportUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+        //                //dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["assigned user"].ToString());
+        //                //if (dsUserDetails.Tables[0].Rows.Count == 0)
+        //                //{
+        //                //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Assigned user is not available");
+        //                //    return Json(new
+        //                //    {
+        //                //        Status = "Failure",
+        //                //        Message = "Assigned user is not available"
+
+        //                //    });
+
+        //                //}
+        //                //string assignedUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+        //                DateTime reportDate = DateTime.Now;
+        //                if (!string.IsNullOrEmpty(httpRequest.Params["reporting date"]))
+        //                {
+        //                    string tmpDate = db.ConvertDateFormat(httpRequest.Params["reporting date"]);
+        //                    reportDate = Convert.ToDateTime(tmpDate);
+        //                }
+                       
+        //                if (DateTime.TryParse(reportDate.ToString(), out  reportDate))// &&
+        //                   // DateTime.TryParse(httpRequest.Params["assigned date"], out DateTime assignedDate) &&
+        //                   // DateTime.TryParse(httpRequest.Params["issue proposed  close date"], out DateTime proposedClosedDate))
+        //                {
+
+        //                    //AddDays need to removed when upload in indian server
+        //                    if (reportDate.Date > DateTime.Now.Date.AddDays(1))
+        //                    {
+        //                      //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
+        //                        return Json(new
+        //                        {
+        //                            Status = "Failure",
+        //                            Message = "Reporting Date should not be greater then today date"
+
+        //                        });
+        //                    }
+        //                    //if (reportDate > assignedDate)
+        //                    //{
+        //                    //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
+        //                    //    return Json(new
+        //                    //    {
+        //                    //        Status = "Failure",
+        //                    //        Message = "Reporting Date should be less then assigned date"
+
+        //                    //    });
+        //                    //}
+        //                    string DecryptPagePath = "";
+        //                    for (int i = 0; i < httpRequest.Files.Count; i++)
+        //                    {
+        //                        HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+        //                        if (httpPostedFile != null)
+        //                        {
+        //                            string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + "/Documents/Issues/";
+        //                            string FileDirectory = "~/Documents/Issues/";
+        //                            if (!Directory.Exists(sDocumentPath))
+        //                            {
+        //                                Directory.CreateDirectory(sDocumentPath);
+        //                            }
+
+        //                            string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+        //                            string Extn = Path.GetExtension(httpPostedFile.FileName);
+        //                            httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + Extn);
+        //                            //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
+        //                            string savedPath = sDocumentPath + "/" + sFileName + Extn;
+        //                            DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
+        //                            db.EncryptFile(savedPath, DecryptPagePath);
+        //                            DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
+        //                        }
+        //                    }
+        //                    string remarks = "";
+        //                    //int Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(assignedUserUid), assignedDate, proposedClosedDate, new Guid(approveUserUid), proposedClosedDate, "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+        //                    if(!string.IsNullOrEmpty( httpRequest.Params["remarks"]))
+        //                    {
+        //                        remarks = httpRequest.Params["remarks"].ToString();
+        //                    }
+        //                    int Cnt = 0;
+        //                    dsUserDetails = db.getUserDetails_by_EmailID("bm.srinivasamurthy@njsei.com");
+        //                    if (projectName.ToUpper() == "CP-10" && dsUserDetails.Tables[0].Rows.Count>0)
+        //                    {
+        //                         Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now, DateTime.Now.AddDays(10), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now.AddDays(10), "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+        //                    }
+        //                    else
+        //                    {
+        //                         Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), "Open", remarks, new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+        //                    }
+        //                    if (Cnt > 0)
+        //                    {
+        //                        sError = false;
+        //                        ErrorText = "Inserted successfully";
+        //                    }
+        //                    else
+        //                    {
+        //                        sError = false;
+        //                        ErrorText = "Status is not inserted,Please contact administrator";
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    sError = true;
+        //                    ErrorText = "Date are not correct format.";
+        //                }
+
+        //            }
+        //            else
+        //            {
+        //              //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
+
+        //                sError = true;
+        //                ErrorText = "ProjectName not exists";
+
+        //            }
+        //        }
+        //        else
+        //        {
+        //          //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
+        //            return Json(new
+        //            {
+        //                Status = "Failure",
+        //                Message = "Not Authorized IP address"
+        //            });
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        sError = true;
+        //        ErrorText = ex.Message;
+        //    }
+        //    if (sError)
+        //    {
+        //      //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
+        //        return Json(new
+        //        {
+        //            Status = "Failure",
+        //            Message = "Error:" + ErrorText
+        //        });
+        //    }
+        //   // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
+        //    return Json(new
+        //    {
+        //        Status = "Success",
+        //        IssueUid = issue_uid,
+        //        Message = ErrorText
+
+        //    });
+        //}
+
+       
+
+
+
+
+
+        //[Authorize]
+        //[HttpPost]
+        //[Route("api/Financial/UpdateIssueStatus")]
+        //public IHttpActionResult UpdateIssueStatus()  //changed on 15/09/2022 
+        //{
+        //    //added on 17/04/2023 after salahuddins call to not aloow contractors to update status
+        //    return Json(new
+        //    {
+        //        Status = "Failure",
+        //        Message = "This API is no longer supported as requirement from the Client"
+        //    });
+
+        //    bool sError = false;
+        //    string ErrorText = "";
+        //    string files_path = "";
+        //    Guid InvoiceMaster_UID = Guid.NewGuid();
+        //    var httpRequest = HttpContext.Current.Request;
+        //    var transactionUid = Guid.NewGuid();
+        //    bool transactionStatus = false;
+        //    DateTime updatingDate = DateTime.MinValue;
+        //    Guid issue_remarks_uid = Guid.NewGuid();
+        //    string projectUID = "";
+        //    string workpackageUID = "";
+        //    string userUid = "";
+        //    try
+        //    {
+        //        //Insert into WebAPITransctions table
+        //        var BaseURL = HttpContext.Current.Request.Url.ToString();
+        //        string postData = "ProjectName=" + httpRequest.Params["project name"] + ";issue uid=" + httpRequest.Params["issue uid"] + ";issue status=" + httpRequest.Params["issue status"] + ";issue status update date=" + httpRequest.Params["updating date"] +
+        //            ";Issue status update user id=" + httpRequest.Params["updating user id"] + ";issue status document=" + httpRequest.Params["issue status document"] + ";remarks=" + httpRequest.Params["remarks"];
+        //        db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
+
+        //        if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["issue uid"]) || String.IsNullOrEmpty(httpRequest.Params["issue status"]) || String.IsNullOrEmpty(httpRequest.Params["updating user id"])
+        //            || string.IsNullOrEmpty(httpRequest.Params["updating date"]))
+        //        {
+        //            // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
+        //            return Json(new
+        //            {
+        //                Status = "Failure",
+        //                Message = "Error:Mandatory fields are missing"
+        //            });
+        //        }
+        //        //added on 22/02/2023
+        //        if(httpRequest.Params["issue status"].ToLower() == "close")
+        //        {
+        //            return Json(new
+        //            {
+        //                Status = "Failure",
+        //                Message = "Not allowed to close the status"
+        //            });
+        //        }
+        //        //
+        //        var identity = (ClaimsIdentity)User.Identity;
+
+        //        if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+        //        {
+        //            var projectName = httpRequest.Params["project name"];
+        //            DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
         //            if (dtWorkPackages.Rows.Count == 0)
         //            {
         //                sError = true;
@@ -1485,6 +1510,8 @@ namespace PMTWebAPI.Controllers
         //            }
         //            else
         //            {
+        //                projectUID = dtWorkPackages.Rows[0]["ProjectUID"].ToString();
+        //                workpackageUID = dtWorkPackages.Rows[0]["WorkPackageUID"].ToString();
         //                DataSet dsIssues = db.getIssuesList_by_UID(new Guid(httpRequest.Params["issue uid"]));
         //                if (dsIssues.Tables[0].Rows.Count == 0)
         //                {
@@ -1511,11 +1538,9 @@ namespace PMTWebAPI.Controllers
 
         //                        if (DateTime.TryParse(reportDate.ToString(), out updatingDate))
         //                        {
-        //                            string userUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
-        //                            if (userUid.ToString().ToUpper() == dsIssues.Tables[0].Rows[0]["Assigned_User"].ToString().ToUpper() || userUid.ToString().ToUpper() == dsIssues.Tables[0].Rows[0]["Approving_User"].ToString().ToUpper())
-        //                            {
-        //                                if (dsIssues.Tables[0].Rows[0]["Assigned_User"].ToString() == dsIssues.Tables[0].Rows[0]["Approving_User"].ToString())
-        //                                {
+        //                            userUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+                                    
+                                        
         //                                    if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "Open" && (httpRequest.Params["issue status"].ToString() == "In-Progress" ||
         //                                               httpRequest.Params["issue status"].ToString() == "Close" || httpRequest.Params["issue status"].ToString() == "Reject"))
         //                                    {
@@ -1532,49 +1557,6 @@ namespace PMTWebAPI.Controllers
         //                                        sError = true;
         //                                        ErrorText = "User not allowed to update the status";
         //                                    }
-
-        //                                }
-        //                                else
-        //                                {
-        //                                    if (dsIssues.Tables[0].Rows[0]["Assigned_User"].ToString().ToUpper() == userUid.ToString().ToUpper())
-        //                                    {
-        //                                        if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "Open" && httpRequest.Params["issue status"].ToString() == "In-Progress")
-        //                                        {
-        //                                            transactionStatus = true;
-        //                                        }
-        //                                        else if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "In-Progress" && httpRequest.Params["issue status"].ToString() == "In-Progress")
-        //                                        {
-        //                                            transactionStatus = true;
-        //                                        }
-        //                                        else
-        //                                        {
-        //                                            sError = true;
-        //                                            ErrorText = "User not allowed to update the status";
-        //                                        }
-        //                                    }
-        //                                    else
-        //                                    {
-        //                                        if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "In-Progress" && (httpRequest.Params["issue status"].ToString() == "Close" ||
-        //                                            httpRequest.Params["issue status"].ToString() == "Reject"))
-        //                                        {
-        //                                            transactionStatus = true;
-        //                                        }
-        //                                        else
-        //                                        {
-        //                                            sError = true;
-        //                                            ErrorText = "User not allowed to update the status";
-        //                                        }
-
-        //                                    }
-        //                                }
-
-        //                            }
-
-        //                            else
-        //                            {
-        //                                sError = true;
-        //                                ErrorText = "Issue uid and userid doen't match";
-        //                            }
         //                        }
         //                        else
         //                        {
@@ -1605,8 +1587,12 @@ namespace PMTWebAPI.Controllers
         //                                //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
         //                                string savedPath = sDocumentPath + "/" + sFileName + Extn;
         //                                DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
+        //                                //
+        //                                files_path = files_path + DecryptPagePath + ",";
+        //                                //
         //                                db.EncryptFile(savedPath, DecryptPagePath);
         //                                DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
+                                       
         //                                //added on 05/05/2022
         //                                db.InsertUploadedDocument(sFileName + "_DE" + Extn, FileDirectory, issue_remarks_uid.ToString());
         //                            }
@@ -1615,6 +1601,67 @@ namespace PMTWebAPI.Controllers
         //                        int cnt = db.Issues_Status_Remarks_Insert(issue_remarks_uid, new Guid(httpRequest.Params["issue uid"]), httpRequest.Params["issue status"], httpRequest.Params["Remarks"], DecryptPagePath, updatingDate);
         //                        if (cnt > 0)
         //                        {
+        //                            DataSet ds_issue = db.GetIssueByIssueUid(httpRequest.Params["issue uid"]);
+
+
+        //                            string work_package_name = "";
+        //                            string issue_description = "";
+
+        //                            if (ds_issue.Tables[0].Rows.Count > 0)
+        //                            {
+        //                                work_package_name = ds_issue.Tables[0].Rows[0].ItemArray[0].ToString();
+        //                                issue_description = ds_issue.Tables[0].Rows[0].ItemArray[1].ToString();
+        //                            }
+
+        //                            string sHtmlString = "";
+                                    
+
+        //                            sHtmlString = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" + "<html xmlns='http://www.w3.org/1999/xhtml'>" +
+        //                                                      "<head>" + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />" + "<style>table, th, td {border: 1px solid black; padding:6px;}</style></head>" +
+        //                                                         "<body style='font-family:Verdana, Arial, sans-serif; font-size:12px; font-style:normal;'>";
+        //                            sHtmlString += "<div style='width:80%; float:left; padding:1%; border:2px solid #011496; border-radius:5px;'>" +
+        //                                               "<div style='float:left; width:100%; border-bottom:2px solid #011496;'>";
+                                   
+        //                                sHtmlString += "<div style='float:left; width:7%;'><h2>ONTB</h2></div>";
+                                       
+                                    
+        //                            sHtmlString += "<div style='float:left; width:70%;'><h2 style='margin-top:10px;'>Project Monitoring Tool</h2></div>" +
+        //                                       "</div>";
+        //                            sHtmlString += "<div style='width:100%; float:left;'><br/>Dear Users,<br/><br/><span style='font-weight:bold;'>Contractor has changed issue status" + "</span> <br/><br/></div>";
+        //                            sHtmlString += "<div style='width:100%; float:left;'><table style='width:100%;'>" +
+        //                                            "<tr><td><b>Project Name </b></td><td style='text-align:center;'><b>:</b></td><td>" + projectName + "</td></tr>" +
+        //                                           "<tr><td><b>Issue </b></td><td style='text-align:center;'><b>:</b></td><td>" + issue_description + "</td></tr>" +
+        //                                            "<tr><td><b>Issue Status </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["issue status"] + "</td></tr>" +
+        //                                            "<tr><td><b>Remarks </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["Remarks"] + "</td></tr>" +
+        //                                            "<tr><td><b>Date </b></td><td style='text-align:center;'><b>:</b></td><td>" + DateTime.Today.ToString("dd-MMM-yyyy") + "</td></tr>";
+        //                            sHtmlString += "</table></div>";
+        //                            sHtmlString += "<div style='width:100%; float:left;'><br/><br/>Sincerely, <br/> MIS System.</div></div></body></html>";
+
+        //                            DataTable dtemailCred = db.GetEmailCredentials();
+
+        //                            DataSet ds_wp_emails = db.GetWorkPackageEmails(new Guid(projectUID), new Guid(workpackageUID));
+
+        //                            string to_email_ids = "";
+
+        //                            foreach (DataRow email in ds_wp_emails.Tables[0].Rows)
+        //                            {
+        //                                to_email_ids = to_email_ids + email.ItemArray[1].ToString() + ",";
+        //                            }
+
+        //                            if (to_email_ids.Length > 0)
+        //                                to_email_ids = to_email_ids.Substring(0, to_email_ids.Length - 1);
+
+        //                            if (files_path.Length > 0)
+        //                                files_path = files_path.Substring(0, files_path.Length - 1);
+
+
+        //                            Guid MailUID = Guid.NewGuid();
+
+        //                            if (ds_wp_emails.Tables[0].Rows.Count > 0)
+        //                                db.StoreEmaildataToMailQueue(MailUID, new Guid(userUid), dtemailCred.Rows[0][0].ToString(), to_email_ids, "Issue Status", sHtmlString, "", files_path);
+
+
+
         //                            sError = false;
         //                            ErrorText = "Updated Successfully";
         //                        }
@@ -1623,6 +1670,11 @@ namespace PMTWebAPI.Controllers
         //                            sError = true;
         //                            ErrorText = "Status is not Updated,Please contact administrator";
         //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        sError = true;
+        //                        ErrorText = "User not allowed to update the status";
         //                    }
         //                }
 
@@ -1642,14 +1694,14 @@ namespace PMTWebAPI.Controllers
         //    }
         //    if (sError)
         //    {
-        //       // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
+        //        // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
         //        return Json(new
         //        {
         //            Status = "Failure",
         //            Message = "Error:" + ErrorText
         //        });
         //    }
-        //   // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
+        //    // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
         //    return Json(new
         //    {
         //        Status = "Success",
@@ -1658,276 +1710,6 @@ namespace PMTWebAPI.Controllers
         //    });
 
         //}
-
-
-
-
-
-        [Authorize]
-        [HttpPost]
-        [Route("api/Financial/UpdateIssueStatus")]
-        public IHttpActionResult UpdateIssueStatus()  //changed on 15/09/2022 
-        {
-            //added on 17/04/2023 after salahuddins call to not aloow contractors to update status
-            return Json(new
-            {
-                Status = "Failure",
-                Message = "This API is no longer supported as requirement from the Client"
-            });
-
-            bool sError = false;
-            string ErrorText = "";
-            string files_path = "";
-            Guid InvoiceMaster_UID = Guid.NewGuid();
-            var httpRequest = HttpContext.Current.Request;
-            var transactionUid = Guid.NewGuid();
-            bool transactionStatus = false;
-            DateTime updatingDate = DateTime.MinValue;
-            Guid issue_remarks_uid = Guid.NewGuid();
-            string projectUID = "";
-            string workpackageUID = "";
-            string userUid = "";
-            try
-            {
-                //Insert into WebAPITransctions table
-                var BaseURL = HttpContext.Current.Request.Url.ToString();
-                string postData = "ProjectName=" + httpRequest.Params["project name"] + ";issue uid=" + httpRequest.Params["issue uid"] + ";issue status=" + httpRequest.Params["issue status"] + ";issue status update date=" + httpRequest.Params["updating date"] +
-                    ";Issue status update user id=" + httpRequest.Params["updating user id"] + ";issue status document=" + httpRequest.Params["issue status document"] + ";remarks=" + httpRequest.Params["remarks"];
-                db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
-
-                if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["issue uid"]) || String.IsNullOrEmpty(httpRequest.Params["issue status"]) || String.IsNullOrEmpty(httpRequest.Params["updating user id"])
-                    || string.IsNullOrEmpty(httpRequest.Params["updating date"]))
-                {
-                    // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
-                    return Json(new
-                    {
-                        Status = "Failure",
-                        Message = "Error:Mandatory fields are missing"
-                    });
-                }
-                //added on 22/02/2023
-                if(httpRequest.Params["issue status"].ToLower() == "close")
-                {
-                    return Json(new
-                    {
-                        Status = "Failure",
-                        Message = "Not allowed to close the status"
-                    });
-                }
-                //
-                var identity = (ClaimsIdentity)User.Identity;
-
-                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
-                {
-                    var projectName = httpRequest.Params["project name"];
-                    DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
-                    if (dtWorkPackages.Rows.Count == 0)
-                    {
-                        sError = true;
-                        ErrorText = "ProjectName not exists";
-                    }
-                    else
-                    {
-                        projectUID = dtWorkPackages.Rows[0]["ProjectUID"].ToString();
-                        workpackageUID = dtWorkPackages.Rows[0]["WorkPackageUID"].ToString();
-                        DataSet dsIssues = db.getIssuesList_by_UID(new Guid(httpRequest.Params["issue uid"]));
-                        if (dsIssues.Tables[0].Rows.Count == 0)
-                        {
-                            sError = true;
-                            ErrorText = "Issue uid is not available";
-                        }
-                        else
-                        {
-
-                            DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["updating user id"].ToString());
-                            if (dsUserDetails.Tables[0].Rows.Count == 0)
-                            {
-                                sError = true;
-                                ErrorText = "User is not available";
-                            }
-                            else
-                            {
-                                DateTime reportDate = DateTime.Now;
-                                if (!string.IsNullOrEmpty(httpRequest.Params["updating date"]))
-                                {
-                                    string tmpDate = db.ConvertDateFormat(httpRequest.Params["updating date"]);
-                                    reportDate = Convert.ToDateTime(tmpDate);
-                                }
-
-                                if (DateTime.TryParse(reportDate.ToString(), out updatingDate))
-                                {
-                                    userUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
-                                    
-                                        
-                                            if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "Open" && (httpRequest.Params["issue status"].ToString() == "In-Progress" ||
-                                                       httpRequest.Params["issue status"].ToString() == "Close" || httpRequest.Params["issue status"].ToString() == "Reject"))
-                                            {
-                                                transactionStatus = true;
-                                            }
-                                            else if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "In-Progress" && (httpRequest.Params["issue status"].ToString() == "In-Progress" ||
-                                                      httpRequest.Params["issue status"].ToString() == "Close"))
-                                            {
-
-                                                transactionStatus = true;
-                                            }
-                                            else
-                                            {
-                                                sError = true;
-                                                ErrorText = "User not allowed to update the status";
-                                            }
-                                }
-                                else
-                                {
-                                    sError = true;
-                                    ErrorText = "Update date is not correct format";
-                                }
-
-                            }
-                            if (transactionStatus)
-                            {
-                                string DecryptPagePath = "";
-                                for (int i = 0; i < httpRequest.Files.Count; i++)
-                                {
-                                    HttpPostedFile httpPostedFile = httpRequest.Files[i];
-
-                                    if (httpPostedFile != null)
-                                    {
-                                        string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + "/Documents/Issues/";
-                                        string FileDirectory = "/Documents/Issues/";
-                                        if (!Directory.Exists(sDocumentPath))
-                                        {
-                                            Directory.CreateDirectory(sDocumentPath);
-                                        }
-                                        string fileName = Path.GetFileName(httpPostedFile.FileName);
-                                        string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
-                                        string Extn = Path.GetExtension(httpPostedFile.FileName);
-                                        httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + Extn);
-                                        //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
-                                        string savedPath = sDocumentPath + "/" + sFileName + Extn;
-                                        DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
-                                        //
-                                        files_path = files_path + DecryptPagePath + ",";
-                                        //
-                                        db.EncryptFile(savedPath, DecryptPagePath);
-                                        DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
-                                       
-                                        //added on 05/05/2022
-                                        db.InsertUploadedDocument(sFileName + "_DE" + Extn, FileDirectory, issue_remarks_uid.ToString());
-                                    }
-                                }
-
-                                int cnt = db.Issues_Status_Remarks_Insert(issue_remarks_uid, new Guid(httpRequest.Params["issue uid"]), httpRequest.Params["issue status"], httpRequest.Params["Remarks"], DecryptPagePath, updatingDate);
-                                if (cnt > 0)
-                                {
-                                    DataSet ds_issue = db.GetIssueByIssueUid(httpRequest.Params["issue uid"]);
-
-
-                                    string work_package_name = "";
-                                    string issue_description = "";
-
-                                    if (ds_issue.Tables[0].Rows.Count > 0)
-                                    {
-                                        work_package_name = ds_issue.Tables[0].Rows[0].ItemArray[0].ToString();
-                                        issue_description = ds_issue.Tables[0].Rows[0].ItemArray[1].ToString();
-                                    }
-
-                                    string sHtmlString = "";
-                                    
-
-                                    sHtmlString = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" + "<html xmlns='http://www.w3.org/1999/xhtml'>" +
-                                                              "<head>" + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />" + "<style>table, th, td {border: 1px solid black; padding:6px;}</style></head>" +
-                                                                 "<body style='font-family:Verdana, Arial, sans-serif; font-size:12px; font-style:normal;'>";
-                                    sHtmlString += "<div style='width:80%; float:left; padding:1%; border:2px solid #011496; border-radius:5px;'>" +
-                                                       "<div style='float:left; width:100%; border-bottom:2px solid #011496;'>";
-                                   
-                                        sHtmlString += "<div style='float:left; width:7%;'><h2>ONTB</h2></div>";
-                                       
-                                    
-                                    sHtmlString += "<div style='float:left; width:70%;'><h2 style='margin-top:10px;'>Project Monitoring Tool</h2></div>" +
-                                               "</div>";
-                                    sHtmlString += "<div style='width:100%; float:left;'><br/>Dear Users,<br/><br/><span style='font-weight:bold;'>Contractor has changed issue status" + "</span> <br/><br/></div>";
-                                    sHtmlString += "<div style='width:100%; float:left;'><table style='width:100%;'>" +
-                                                    "<tr><td><b>Project Name </b></td><td style='text-align:center;'><b>:</b></td><td>" + projectName + "</td></tr>" +
-                                                   "<tr><td><b>Issue </b></td><td style='text-align:center;'><b>:</b></td><td>" + issue_description + "</td></tr>" +
-                                                    "<tr><td><b>Issue Status </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["issue status"] + "</td></tr>" +
-                                                    "<tr><td><b>Remarks </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["Remarks"] + "</td></tr>" +
-                                                    "<tr><td><b>Date </b></td><td style='text-align:center;'><b>:</b></td><td>" + DateTime.Today.ToString("dd-MMM-yyyy") + "</td></tr>";
-                                    sHtmlString += "</table></div>";
-                                    sHtmlString += "<div style='width:100%; float:left;'><br/><br/>Sincerely, <br/> MIS System.</div></div></body></html>";
-
-                                    DataTable dtemailCred = db.GetEmailCredentials();
-
-                                    DataSet ds_wp_emails = db.GetWorkPackageEmails(new Guid(projectUID), new Guid(workpackageUID));
-
-                                    string to_email_ids = "";
-
-                                    foreach (DataRow email in ds_wp_emails.Tables[0].Rows)
-                                    {
-                                        to_email_ids = to_email_ids + email.ItemArray[1].ToString() + ",";
-                                    }
-
-                                    if (to_email_ids.Length > 0)
-                                        to_email_ids = to_email_ids.Substring(0, to_email_ids.Length - 1);
-
-                                    if (files_path.Length > 0)
-                                        files_path = files_path.Substring(0, files_path.Length - 1);
-
-
-                                    Guid MailUID = Guid.NewGuid();
-
-                                    if (ds_wp_emails.Tables[0].Rows.Count > 0)
-                                        db.StoreEmaildataToMailQueue(MailUID, new Guid(userUid), dtemailCred.Rows[0][0].ToString(), to_email_ids, "Issue Status", sHtmlString, "", files_path);
-
-
-
-                                    sError = false;
-                                    ErrorText = "Updated Successfully";
-                                }
-                                else
-                                {
-                                    sError = true;
-                                    ErrorText = "Status is not Updated,Please contact administrator";
-                                }
-                            }
-                            else
-                            {
-                                sError = true;
-                                ErrorText = "User not allowed to update the status";
-                            }
-                        }
-
-                    }
-                }
-                else
-                {
-                    sError = true;
-                    ErrorText = "Not Authorized IP address";
-
-                }
-            }
-            catch (Exception ex)
-            {
-                sError = true;
-                ErrorText = ex.Message;
-            }
-            if (sError)
-            {
-                // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
-                return Json(new
-                {
-                    Status = "Failure",
-                    Message = "Error:" + ErrorText
-                });
-            }
-            // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
-            return Json(new
-            {
-                Status = "Success",
-                Message = ErrorText
-
-            });
-
-        }
 
         /// <summary>
         /// Updated by venkat on 19 Feb 2022
@@ -3622,6 +3404,536 @@ namespace PMTWebAPI.Controllers
                     Message = "Successfully Updated Inspection to RAbill"
                 });
             }
+        }
+
+        // added for  venkat on 19/02/2022
+        /// <summary>
+        /// Updated by saji
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/Financial/AddIssues")]
+        public IHttpActionResult AddIssues()
+        {
+            //added on 17 / 04 / 2023 after salahuddins call to not aloow contractors to update status
+            return Json(new
+            {
+                Status = "Failure",
+                Message = "This API is no longer supported as requirement from the Client"
+            });
+
+            bool sError = false;
+            string ErrorText = "";
+            Guid InvoiceMaster_UID = Guid.NewGuid();
+            var httpRequest = HttpContext.Current.Request;
+            var transactionUid = Guid.NewGuid();
+            var issue_uid = Guid.NewGuid();
+            try
+            {
+                //Insert into WebAPITransctions table
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                string postData = "ProjectName=" + httpRequest.Params["project name"] + ";Issue description=" + httpRequest.Params["Issue description"] + ";assigned user=" + httpRequest.Params["assigned user"] +
+                    ";assigned date=" + httpRequest.Params["assigned date"] + ";reporting user=" + httpRequest.Params["reporting user"] + ";reporting date=" + httpRequest.Params["reporting date"] +
+                    ";approving user=" + httpRequest.Params["approving user"] + ";issue proposed  close date=" + httpRequest.Params["issue proposed  close date"] + ";remarks=" + httpRequest.Params["remarks"] +
+                    "issue document=" + httpRequest.Params["issue document"];
+                db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
+
+                if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["Issue description"]) ||
+                      String.IsNullOrEmpty(httpRequest.Params["reporting user"]) || String.IsNullOrEmpty(httpRequest.Params["reporting date"]))
+                {
+                    // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Error:Mandatory fields are missing"
+                    });
+                }
+
+
+                var identity = (ClaimsIdentity)User.Identity;
+
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {
+                    var projectName = httpRequest.Params["project name"];
+                    DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
+                    if (dtWorkPackages.Rows.Count > 0)
+                    {
+                        DataTable dtIssuesExist = db.getIssuesByDescription(new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), httpRequest.Params["Issue description"].ToString());
+                        if (dtIssuesExist.Rows.Count > 0)
+                        {
+                            return Json(new
+                            {
+                                Status = "Failure",
+                                Message = "Issue already Exists"
+
+                            });
+                        }
+                        //DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["approving user"].ToString());
+                        //if (dsUserDetails.Tables[0].Rows.Count == 0)
+                        //{
+                        //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Approve user is not " +
+                        //        //"available");
+                        //    return Json(new
+                        //    {
+                        //        Status = "Failure",
+                        //        Message = "Approve user is not available"
+
+                        //    });
+
+                        //}
+                        // string approveUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+
+                        DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["reporting user"].ToString());
+
+                        if (dsUserDetails.Tables[0].Rows.Count == 0)
+                        {
+                            //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting user is not  available");
+                            return Json(new
+                            {
+                                Status = "Failure",
+                                Message = "Reporting user is not available"
+
+                            });
+
+                        }
+                        if (dsUserDetails.Tables[0].Rows[0]["IsContractor"].ToString() != "Y")
+                        {
+                            return Json(new
+                            {
+                                Status = "Failure",
+                                Message = "Not Authorized to add issue"
+
+                            });
+                        }
+                        string reportUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+                        //dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["assigned user"].ToString());
+                        //if (dsUserDetails.Tables[0].Rows.Count == 0)
+                        //{
+                        //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Assigned user is not available");
+                        //    return Json(new
+                        //    {
+                        //        Status = "Failure",
+                        //        Message = "Assigned user is not available"
+
+                        //    });
+
+                        //}
+                        //string assignedUserUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+                        DateTime reportDate = DateTime.Now;
+                        if (!string.IsNullOrEmpty(httpRequest.Params["reporting date"]))
+                        {
+                            string tmpDate = db.ConvertDateFormat(httpRequest.Params["reporting date"]);
+                            reportDate = Convert.ToDateTime(tmpDate);
+                        }
+
+                        if (DateTime.TryParse(reportDate.ToString(), out reportDate))// &&
+                                                                                     // DateTime.TryParse(httpRequest.Params["assigned date"], out DateTime assignedDate) &&
+                                                                                     // DateTime.TryParse(httpRequest.Params["issue proposed  close date"], out DateTime proposedClosedDate))
+                        {
+
+                            //AddDays need to removed when upload in indian server
+                            if (reportDate.Date > DateTime.Now.Date.AddDays(1))
+                            {
+                                //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
+                                return Json(new
+                                {
+                                    Status = "Failure",
+                                    Message = "Reporting Date should not be greater then today date"
+
+                                });
+                            }
+                            //if (reportDate > assignedDate)
+                            //{
+                            //   // db.WebAPITransctionUpdate(transactionUid, "Failure", "Reporting Date should be less then assigned date");
+                            //    return Json(new
+                            //    {
+                            //        Status = "Failure",
+                            //        Message = "Reporting Date should be less then assigned date"
+
+                            //    });
+                            //}
+                            string DecryptPagePath = "";
+                            byte[] filetobytes = null;
+
+                            string remarks = "";
+                            //int Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(assignedUserUid), assignedDate, proposedClosedDate, new Guid(approveUserUid), proposedClosedDate, "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+                            if (!string.IsNullOrEmpty(httpRequest.Params["remarks"]))
+                            {
+                                remarks = httpRequest.Params["remarks"].ToString();
+                            }
+                            int Cnt = 0;
+                            dsUserDetails = db.getUserDetails_by_EmailID("bm.srinivasamurthy@njsei.com");
+
+                            if (projectName.ToUpper() == "CP-10" && dsUserDetails.Tables[0].Rows.Count > 0)
+                            {
+                                Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now, DateTime.Now.AddDays(10), new Guid(dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString()), DateTime.Now.AddDays(10), "Open", httpRequest.Params["remarks"].ToString(), new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+                            }
+                            else
+                            {
+                                Cnt = db.InsertorUpdateIssues(issue_uid, Guid.Empty, httpRequest.Params["Issue description"].ToString(), reportDate, new Guid(reportUserUid), "Open", remarks, new Guid(dtWorkPackages.Rows[0]["WorkpackageUid"].ToString()), new Guid(dtWorkPackages.Rows[0]["ProjectUid"].ToString()), DecryptPagePath);
+                            }
+
+                            for (int i = 0; i < httpRequest.Files.Count; i++)
+                            {
+                                HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+                                if (httpPostedFile != null)
+                                {
+                                    string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + "\\Documents\\Issues\\";
+                                    string FileDirectory = "/Documents/Issues/";
+                                    if (!Directory.Exists(sDocumentPath))
+                                    {
+                                        Directory.CreateDirectory(sDocumentPath);
+                                    }
+
+                                    string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+                                    string Extn = Path.GetExtension(httpPostedFile.FileName);
+                                    httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + Extn);
+                                    //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
+                                    string savedPath = sDocumentPath + "/" + sFileName + Extn;
+                                    DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
+                                    db.EncryptFile(savedPath, DecryptPagePath);
+                                    //  DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
+
+                                    filetobytes = db.FileToByteArray(DecryptPagePath);
+
+                                    db.InsertUploadedIssueDocument(sFileName + "_DE" + Extn, FileDirectory, issue_uid.ToString(), filetobytes);
+                                }
+                            }
+
+
+                            if (Cnt > 0)
+                            {
+                                sError = false;
+                                ErrorText = "Inserted successfully";
+                            }
+                            else
+                            {
+                                sError = false;
+                                ErrorText = "Status is not inserted,Please contact administrator";
+                            }
+                        }
+                        else
+                        {
+                            sError = true;
+                            ErrorText = "Date are not correct format.";
+                        }
+
+                    }
+                    else
+                    {
+                        //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
+
+                        sError = true;
+                        ErrorText = "ProjectName not exists";
+
+                    }
+                }
+                else
+                {
+                    //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Not Authorized IP address");
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Not Authorized IP address"
+                    });
+
+                }
+            }
+            catch (Exception ex)
+            {
+                sError = true;
+                ErrorText = ex.Message;
+            }
+            if (sError)
+            {
+                //  db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
+                return Json(new
+                {
+                    Status = "Failure",
+                    Message = "Error:" + ErrorText
+                });
+            }
+            // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
+            return Json(new
+            {
+                Status = "Success",
+                IssueUid = issue_uid,
+                Message = ErrorText
+
+            });
+        }
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("api/Financial/UpdateIssueStatus")]
+        public IHttpActionResult UpdateIssueStatus()  //changed on 15/06/2023 
+        {
+            //added on 17 / 04 / 2023 after salahuddins call to not aloow contractors to update status
+            return Json(new
+            {
+                Status = "Failure",
+                Message = "This API is no longer supported as requirement from the Client"
+            });
+
+            bool sError = false;
+            string ErrorText = "";
+            string files_path = "";
+            Guid InvoiceMaster_UID = Guid.NewGuid();
+            var httpRequest = HttpContext.Current.Request;
+            var transactionUid = Guid.NewGuid();
+            bool transactionStatus = false;
+            DateTime updatingDate = DateTime.MinValue;
+            Guid issue_remarks_uid = Guid.NewGuid();
+            string projectUID = "";
+            string workpackageUID = "";
+            string userUid = "";
+            try
+            {
+                //Insert into WebAPITransctions table
+                var BaseURL = HttpContext.Current.Request.Url.ToString();
+                string postData = "ProjectName=" + httpRequest.Params["project name"] + ";issue uid=" + httpRequest.Params["issue uid"] + ";issue status=" + httpRequest.Params["issue status"] + ";issue status update date=" + httpRequest.Params["updating date"] +
+                    ";Issue status update user id=" + httpRequest.Params["updating user id"] + ";issue status document=" + httpRequest.Params["issue status document"] + ";remarks=" + httpRequest.Params["remarks"];
+                db.WebAPITransctionInsert(transactionUid, BaseURL, postData, "");
+
+                if (String.IsNullOrEmpty(httpRequest.Params["project name"]) || String.IsNullOrEmpty(httpRequest.Params["issue uid"]) || String.IsNullOrEmpty(httpRequest.Params["issue status"]) || String.IsNullOrEmpty(httpRequest.Params["updating user id"])
+                    || string.IsNullOrEmpty(httpRequest.Params["updating date"]))
+                {
+                    // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:Mandatory fields are missing");
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Error:Mandatory fields are missing"
+                    });
+                }
+                //added on 22/02/2023
+                if (httpRequest.Params["issue status"].ToLower() == "close")
+                {
+                    return Json(new
+                    {
+                        Status = "Failure",
+                        Message = "Not allowed to close the status"
+                    });
+                }
+                //
+                var identity = (ClaimsIdentity)User.Identity;
+
+                if (db.CheckGetWebApiSettings(identity.Name, GetIp()) > 0)
+                {
+                    var projectName = httpRequest.Params["project name"];
+                    DataTable dtWorkPackages = db.GetWorkPackages_ProjectName(projectName);
+                    if (dtWorkPackages.Rows.Count == 0)
+                    {
+                        sError = true;
+                        ErrorText = "ProjectName not exists";
+                    }
+                    else
+                    {
+                        projectUID = dtWorkPackages.Rows[0]["ProjectUID"].ToString();
+                        workpackageUID = dtWorkPackages.Rows[0]["WorkPackageUID"].ToString();
+                        DataSet dsIssues = db.getIssuesList_by_UID(new Guid(httpRequest.Params["issue uid"]));
+                        if (dsIssues.Tables[0].Rows.Count == 0)
+                        {
+                            sError = true;
+                            ErrorText = "Issue uid is not available";
+                        }
+                        else
+                        {
+
+                            DataSet dsUserDetails = db.getUserDetails_by_EmailID(httpRequest.Params["updating user id"].ToString());
+                            if (dsUserDetails.Tables[0].Rows.Count == 0)
+                            {
+                                sError = true;
+                                ErrorText = "User is not available";
+                            }
+                            else
+                            {
+                                DateTime reportDate = DateTime.Now;
+                                if (!string.IsNullOrEmpty(httpRequest.Params["updating date"]))
+                                {
+                                    string tmpDate = db.ConvertDateFormat(httpRequest.Params["updating date"]);
+                                    reportDate = Convert.ToDateTime(tmpDate);
+                                }
+
+                                if (DateTime.TryParse(reportDate.ToString(), out updatingDate))
+                                {
+                                    userUid = dsUserDetails.Tables[0].Rows[0]["UserUID"].ToString();
+
+
+                                    if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "Open" && (httpRequest.Params["issue status"].ToString() == "In-Progress" ||
+                                               httpRequest.Params["issue status"].ToString() == "Close" || httpRequest.Params["issue status"].ToString() == "Reject"))
+                                    {
+                                        transactionStatus = true;
+                                    }
+                                    else if (dsIssues.Tables[0].Rows[0]["Issue_Status"].ToString() == "In-Progress" && (httpRequest.Params["issue status"].ToString() == "In-Progress" ||
+                                              httpRequest.Params["issue status"].ToString() == "Close"))
+                                    {
+
+                                        transactionStatus = true;
+                                    }
+                                    else
+                                    {
+                                        sError = true;
+                                        ErrorText = "User not allowed to update the status";
+                                    }
+                                }
+                                else
+                                {
+                                    sError = true;
+                                    ErrorText = "Update date is not correct format";
+                                }
+
+                            }
+                            if (transactionStatus)
+                            {
+                                string DecryptPagePath = "";
+                                byte[] filetobytes = null;
+
+                                for (int i = 0; i < httpRequest.Files.Count; i++)
+                                {
+                                    HttpPostedFile httpPostedFile = httpRequest.Files[i];
+
+                                    if (httpPostedFile != null)
+                                    {
+                                        string sDocumentPath = ConfigurationManager.AppSettings["DocumentsPath"] + "\\Documents\\Issues\\";
+                                        string FileDirectory = "/Documents/Issues/";
+                                        if (!Directory.Exists(sDocumentPath))
+                                        {
+                                            Directory.CreateDirectory(sDocumentPath);
+                                        }
+                                        string fileName = Path.GetFileName(httpPostedFile.FileName);
+                                        string sFileName = Path.GetFileNameWithoutExtension(httpPostedFile.FileName);
+                                        string Extn = Path.GetExtension(httpPostedFile.FileName);
+                                        httpPostedFile.SaveAs(sDocumentPath + "/" + sFileName + Extn);
+                                        //FileUploadDoc.SaveAs(Server.MapPath("~/Documents/Encrypted/" + sDocumentUID + "_" + txtDocName.Text + "_1"  + "_enp" + InputFile));
+                                        string savedPath = sDocumentPath + "/" + sFileName + Extn;
+                                        DecryptPagePath = sDocumentPath + "/" + sFileName + "_DE" + Extn;
+                                        //
+                                        files_path = files_path + DecryptPagePath + ",";
+                                        //
+                                        db.EncryptFile(savedPath, DecryptPagePath);
+                                        //  DecryptPagePath = FileDirectory + "/" + sFileName + "_DE" + Extn;
+
+                                        //added on 05/05/2022
+                                        filetobytes = db.FileToByteArray(DecryptPagePath);
+
+                                        db.InsertUploadedDocument(sFileName + "_DE" + Extn, FileDirectory, issue_remarks_uid.ToString(), filetobytes);
+                                    }
+                                }
+
+                                int cnt = db.Issues_Status_Remarks_Insert(issue_remarks_uid, new Guid(httpRequest.Params["issue uid"]), httpRequest.Params["issue status"], httpRequest.Params["Remarks"], DecryptPagePath, updatingDate);
+                                if (cnt > 0)
+                                {
+                                    DataSet ds_issue = db.GetIssueByIssueUid(httpRequest.Params["issue uid"]);
+
+
+                                    string work_package_name = "";
+                                    string issue_description = "";
+
+                                    if (ds_issue.Tables[0].Rows.Count > 0)
+                                    {
+                                        work_package_name = ds_issue.Tables[0].Rows[0].ItemArray[0].ToString();
+                                        issue_description = ds_issue.Tables[0].Rows[0].ItemArray[1].ToString();
+                                    }
+
+                                    string sHtmlString = "";
+
+
+                                    sHtmlString = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" + "<html xmlns='http://www.w3.org/1999/xhtml'>" +
+                                                              "<head>" + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />" + "<style>table, th, td {border: 1px solid black; padding:6px;}</style></head>" +
+                                                                 "<body style='font-family:Verdana, Arial, sans-serif; font-size:12px; font-style:normal;'>";
+                                    sHtmlString += "<div style='width:80%; float:left; padding:1%; border:2px solid #011496; border-radius:5px;'>" +
+                                                       "<div style='float:left; width:100%; border-bottom:2px solid #011496;'>";
+
+                                    sHtmlString += "<div style='float:left; width:7%;'><h2>ONTB</h2></div>";
+
+
+                                    sHtmlString += "<div style='float:left; width:70%;'><h2 style='margin-top:10px;'>Project Monitoring Tool</h2></div>" +
+                                               "</div>";
+                                    sHtmlString += "<div style='width:100%; float:left;'><br/>Dear Users,<br/><br/><span style='font-weight:bold;'>Contractor has changed issue status" + "</span> <br/><br/></div>";
+                                    sHtmlString += "<div style='width:100%; float:left;'><table style='width:100%;'>" +
+                                                    "<tr><td><b>Project Name </b></td><td style='text-align:center;'><b>:</b></td><td>" + projectName + "</td></tr>" +
+                                                   "<tr><td><b>Issue </b></td><td style='text-align:center;'><b>:</b></td><td>" + issue_description + "</td></tr>" +
+                                                    "<tr><td><b>Issue Status </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["issue status"] + "</td></tr>" +
+                                                    "<tr><td><b>Remarks </b></td><td style='text-align:center;'><b>:</b></td><td>" + httpRequest.Params["Remarks"] + "</td></tr>" +
+                                                    "<tr><td><b>Date </b></td><td style='text-align:center;'><b>:</b></td><td>" + DateTime.Today.ToString("dd-MMM-yyyy") + "</td></tr>";
+                                    sHtmlString += "</table></div>";
+                                    sHtmlString += "<div style='width:100%; float:left;'><br/><br/>Sincerely, <br/> MIS System.</div></div></body></html>";
+
+                                    DataTable dtemailCred = db.GetEmailCredentials();
+
+                                    DataSet ds_wp_emails = db.GetWorkPackageEmails(new Guid(projectUID), new Guid(workpackageUID));
+
+                                    string to_email_ids = "";
+
+                                    foreach (DataRow email in ds_wp_emails.Tables[0].Rows)
+                                    {
+                                        to_email_ids = to_email_ids + email.ItemArray[1].ToString() + ",";
+                                    }
+
+                                    if (to_email_ids.Length > 0)
+                                        to_email_ids = to_email_ids.Substring(0, to_email_ids.Length - 1);
+
+                                    if (files_path.Length > 0)
+                                        files_path = files_path.Substring(0, files_path.Length - 1);
+
+
+                                    Guid MailUID = Guid.NewGuid();
+
+                                    if (ds_wp_emails.Tables[0].Rows.Count > 0)
+                                        db.StoreEmaildataToMailQueue(MailUID, new Guid(userUid), dtemailCred.Rows[0][0].ToString(), to_email_ids, "Issue Status", sHtmlString, "", files_path);
+
+
+
+                                    sError = false;
+                                    ErrorText = "Updated Successfully";
+                                }
+                                else
+                                {
+                                    sError = true;
+                                    ErrorText = "Status is not Updated,Please contact administrator";
+                                }
+                            }
+                            else
+                            {
+                                sError = true;
+                                ErrorText = "User not allowed to update the status";
+                            }
+                        }
+
+                    }
+                }
+                else
+                {
+                    sError = true;
+                    ErrorText = "Not Authorized IP address";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                sError = true;
+                ErrorText = ex.Message;
+            }
+            if (sError)
+            {
+                // db.WebAPITransctionUpdate(transactionUid, "Failure", "Error:" + ErrorText);
+                return Json(new
+                {
+                    Status = "Failure",
+                    Message = "Error:" + ErrorText
+                });
+            }
+            // db.WebAPITransctionUpdate(transactionUid, "Success", ErrorText);
+            return Json(new
+            {
+                Status = "Success",
+                Message = ErrorText
+
+            });
+
         }
     }
 }

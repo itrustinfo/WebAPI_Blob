@@ -1659,7 +1659,6 @@ D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebA
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.xml
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\System.Web.Http.WebHost.xml
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csprojAssemblyReference.cache
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CoreCompileInputs.cache
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.csproj.CopyComplete
 D:\NJS Projects\WebAPI\Venkat\2023-01-04_blob\PMT_WebAPI_Total\PMTWebAPI\PMTWebAPI\obj\Debug\PMTWebAPI.dll

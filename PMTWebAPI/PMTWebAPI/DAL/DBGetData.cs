@@ -12347,7 +12347,7 @@ string inrRate, string jpyRate, string usdRate, string inrAmount, string jpyAmou
                 if (con.State == ConnectionState.Closed) con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select Count(1) from Documents where DocName = '" + Name + "' and WorkPackageUID = '" + workpackageUID + "' and TaskUID = '" + TaskUID + "' ";
+                cmd.CommandText = "select Count(1) from Documents where DocName = '" + Name + "' and WorkPackageUID = '" + workpackageUID + "' and TaskUID = '" + TaskUID + "' and Delete_Flag='N'";
                 int response = (int)cmd.ExecuteScalar();
                 if (response > 0)
                     isExist = true;
@@ -14422,6 +14422,68 @@ string inrRate, string jpyRate, string usdRate, string inrAmount, string jpyAmou
                         cmd.Connection = con;
                         con.Open();
                         cmd.Parameters.AddWithValue("@doc_id", doc_id);
+                        cmd.Parameters.AddWithValue("@docBlob", doc_blob);
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult;
+            }
+        }
+
+        //added on 15/06/2023 for saji
+        public int InsertUploadedIssueDocument(string name, string path, string issue_uid, byte[] doc_blob)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("InsertUploadedIssueDocument"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@path", path);
+                        cmd.Parameters.AddWithValue("@issue_uid", issue_uid);
+                        cmd.Parameters.AddWithValue("@docBlob", doc_blob);
+                        sresult = (int)cmd.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                }
+                return sresult;
+            }
+            catch (Exception ex)
+            {
+                return sresult;
+            }
+        }
+
+
+        public int InsertUploadedDocument(string name, string path, string issue_remarks_uid, byte[] doc_blob)
+        {
+            int sresult = 0;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(db.GetConnectionString()))
+                {
+
+                    using (SqlCommand cmd = new SqlCommand("InsertUploadedDocument"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@path", path);
+                        cmd.Parameters.AddWithValue("@issue_remarks_uid", issue_remarks_uid);
                         cmd.Parameters.AddWithValue("@docBlob", doc_blob);
                         sresult = (int)cmd.ExecuteNonQuery();
                         con.Close();
